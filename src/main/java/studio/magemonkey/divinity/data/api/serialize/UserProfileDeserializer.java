@@ -46,13 +46,6 @@ public class UserProfileDeserializer implements JsonDeserializer<UserProfile> {
             for (JsonElement e : jBuffs)
                 buffStats.add(context.deserialize(e, SavedBuff.class));
         }
-        JsonElement eInventory = j.get("inventory");
-        ItemStack[] inventory  = new ItemStack[41];
-        if (eInventory != null) {
-            int count = 0;
-            for (JsonElement item : eInventory.getAsJsonArray())
-                inventory[count++] = ItemUT.fromBase64(item.getAsString());
-        }
         JsonElement eNames       = j.get("namesMode");
         String      namesModeRaw = (eNames != null) ? eNames.getAsString() : null;
         UserEntityNamesMode namesMode =
@@ -86,7 +79,6 @@ public class UserProfileDeserializer implements JsonDeserializer<UserProfile> {
                 buffDefense,
                 buffStats,
 
-                inventory,
                 (namesMode == null) ? UserEntityNamesMode.DEFAULT : namesMode,
                 hideHelmet,
 

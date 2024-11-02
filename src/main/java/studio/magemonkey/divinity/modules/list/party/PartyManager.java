@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.modules.list.party;
 
 import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.Sound;
+import org.bukkit.Keyed;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
@@ -19,6 +19,7 @@ import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.api.task.ITask;
 import studio.magemonkey.codex.util.CollectionsUT;
+import studio.magemonkey.codex.util.SoundUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.TimeUT;
 import studio.magemonkey.divinity.Divinity;
@@ -992,7 +993,7 @@ public class PartyManager extends QModule {
         private final boolean hookQuestObjMobKill;
         private final int     hookQuestObjMobKillpDistance;
 
-        private final Map<PartyAction, Sound> sounds;
+        private final Map<PartyAction, Keyed> sounds;
 
         public PartySettings(JYML cfg) {
             String path = "party.";
@@ -1028,10 +1029,10 @@ public class PartyManager extends QModule {
             for (PartyAction action : PartyAction.values()) {
                 if (!cfg.contains("sounds." + action.name())) continue;
 
-                Sound  sound = null;
+                Keyed  sound = null;
                 String sName = cfg.getString("sounds." + action.name(), "none").toUpperCase();
                 try {
-                    sound = Sound.valueOf(sName);
+                    sound = SoundUT.getSound(sName);
                 } catch (IllegalArgumentException ex) {
                     continue;
                 }
@@ -1113,9 +1114,9 @@ public class PartyManager extends QModule {
         //
 
         public void playSound(@NotNull Player player, @NotNull PartyAction action) {
-            Sound sound = sounds.get(action);
+            Keyed sound = sounds.get(action);
             if (sound != null) {
-                player.playSound(player.getLocation(), sound, 0.8f, 0.8f);
+                player.playSound(player.getLocation(), sound.getKey().toString(), 0.8f, 0.8f);
             }
         }
 

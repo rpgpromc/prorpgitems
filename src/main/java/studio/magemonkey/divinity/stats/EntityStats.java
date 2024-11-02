@@ -20,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.api.meta.NBTAttribute;
 import studio.magemonkey.codex.hooks.Hooks;
+import studio.magemonkey.codex.util.AttributeUT;
 import studio.magemonkey.codex.util.EntityUT;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.NamespaceResolver;
@@ -175,7 +176,7 @@ public class EntityStats {
     }
 
     public static double getEntityMaxHealth(@NotNull LivingEntity entity) {
-        AttributeInstance ai = entity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+        AttributeInstance ai = entity.getAttribute(AttributeUT.resolve("MAX_HEALTH"));
         if (ai == null) return 0;
 
         return ai.getValue();
@@ -728,7 +729,7 @@ public class EntityStats {
             }
             bonuses.addAll(this.getBonuses(dt));
             if (dt.isDefault()) {
-                AttributeInstance attribute = entity.getAttribute(Attribute.GENERIC_ARMOR);
+                AttributeInstance attribute = entity.getAttribute(AttributeUT.resolve("ARMOR"));
                 if (attribute != null) {
                     bonuses.add((isPercent, input) -> isPercent ? input : input + attribute.getBaseValue());
                 }
@@ -781,7 +782,7 @@ public class EntityStats {
         bonuses.addAll(this.getBonuses(stat));
 
         if (type == TypedStat.Type.ARMOR_TOUGHNESS) {
-            AttributeInstance attribute = entity.getAttribute(Attribute.GENERIC_ARMOR_TOUGHNESS);
+            AttributeInstance attribute = entity.getAttribute(AttributeUT.resolve("ARMOR_TOUGHNESS"));
             if (attribute != null) {
                 bonuses.add((isPercent, input) -> isPercent ? input : input + attribute.getValue());
             }

@@ -29,7 +29,6 @@ public class UserProfileSerializer implements JsonSerializer<UserProfile>, JsonD
         o.add("buffDamage", contex.serialize(src.getDamageBuffs()));
         o.add("buffDefense", contex.serialize(src.getDefenseBuffs()));
         o.add("buffStats", contex.serialize(src.getItemStatBuffs()));
-        o.add("inventory", contex.serialize(ItemUT.toBase64(src.getInventory())));
         o.addProperty("namesMode", src.getNamesMode().name());
         o.addProperty("hideHelmet", src.isHideHelmet());
         o.add("cData", contex.serialize(src.getClassData()));
@@ -76,15 +75,6 @@ public class UserProfileSerializer implements JsonSerializer<UserProfile>, JsonD
             }
         }
 
-        JsonElement eInventory = j.get("inventory");
-        ItemStack[] inventory  = new ItemStack[41];
-        if (eInventory != null) {
-            int count = 0;
-            for (JsonElement item : eInventory.getAsJsonArray()) {
-                inventory[count++] = ItemUT.fromBase64(item.getAsString());
-            }
-        }
-
         JsonElement eNames       = j.get("namesMode");
         String      namesModeRaw = eNames != null ? eNames.getAsString() : null;
         UserEntityNamesMode namesMode =
@@ -124,7 +114,6 @@ public class UserProfileSerializer implements JsonSerializer<UserProfile>, JsonD
                 buffDefense,
                 buffStats,
 
-                inventory,
                 namesMode == null ? UserEntityNamesMode.DEFAULT : namesMode,
                 hideHelmet,
 

@@ -1,5 +1,7 @@
 package studio.magemonkey.divinity.data.api;
 
+import lombok.Getter;
+import lombok.Setter;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.divinity.manager.effects.buffs.SavedBuff;
@@ -29,8 +31,9 @@ public class UserProfile {
     private final Set<SavedBuff> buffDefense;
     private final Set<SavedBuff> buffStats;
 
-    private ItemStack[]         inventory;
     private UserEntityNamesMode namesMode;
+    @Setter
+    @Getter
     private boolean             hideHelmet;
 
     private UserClassData cData;
@@ -49,7 +52,6 @@ public class UserProfile {
                 new HashSet<>(), // Defense Buffs List
                 new HashSet<>(), // Item Stat Buffs List
 
-                new ItemStack[41],
                 UserEntityNamesMode.DEFAULT,
                 false,
 
@@ -66,7 +68,6 @@ public class UserProfile {
             @NotNull Set<SavedBuff> buffDefense,
             @NotNull Set<SavedBuff> buffStats,
 
-            @NotNull ItemStack[] inventory,
             @NotNull UserEntityNamesMode namesMode,
             boolean hideHelmet,
 
@@ -80,7 +81,6 @@ public class UserProfile {
         this.buffDefense = buffDefense;
         this.buffStats = buffStats;
 
-        this.setInventory(inventory);
         this.setNamesMode(namesMode);
         this.setHideHelmet(hideHelmet);
 
@@ -215,33 +215,6 @@ public class UserProfile {
         }
     }
 
-    public void applyEquipment(@NotNull Player player) {
-        // Prevent to replace player inv. with empty contents.
-        boolean isEmpty = true;
-        for (ItemStack item : this.getInventory()) {
-            if (!ItemUT.isAir(item)) {
-                isEmpty = false;
-                break;
-            }
-        }
-        if (isEmpty) return;
-
-        player.getInventory().setContents(this.getInventory());
-
-        for (int count = 0; count < this.getInventory().length; count++) {
-            this.getInventory()[count] = new ItemStack(Material.AIR);
-        }
-    }
-
-    @NotNull
-    public ItemStack[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(@NotNull ItemStack[] inventory) {
-        this.inventory = inventory;
-    }
-
     @NotNull
     public UserEntityNamesMode getNamesMode() {
         return namesMode;
@@ -249,14 +222,6 @@ public class UserProfile {
 
     public void setNamesMode(@NotNull UserEntityNamesMode namesMode) {
         this.namesMode = namesMode;
-    }
-
-    public boolean isHideHelmet() {
-        return hideHelmet;
-    }
-
-    public void setHideHelmet(boolean hideHelmet) {
-        this.hideHelmet = hideHelmet;
     }
 
     @Nullable

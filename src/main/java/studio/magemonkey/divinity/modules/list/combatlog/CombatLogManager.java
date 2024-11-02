@@ -3,6 +3,7 @@ package studio.magemonkey.divinity.modules.list.combatlog;
 import lombok.Getter;
 import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
 import me.filoghost.holographicdisplays.api.hologram.Hologram;
+import org.bukkit.Keyed;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -20,10 +21,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.api.task.ITask;
-import studio.magemonkey.codex.util.ClickText;
-import studio.magemonkey.codex.util.MsgUT;
-import studio.magemonkey.codex.util.NumberUT;
-import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.codex.util.*;
 import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.EHook;
@@ -119,11 +117,11 @@ public class CombatLogManager extends QModule {
             String msgDamager   = cfg.getString(path2 + "messages.damager");
             String msgVictim    = cfg.getString(path2 + "messages.victim");
             String msgIndicator = cfg.getString(path2 + "messages.indicator");
-            Sound  sound        = null;
+            Keyed  sound        = null;
             String soundStr     = cfg.getString(path2 + "sound");
             if (soundStr != null && !soundStr.equalsIgnoreCase(JStrings.NONE)) {
                 try {
-                    sound = Sound.valueOf(soundStr.toUpperCase());
+                    sound = SoundUT.getSound(soundStr.toUpperCase());
                 } catch (IllegalArgumentException ignored) {
                 }
             }
@@ -438,7 +436,7 @@ public class CombatLogManager extends QModule {
         private String  msgDamager   = null;
         private String  msgVictim    = null;
         private String  msgIndicator = null;
-        private Sound   sound        = null;
+        private Keyed   sound        = null;
 
         public boolean isEnabled() {
             return this.enabled;
@@ -475,13 +473,13 @@ public class CombatLogManager extends QModule {
             this.msgIndicator = msgIndicator != null ? StringUT.color(msgIndicator) : msgIndicator;
         }
 
-        public void setSound(@Nullable Sound sound) {
+        public void setSound(@Nullable Keyed sound) {
             this.sound = sound;
         }
 
         public void playSound(@NotNull Player player) {
             if (this.sound != null) {
-                player.playSound(player.getLocation(), this.sound, 0.8f, 0.8f);
+                player.playSound(player.getLocation(), this.sound.getKey().toString(), 0.8f, 0.8f);
             }
         }
     }

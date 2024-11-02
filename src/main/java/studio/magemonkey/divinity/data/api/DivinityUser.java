@@ -90,12 +90,6 @@ public class DivinityUser extends IAbstractUser<Divinity> {
 		}
 		*/
 
-        // Set default profile contents to all air
-        if (Arrays.stream(profile.getInventory()).allMatch(i -> i == null)) {
-            ItemStack[] inv = new ItemStack[41];
-            Arrays.fill(inv, new ItemStack(Material.AIR));
-            profile.setInventory(inv);
-        }
         this.activeProfile = profile;
     }
 

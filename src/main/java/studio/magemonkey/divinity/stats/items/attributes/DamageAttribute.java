@@ -11,10 +11,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.util.DataUT;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.NumberUT;
-import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.codex.util.*;
 import studio.magemonkey.codex.util.actions.ActionManipulator;
 import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.divinity.Divinity;
@@ -224,7 +221,7 @@ public class DamageAttribute extends DuplicableItemLoreStat<StatBonus> implement
     }
 
     public double getDamageModifierByBiome(@NotNull Biome b) {
-        return this.biomeModifier.getOrDefault(b.name(), 1D);
+        return this.biomeModifier.getOrDefault(EnumUT.getName(b), 1D);
     }
 
     public double getDamageModifierByEntityType(@NotNull Entity e) {

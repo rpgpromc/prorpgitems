@@ -16,7 +16,7 @@ public class PMS {
     }
 
     public float getAttackCooldown(@NotNull Player p) {
-        return reflectionUtil.getAttackCooldown(p);
+        return p.getAttackCooldown();
     }
 
     public void changeSkull(Block b, String hash) {

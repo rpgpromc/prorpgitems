@@ -4,6 +4,7 @@ import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.WorldGuardHK;
 import studio.magemonkey.codex.manager.LoadableItem;
 import studio.magemonkey.codex.modules.IModule;
+import studio.magemonkey.codex.util.EnumUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.actions.ActionManipulator;
 import studio.magemonkey.codex.util.constants.JStrings;
@@ -162,7 +163,7 @@ public class DropTable extends LoadableItem implements DropCalculator {
                 !this.worldsGood.contains(world)) return false;
 
 
-        String biome = npc.getLocation().getBlock().getBiome().name();
+        String biome = EnumUT.getName(npc.getLocation().getBlock().getBiome());
         if (!this.biomesGood.contains(JStrings.MASK_ANY) &&
                 !this.biomesGood.contains(biome)) return false;
 

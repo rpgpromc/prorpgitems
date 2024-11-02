@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.modules.list.classes.object;
 
+import studio.magemonkey.codex.util.AttributeUT;
 import studio.magemonkey.codex.util.StringUT;
 import org.bukkit.attribute.Attribute;
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +23,7 @@ public enum ClassAttributeType {
     private double    defValue;
 
     private ClassAttributeType(double def) {
-        this.att = Attribute.valueOf("GENERIC_" + this.name());
+        this.att = AttributeUT.resolve(this.name());
         this.name = this.name();
         this.defValue = def;
     }

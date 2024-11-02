@@ -1,20 +1,15 @@
 package studio.magemonkey.divinity.nms.packets;
 
+import org.bukkit.ChatColor;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.nms.packets.IPacketHandler;
 import studio.magemonkey.codex.util.Reflex;
 import studio.magemonkey.divinity.Divinity;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Map;
-import java.util.Set;
-import java.util.WeakHashMap;
 
 public class PacketManager {
-    private final       Divinity                    plugin;
-    private             IPacketHandler              packetHandler;
+    private final Divinity       plugin;
+    private       IPacketHandler packetHandler;
 
     public PacketManager(@NotNull Divinity plugin) {
         this.plugin = plugin;
@@ -30,6 +25,7 @@ public class PacketManager {
 
             packetHandler = (IPacketHandler) clazz.getConstructor(Divinity.class).newInstance(plugin);
             this.plugin.getPacketManager().registerHandler(this.packetHandler);
+            this.plugin.info("Registered packet manager for version " + ChatColor.GREEN + cur);
         } catch (Exception e) {
             this.plugin.error("Could not register PacketHandler!");
             e.printStackTrace();
