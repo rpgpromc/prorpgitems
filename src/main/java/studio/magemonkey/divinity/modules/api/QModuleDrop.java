@@ -19,13 +19,13 @@ import studio.magemonkey.codex.util.random.Rnd;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.config.Config;
 import studio.magemonkey.divinity.config.EngineCfg;
-import studio.magemonkey.divinity.modules.LeveledItem;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.stats.items.ItemStats;
 import studio.magemonkey.divinity.stats.items.ItemTags;
 import studio.magemonkey.divinity.stats.items.attributes.ChargesAttribute;
 import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
 import studio.magemonkey.divinity.stats.tiers.Tier;
+import studio.magemonkey.divinity.stats.tiers.Tiered;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -116,8 +116,8 @@ public abstract class QModuleDrop<I extends ModuleItem> extends QModule {
         if (id.equalsIgnoreCase(RANDOM_ID)) {
             return Rnd.get(this.getItems().stream()
                     .filter(item -> tier == null
-                            || !(item instanceof LeveledItem)
-                            || (item instanceof LeveledItem && ((LeveledItem) item).getTier() == tier))
+                            || !(item instanceof Tiered)
+                            || (item instanceof Tiered && ((Tiered) item).getTier() == tier))
                     .collect(Collectors.toList()));
         }
         return items.get(id.toLowerCase());

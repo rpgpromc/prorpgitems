@@ -1,5 +1,11 @@
 package studio.magemonkey.divinity.modules;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
@@ -17,17 +23,12 @@ import studio.magemonkey.divinity.stats.items.requirements.item.ItemModuleRequir
 import studio.magemonkey.divinity.stats.items.requirements.item.ItemTierRequirement;
 import studio.magemonkey.divinity.stats.items.requirements.item.ItemTypeRequirement;
 import studio.magemonkey.divinity.stats.tiers.Tier;
+import studio.magemonkey.divinity.stats.tiers.Tiered;
 import studio.magemonkey.divinity.utils.LoreUT;
-import org.apache.commons.lang3.ArrayUtils;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-public abstract class LeveledItem extends ModuleItem {
+public abstract class LeveledItem extends ModuleItem implements Tiered {
     protected Tier                       tier;
     protected int                        levelMin;
     protected int                        levelMax;
@@ -96,19 +97,14 @@ public abstract class LeveledItem extends ModuleItem {
     }
 
     @Override
+    protected String applyLoreReplacements(String lore) {
+        return this.getTier().format(lore);
+    }
+
+    @Override
     protected void processLore(@NotNull JYML cfg, @NotNull QModuleDrop<?> module) {
         validateTier(cfg);
-
-        this.lore = new ArrayList<>();
-        for (String mLore : module.getItemLoreFormat()) {
-            if (mLore.equalsIgnoreCase(ItemTags.PLACEHOLDER_ITEM_LORE)) {
-                for (String itemLore : StringUT.color(cfg.getStringList("lore"))) {
-                    this.lore.add(this.getTier().format(itemLore));
-                }
-                continue;
-            }
-            this.lore.add(this.getTier().format(mLore));
-        }
+        super.processLore(cfg, module);
     }
 
     @Override

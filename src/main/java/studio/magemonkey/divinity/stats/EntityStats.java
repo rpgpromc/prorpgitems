@@ -433,9 +433,7 @@ public class EntityStats {
         }
 
         if (this.isPlayer()) {
-            this.inventory.removeIf(item -> {
-                return item == null || !ItemUtils.canUse(item, this.player, false);
-            });
+            this.inventory.removeIf(item -> item == null || !ItemUtils.canUse(item, this.player, false));
         }
     }
 

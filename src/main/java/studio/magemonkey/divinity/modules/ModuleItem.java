@@ -131,28 +131,36 @@ public abstract class ModuleItem extends LoadableItem {
         cfg.saveChanges();
     }
 
+    /**
+     * This method just returns the same string by default, but can be overridden to apply custom replacements.
+     * For example, {@link LeveledItem} uses this to replace the item tier placeholders.
+     *
+     * @param lore The lore line to apply replacements to.
+     * @return The lore line with replacements applied.
+     */
+    protected String applyLoreReplacements(String lore) {
+        return lore;
+    }
+
     protected void processLore(@NotNull JYML cfg, @NotNull QModuleDrop<?> module) {
         this.lore = new ArrayList<>();
         for (String mLore : module.getItemLoreFormat()) {
             if (mLore.equalsIgnoreCase(ItemTags.PLACEHOLDER_ITEM_LORE)) {
                 for (String itemLore : StringUT.color(cfg.getStringList("lore"))) {
-                    this.lore.add(itemLore);
+                    this.lore.add(applyLoreReplacements(itemLore));
                 }
                 continue;
             }
-            this.lore.add(mLore);
+            this.lore.add(applyLoreReplacements(mLore));
         }
     }
 
     private void updateConfig(@NotNull JYML cfg) {
-        cfg.addMissing("tier", JStrings.DEFAULT);
-
         cfg.saveChanges();
     }
 
     @Override
     protected void save(@NotNull JYML cfg) {
-
     }
 
     @NotNull
