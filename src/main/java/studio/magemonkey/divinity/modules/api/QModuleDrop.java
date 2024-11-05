@@ -115,8 +115,9 @@ public abstract class QModuleDrop<I extends ModuleItem> extends QModule {
 
         if (id.equalsIgnoreCase(RANDOM_ID)) {
             return Rnd.get(this.getItems().stream()
-                    .filter(item -> tier == null || (item instanceof LeveledItem
-                            && ((LeveledItem) item).getTier() == tier))
+                    .filter(item -> tier == null
+                            || !(item instanceof LeveledItem)
+                            || (item instanceof LeveledItem && ((LeveledItem) item).getTier() == tier))
                     .collect(Collectors.toList()));
         }
         return items.get(id.toLowerCase());
