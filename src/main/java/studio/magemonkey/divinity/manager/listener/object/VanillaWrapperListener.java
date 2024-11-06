@@ -58,7 +58,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         LivingEntity shooter = e.getEntity();
         Projectile   pj      = (Projectile) e.getProjectile();
         Vector       orig    = pj.getVelocity();
-        double       power   = e.getForce();
+        double       power   = e.getForce() / 3;
 
         // Quick fix for "high" skeleton damage
         if (shooter instanceof Skeleton) {
