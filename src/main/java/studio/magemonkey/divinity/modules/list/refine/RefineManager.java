@@ -243,7 +243,12 @@ public class RefineManager extends QModuleDrop<RefineItem> {
         BonusMap bMap = stone.getRefineBonusMap(refineLvl);
         if (bMap == null) return func;
 
-        return bMap.getBonus(stat);
+        BiFunction<Boolean, Double, Double> bFunc = bMap.getBonus(stat);
+        if (bFunc != null) {
+            return bFunc;
+        }
+
+        return func;
     }
 
     public void refineItem(@NotNull ItemStack item, @NotNull RefineItem stone) {
@@ -461,11 +466,11 @@ public class RefineManager extends QModuleDrop<RefineItem> {
         List<BiFunction<Boolean, Double, Double>> bonuses = new ArrayList<>();
         bonuses.add((isPercent, input) -> isPercent ? input : input + value);
         bonuses.add(this.getRefinedBonus(item, stat));
-        double diff = BonusCalculator.SIMPLE_FULL.apply(0D, bonuses)-value;
+        double diff = BonusCalculator.SIMPLE_FULL.apply(0D, bonuses) - value;
         if (diff == 0) return "";
         return this.formatLoreStat.replace("%amount%", (diff < 0 ? EngineCfg.LORE_CHAR_NEGATIVE : "")
                         + ChatColor.stripColor(EngineCfg.LORE_STYLE_DAMAGE_FORMAT_SINGLE
-                        .replace("%value%", String.valueOf(Math.round(diff*100)/100.0))))
+                        .replace("%value%", String.valueOf(Math.round(diff * 100) / 100.0))))
                 .replace("%+%", diff > 0 ? EngineCfg.LORE_CHAR_POSITIVE : "");
     }
 
