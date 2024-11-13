@@ -50,7 +50,7 @@ public class ItemHandListener extends IListener<Divinity> {
         }
     }
 
-    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onHandSwap(PlayerSwapHandItemsEvent e) {
         Player player = e.getPlayer();
 
