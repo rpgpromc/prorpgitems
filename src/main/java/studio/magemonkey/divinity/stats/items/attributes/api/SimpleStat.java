@@ -124,9 +124,12 @@ public class SimpleStat extends DuplicableItemLoreStat<StatBonus> implements Typ
         if (gems != null) {
             for (Map.Entry<GemManager.Gem, Integer> e : gems.getItemSockets(item)) {
                 BonusMap bMap = e.getKey().getBonusMap(e.getValue());
-                if (bMap == null || bMap.getBonus(this) == null) continue;
+                if (bMap == null) continue;
+                
+                BiFunction<Boolean, Double, Double> bif = bMap.getBonus(this);
+                if (bif == null) continue;
 
-                bonuses.add(bMap.getBonus(this));
+                bonuses.add(bif);
             }
         }
 

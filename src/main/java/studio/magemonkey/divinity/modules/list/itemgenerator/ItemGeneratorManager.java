@@ -625,12 +625,13 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                                                                         @NotNull ItemLoreStat<?> stat) {
             for (Map.Entry<String, BonusMap> e : this.materialModifiers.entrySet()) {
                 if (ItemUtils.compareItemGroup(item, e.getKey())) {
-                    BonusMap bMap = e.getValue();
-                    if(bMap.getBonus(stat) == null) {
+                    BonusMap                            bMap = e.getValue();
+                    BiFunction<Boolean, Double, Double> bif  = bMap.getBonus(stat);
+                    if (bif == null) {
                         continue;
                     }
 
-                    return bMap.getBonus(stat);
+                    return bif;
                 }
             }
             return (isBonus, result) -> result;

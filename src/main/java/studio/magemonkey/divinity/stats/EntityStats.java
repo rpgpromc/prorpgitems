@@ -2,7 +2,6 @@ package studio.magemonkey.divinity.stats;
 
 import lombok.Getter;
 import org.bukkit.Material;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.block.Biome;
@@ -458,7 +457,8 @@ public class EntityStats {
 
         BonusMap arrowBonus = this.arrowBonus != null ? this.arrowBonus.getBonusMap(this.arrowLevel) : null;
         if (arrowBonus != null) {
-            bonuses.add(arrowBonus.getBonus(stat));
+            BiFunction<Boolean, Double, Double> arrowBif = arrowBonus.getBonus(stat);
+            if (arrowBif != null) bonuses.add(arrowBif);
         }
 
         if (this.isPlayer() && !this.isNPC()) {
