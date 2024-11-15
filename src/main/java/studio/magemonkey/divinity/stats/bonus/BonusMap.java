@@ -97,7 +97,7 @@ public class BonusMap {
 
     @Nullable
     public BiFunction<Boolean, Double, Double> getBonus(@NotNull ItemLoreStat<?> stat) {
-        return this.bonus.getOrDefault(stat, null);
+        return this.bonus.getOrDefault(stat, (isPercent, value) -> value);
     }
 
     public void loadStats(@NotNull JYML cfg, @NotNull String path) {
