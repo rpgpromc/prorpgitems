@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.generators;
 
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
@@ -18,10 +22,6 @@ import studio.magemonkey.divinity.stats.items.attributes.FabledAttribute;
 import studio.magemonkey.divinity.stats.items.attributes.SocketAttribute;
 import studio.magemonkey.divinity.utils.ItemUtils;
 import studio.magemonkey.divinity.utils.LoreUT;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.function.BiFunction;
@@ -70,8 +70,8 @@ public class AttributeGenerator<A extends ItemLoreStat<?>> extends AbstractAttri
             double chance = cfg.getDouble(path2 + "chance");
             //if (chance <= 0) return; Removed so that Bonuses can be applied
 
-            double            m1          = cfg.getDouble(path2 + "min", 0D);
-            double            m2          = cfg.getDouble(path2 + "max", 0D);
+            double m1 = cfg.getDouble(path2 + "min", 0D);
+            double m2 = cfg.getDouble(path2 + "max", 0D);
             if (m1 > m2) {
                 double temp = m1;
                 m1 = m2;
@@ -251,6 +251,10 @@ public class AttributeGenerator<A extends ItemLoreStat<?>> extends AbstractAttri
                             dmgAtt.add(item, new StatBonus(new double[]{vFinMin, vFinMax}, false, null), -1);
                     } else {
                         double vFin = NumberUT.round(Rnd.getDouble(vMin, vMax));
+                        if (values.isRound()) {
+                            vFin = Math.round(vFin);
+                        }
+
                         if (vFin != 0) {
                             if (stat instanceof DefenseAttribute) {
                                 DefenseAttribute defAtt = (DefenseAttribute) stat;

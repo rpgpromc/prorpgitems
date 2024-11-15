@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.generators;
 
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
@@ -17,10 +21,6 @@ import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
 import studio.magemonkey.divinity.stats.items.attributes.stats.DurabilityStat;
 import studio.magemonkey.divinity.utils.LoreUT;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.function.BiFunction;
@@ -69,8 +69,8 @@ public class TypedStatGenerator extends AbstractAttributeGenerator {
             double chance = cfg.getDouble(path2 + "chance");
             //if (chance <= 0) return; Removed so that Bonuses can be applied
 
-            double            m1          = cfg.getDouble(path2 + "min", 0D);
-            double            m2          = cfg.getDouble(path2 + "max", 0D);
+            double m1 = cfg.getDouble(path2 + "min", 0D);
+            double m2 = cfg.getDouble(path2 + "max", 0D);
             if (m1 > m2) {
                 double temp = m1;
                 m1 = m2;
@@ -209,6 +209,10 @@ public class TypedStatGenerator extends AbstractAttributeGenerator {
 
 
                 double vFin = NumberUT.round(Rnd.getDouble(vMin, vMax));
+                if (values.isRound()) {
+                    vFin = Math.round(vFin);
+                }
+
                 if (vFin != 0) {
                     if (stat instanceof SimpleStat) {
                         SimpleStat rStat = (SimpleStat) stat;

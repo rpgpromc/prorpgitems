@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.stats.items.attributes;
 
+import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -34,9 +35,12 @@ import java.util.function.BiFunction;
 
 public class DefenseAttribute extends DuplicableItemLoreStat<StatBonus> implements DynamicStat<StatBonus> {
 
-    private int         priority;
-    private Set<String> blockDamageType;
-    private double      protectionFactor;
+    private final Set<String> blockDamageType;
+
+    @Getter
+    private int    priority;
+    @Getter
+    private double protectionFactor;
 
     public DefenseAttribute(
             @NotNull String id,
@@ -65,17 +69,9 @@ public class DefenseAttribute extends DuplicableItemLoreStat<StatBonus> implemen
         return StatBonus.class;
     }
 
-    public int getPriority() {
-        return this.priority;
-    }
-
     public boolean isBlockable(@NotNull DamageAttribute dmg) {
         return this.blockDamageType.contains(dmg.getId())
                 || this.blockDamageType.contains(JStrings.MASK_ANY);
-    }
-
-    public double getProtectionFactor() {
-        return protectionFactor;
     }
 
     public double getTotal(@NotNull ItemStack item, @Nullable Player player) {

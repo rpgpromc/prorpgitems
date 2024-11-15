@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.stats.items.attributes;
 
+import lombok.Getter;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.Entity;
@@ -34,13 +35,15 @@ import java.util.function.BiFunction;
 
 public class DamageAttribute extends DuplicableItemLoreStat<StatBonus> implements DynamicStat<StatBonus> {
 
-    private int                 priority;
-    private ActionManipulator   actionEngine;
-    private Set<String>         attachedDamageCauses;
-    private Map<String, Double> biomeModifier;
-    private Map<String, Double> entityTypeModifier;
-    private Map<String, Double> mythicFactionModifier;
-    private DefenseAttribute    defenseAttached;
+    private final ActionManipulator   actionEngine;
+    private final Set<String>         attachedDamageCauses;
+    private final Map<String, Double> biomeModifier;
+    private final Map<String, Double> entityTypeModifier;
+    private final Map<String, Double> mythicFactionModifier;
+
+    @Getter
+    private int              priority;
+    private DefenseAttribute defenseAttached;
 
     public DamageAttribute(
             @NotNull String id,
@@ -78,10 +81,6 @@ public class DamageAttribute extends DuplicableItemLoreStat<StatBonus> implement
 
     public boolean isDefault() {
         return this.equals(ItemStats.getDamageByDefault());
-    }
-
-    public int getPriority() {
-        return this.priority;
     }
 
     public boolean isAttached(@NotNull DamageCause cause) {
