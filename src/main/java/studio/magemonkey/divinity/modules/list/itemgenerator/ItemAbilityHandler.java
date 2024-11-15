@@ -7,13 +7,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.entity.EntityPickupItemEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerItemConsumeEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -66,6 +64,22 @@ public class ItemAbilityHandler extends IListener<Divinity> implements Loadable 
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerJoin(PlayerJoinEvent event) {
+        FabledHook fabledHook = (FabledHook) this.plugin.getHook(EHook.SKILL_API);
+        if (fabledHook != null) {
+            fabledHook.updateSkills(event.getPlayer());
+        }
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void playerDeath(PlayerDeathEvent event) {
+        FabledHook fabledHook = (FabledHook) this.plugin.getHook(EHook.SKILL_API);
+        if (fabledHook != null) {
+            fabledHook.updateSkills(event.getEntity());
+        }
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void itemSwap(PlayerSwapHandItemsEvent event) {
         FabledHook fabledHook = (FabledHook) this.plugin.getHook(EHook.SKILL_API);
         if (fabledHook != null) {
             fabledHook.updateSkills(event.getPlayer());
@@ -135,7 +149,7 @@ public class ItemAbilityHandler extends IListener<Divinity> implements Loadable 
         }
     }
 
-    private final boolean useItem(@NotNull Player player, @NotNull ItemStack item) {
+    private boolean useItem(@NotNull Player player, @NotNull ItemStack item) {
         int uses = this.itemGen.getItemCharges(item);
         if (uses == 0) {
             if (registerSentMessage(player)) {

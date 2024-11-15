@@ -142,7 +142,7 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
 
         if (event.isKnockback())
             exempt.add(player.getUniqueId());
-        if(event.isIgnoreDivinity())
+        if (event.isIgnoreDivinity())
             divinityIgnored.add(player.getUniqueId());
     }
 
@@ -219,7 +219,7 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
                     .replace("%attrPost%", attrPost)
                     + "%value%";
         }
-        for (Map.Entry<String, studio.magemonkey.fabled.manager.FabledAttribute> entry : Fabled.getAttributeManager()
+        for (Map.Entry<String, studio.magemonkey.fabled.manager.FabledAttribute> entry : Fabled.getAttributesManager()
                 .getAttributes()
                 .entrySet()) {
             list.add(new FabledAttribute(entry.getKey(), entry.getValue().getName(), format));
@@ -229,7 +229,7 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
 
     public ItemStack getAttributeIndicator(String attributeId) {
         studio.magemonkey.fabled.manager.FabledAttribute proAttribute =
-                Fabled.getAttributeManager().getAttribute(attributeId);
+                Fabled.getAttributesManager().getAttribute(attributeId);
         if (proAttribute != null) return proAttribute.getToolIcon();
 
         ItemStack itemStack = new ItemStack(Material.DIRT);
@@ -267,7 +267,6 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
         new BukkitRunnable() {
             @Override
             public void run() {
-
                 Map<String, Integer> skills    = new HashMap<>();
                 PlayerInventory      inventory = player.getInventory();
                 for (int i : new int[]{inventory.getHeldItemSlot(), 36, 37, 38, 39, 40}) {
@@ -306,7 +305,7 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
                     }
                 }
             }
-        }.runTask(plugin);
+        }.runTaskLater(plugin, 1L);
     }
 
     public boolean isFakeDamage(EntityDamageByEntityEvent event) {
