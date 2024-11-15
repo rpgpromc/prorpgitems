@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.combatlog;
 
 import lombok.Getter;
+import lombok.Setter;
 import me.filoghost.holographicdisplays.api.HolographicDisplaysAPI;
 import me.filoghost.holographicdisplays.api.hologram.Hologram;
 import org.bukkit.Keyed;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -432,19 +432,13 @@ public class CombatLogManager extends QModule {
         BLOCK,
         ;
 
+        @Getter
+        @Setter
         private boolean enabled      = false;
         private String  msgDamager   = null;
         private String  msgVictim    = null;
         private String  msgIndicator = null;
         private Keyed   sound        = null;
-
-        public boolean isEnabled() {
-            return this.enabled;
-        }
-
-        public void setEnabled(boolean enabled) {
-            this.enabled = enabled;
-        }
 
         @Nullable
         public String getMessageDamager() {
