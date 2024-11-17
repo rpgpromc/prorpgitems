@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.testutil;
 
-import be.seeseemelk.mockbukkit.MockBukkit;
-import be.seeseemelk.mockbukkit.ServerMock;
-import be.seeseemelk.mockbukkit.entity.PlayerMock;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -28,6 +28,8 @@ import java.util.function.Predicate;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import static org.mockbukkit.mockbukkit.matcher.plugin.PluginManagerFiredEventClassMatcher.hasFiredEventInstance;
+import static org.mockbukkit.mockbukkit.matcher.plugin.PluginManagerFiredEventFilterMatcher.hasFiredFilteredEvent;
 import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -131,11 +133,11 @@ public abstract class MockedTest {
     }
 
     public <T extends Event> void assertEventFired(Class<T> clazz) {
-        server.getPluginManager().assertEventFired(clazz);
+        hasFiredEventInstance(clazz).matches(server.getPluginManager());
     }
 
     public <T extends Event> void assertEventFired(Class<T> clazz, Predicate<T> predicate) {
-        server.getPluginManager().assertEventFired(clazz, predicate);
+        hasFiredFilteredEvent(clazz, predicate).matches(server.getPluginManager());
     }
 
     public void clearEvents() {

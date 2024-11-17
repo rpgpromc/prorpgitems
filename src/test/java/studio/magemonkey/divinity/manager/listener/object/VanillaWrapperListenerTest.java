@@ -1,6 +1,6 @@
 package studio.magemonkey.divinity.manager.listener.object;
 
-import be.seeseemelk.mockbukkit.entity.PlayerMock;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Trident;
@@ -29,7 +29,7 @@ public class VanillaWrapperListenerTest extends MockedTest {
         final double expectedDamage = 5;
         damager.getInventory().setItemInMainHand(new ItemStack(Material.IRON_SWORD));
         ((PlayerMock) target).simulateDamage(5, damager);
-        server.getPluginManager().assertEventFired(DivinityDamageEvent.Start.class, event -> {
+        assertEventFired(DivinityDamageEvent.Start.class, event -> {
             double damage = 0;
             for (Double value : event.getDamageMap().values()) {
                 damage += value;
@@ -51,7 +51,7 @@ public class VanillaWrapperListenerTest extends MockedTest {
         Trident      trident        = target.getWorld().spawn(target.getLocation(), Trident.class);
         trident.setShooter(damager);
         ((PlayerMock) target).simulateDamage(9, trident);
-        server.getPluginManager().assertEventFired(DivinityDamageEvent.Start.class, event -> {
+        assertEventFired(DivinityDamageEvent.Start.class, event -> {
             double damage = 0;
             for (Double value : event.getDamageMap().values()) {
                 damage += value;

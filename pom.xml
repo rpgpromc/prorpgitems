@@ -7,7 +7,7 @@
     <parent>
         <groupId>studio.magemonkey</groupId>
         <artifactId>magemonkey-parent</artifactId>
-        <version>1.21.3-R0.1</version>
+        <version>1.21.3-R0.2</version>
     </parent>
 
     <artifactId>divinity</artifactId>
@@ -16,8 +16,8 @@
     <description>Custom items, combat, and more!</description>
 
     <properties>
-        <codex.version>1.0.1-R0.9-SNAPSHOT</codex.version>
-        <fabled.version>1.0.1-R0.7-SNAPSHOT</fabled.version>
+        <codex.version>1.0.1-R0.15-SNAPSHOT</codex.version>
+        <fabled.version>1.0.4-R0.8-SNAPSHOT</fabled.version>
     </properties>
 
     <repositories>
