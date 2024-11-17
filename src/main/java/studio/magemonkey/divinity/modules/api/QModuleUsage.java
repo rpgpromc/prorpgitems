@@ -1,15 +1,5 @@
 package studio.magemonkey.divinity.modules.api;
 
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.TimeUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.api.event.DivinityPlayerItemUseEvent;
-import studio.magemonkey.divinity.modules.UsableItem;
-import studio.magemonkey.divinity.modules.list.consumables.ConsumablesManager;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.stats.items.attributes.stats.DurabilityStat;
-import studio.magemonkey.divinity.types.QClickType;
-import studio.magemonkey.divinity.utils.ItemUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -21,6 +11,16 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.TimeUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.api.event.DivinityPlayerItemUseEvent;
+import studio.magemonkey.divinity.modules.UsableItem;
+import studio.magemonkey.divinity.modules.list.consumables.ConsumablesManager;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.stats.items.attributes.stats.DurabilityStat;
+import studio.magemonkey.divinity.types.QClickType;
+import studio.magemonkey.divinity.utils.ItemUtils;
 
 import java.util.HashMap;
 import java.util.HashSet;

@@ -1,5 +1,14 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor;
 
+import org.bukkit.Color;
+import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.codex.util.ItemUT;
@@ -13,15 +22,6 @@ import studio.magemonkey.divinity.modules.list.itemgenerator.editor.skills.MainS
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.sockets.MainSocketsGUI;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.stats.MainStatsGUI;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.trimmings.TrimmingListGUI;
-import org.bukkit.Color;
-import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemFlag;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.Damageable;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.PotionMeta;
 
 import java.util.ArrayList;
 import java.util.List;

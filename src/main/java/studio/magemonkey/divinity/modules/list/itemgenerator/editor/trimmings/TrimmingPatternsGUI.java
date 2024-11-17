@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.trimmings;
 
-import studio.magemonkey.codex.manager.api.menu.Slot;
-import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
-import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
 import org.bukkit.Material;
 import org.bukkit.Registry;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.trim.TrimPattern;
+import studio.magemonkey.codex.manager.api.menu.Slot;
+import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
+import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
 
 public class TrimmingPatternsGUI extends AbstractEditorGUI {
     private final TrimmingListGUI.TrimmingEntry entry;

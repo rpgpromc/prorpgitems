@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.nms.engine;
 
-import studio.magemonkey.codex.util.reflection.ReflectionManager;
-import studio.magemonkey.codex.util.reflection.ReflectionUtil;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.reflection.ReflectionManager;
+import studio.magemonkey.codex.util.reflection.ReflectionUtil;
 
 public class PMS {
 

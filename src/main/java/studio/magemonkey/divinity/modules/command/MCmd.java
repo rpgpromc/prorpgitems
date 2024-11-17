@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.modules.command;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.commands.api.ISubCommand;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.api.QModule;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class MCmd<M extends QModule> extends ISubCommand<Divinity> {
 

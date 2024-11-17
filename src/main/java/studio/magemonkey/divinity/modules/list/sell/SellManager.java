@@ -1,5 +1,10 @@
 package studio.magemonkey.divinity.modules.list.sell;
 
+import net.citizensnpcs.api.trait.TraitInfo;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.external.VaultHK;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
 import studio.magemonkey.codex.util.NumberUT;
@@ -10,11 +15,6 @@ import studio.magemonkey.divinity.modules.EModule;
 import studio.magemonkey.divinity.modules.api.QModule;
 import studio.magemonkey.divinity.modules.list.sell.command.SellOpenCmd;
 import studio.magemonkey.divinity.modules.list.sell.event.PlayerSellItemEvent;
-import net.citizensnpcs.api.trait.TraitInfo;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.jetbrains.annotations.NotNull;
 
 public class SellManager extends QModule {
 

@@ -1,13 +1,6 @@
 package studio.magemonkey.divinity.api.event;
 
 import com.google.common.collect.Sets;
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
-import studio.magemonkey.divinity.manager.damage.DamageMeta;
-import studio.magemonkey.divinity.modules.list.arrows.ArrowManager.QArrow;
-import studio.magemonkey.divinity.stats.EntityStats;
-import studio.magemonkey.divinity.stats.items.attributes.DamageAttribute;
-import studio.magemonkey.divinity.stats.items.attributes.DefenseAttribute;
-import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
@@ -17,6 +10,13 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.divinity.manager.damage.DamageMeta;
+import studio.magemonkey.divinity.modules.list.arrows.ArrowManager.QArrow;
+import studio.magemonkey.divinity.stats.EntityStats;
+import studio.magemonkey.divinity.stats.items.attributes.DamageAttribute;
+import studio.magemonkey.divinity.stats.items.attributes.DefenseAttribute;
+import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 
 import java.util.Collection;
 import java.util.HashMap;

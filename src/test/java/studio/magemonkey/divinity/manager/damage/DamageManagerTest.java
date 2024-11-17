@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.manager.damage;
 
-import org.mockbukkit.mockbukkit.entity.FishHookMock;
-import org.mockbukkit.mockbukkit.entity.PlayerMock;
-import org.mockbukkit.mockbukkit.entity.ZombieMock;
 import org.bukkit.entity.FishHook;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockbukkit.mockbukkit.entity.FishHookMock;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
+import org.mockbukkit.mockbukkit.entity.ZombieMock;
 import studio.magemonkey.divinity.config.EngineCfg;
 import studio.magemonkey.divinity.testutil.MockedTest;
 

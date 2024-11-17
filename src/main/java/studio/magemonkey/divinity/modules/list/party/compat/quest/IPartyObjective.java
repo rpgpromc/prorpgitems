@@ -1,16 +1,16 @@
 package studio.magemonkey.divinity.modules.list.party.compat.quest;
 
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.modules.list.party.PartyManager;
-import studio.magemonkey.divinity.modules.list.party.PartyManager.Party;
-import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyMember;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.list.party.PartyManager;
+import studio.magemonkey.divinity.modules.list.party.PartyManager.Party;
+import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyMember;
 
 import java.util.Set;
 

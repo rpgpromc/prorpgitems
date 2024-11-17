@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.manager.effects;
 
-import studio.magemonkey.codex.util.StringUT;
-import studio.magemonkey.divinity.stats.EntityStats;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.divinity.stats.EntityStats;
 
 import java.util.HashMap;
 import java.util.Map;

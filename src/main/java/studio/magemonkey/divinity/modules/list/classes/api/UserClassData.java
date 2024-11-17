@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.classes.api;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboKey;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAspect;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAspectBonus;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttribute;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttributeType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.Collection;

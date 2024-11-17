@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.modules.list.classes.object;
 
-import studio.magemonkey.divinity.stats.bonus.BonusMap;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.stats.bonus.BonusMap;
 
 import java.util.Map;
 

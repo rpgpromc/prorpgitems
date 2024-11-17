@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.utils.actions.conditions;
 
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.util.actions.conditions.IConditionValidator;
 import studio.magemonkey.codex.util.actions.params.IParamResult;
 import studio.magemonkey.codex.util.actions.params.IParamType;
@@ -7,10 +11,6 @@ import studio.magemonkey.codex.util.actions.params.IParamValue;
 import studio.magemonkey.codex.util.actions.params.IParamValue.IOperator;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.config.EngineCfg;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;

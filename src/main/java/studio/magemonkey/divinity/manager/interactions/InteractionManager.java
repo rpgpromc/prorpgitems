@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.manager.interactions;
 
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.codex.manager.api.Loadable;
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.codex.manager.api.Loadable;
+import studio.magemonkey.divinity.Divinity;
 
 import java.util.Map;
 import java.util.WeakHashMap;

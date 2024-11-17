@@ -1,5 +1,10 @@
 package studio.magemonkey.divinity.modules.list.classes.api;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.LoadableItem;
 import studio.magemonkey.codex.util.NumberUT;
@@ -14,11 +19,6 @@ import studio.magemonkey.divinity.modules.list.classes.object.ClassAspectBonus;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttribute;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttributeType;
 import studio.magemonkey.divinity.stats.bonus.BonusMap;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 

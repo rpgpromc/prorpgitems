@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor;
 
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.divinity.stats.items.ItemStats;
 import studio.magemonkey.divinity.stats.items.attributes.AmmoAttribute;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 
 public class AmmoTypesGUI extends AbstractEditorGUI {
 

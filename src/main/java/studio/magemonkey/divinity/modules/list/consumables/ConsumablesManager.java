@@ -1,5 +1,11 @@
 package studio.magemonkey.divinity.modules.list.consumables;
 
+import lombok.Getter;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
@@ -8,12 +14,6 @@ import studio.magemonkey.divinity.modules.LimitedItem;
 import studio.magemonkey.divinity.modules.UsableItem;
 import studio.magemonkey.divinity.modules.api.QModuleUsage;
 import studio.magemonkey.divinity.stats.EntityStats;
-import lombok.Getter;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 public class ConsumablesManager extends QModuleUsage<ConsumablesManager.Consume> {
     private boolean allowConsumeFullHealth;

@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.config;
 
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.NHook;
 import studio.magemonkey.codex.util.StringUT;
@@ -18,9 +21,6 @@ import studio.magemonkey.divinity.stats.items.requirements.user.BannedClassRequi
 import studio.magemonkey.divinity.stats.items.requirements.user.ClassRequirement;
 import studio.magemonkey.divinity.stats.items.requirements.user.LevelRequirement;
 import studio.magemonkey.fabled.dynamic.ComponentRegistry;
-import org.bukkit.Bukkit;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 

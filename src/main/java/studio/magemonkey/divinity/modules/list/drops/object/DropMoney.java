@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.modules.list.drops.object;
 
-import studio.magemonkey.codex.CodexEngine;
-import studio.magemonkey.codex.util.random.Rnd;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
+import studio.magemonkey.codex.CodexEngine;
+import studio.magemonkey.codex.util.random.Rnd;
 
 public class DropMoney extends DropNonItem {
 

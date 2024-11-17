@@ -1,8 +1,21 @@
 package studio.magemonkey.divinity.modules.list.magicdust;
 
+import net.citizensnpcs.api.trait.TraitInfo;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.VaultHK;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
+import studio.magemonkey.codex.manager.api.gui.*;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
@@ -18,19 +31,6 @@ import studio.magemonkey.divinity.modules.list.magicdust.MagicDustManager.MagicD
 import studio.magemonkey.divinity.modules.list.magicdust.command.DustOpenCmd;
 import studio.magemonkey.divinity.modules.list.magicdust.event.PlayerImproveItemSocketRateEvent;
 import studio.magemonkey.divinity.stats.items.ItemStats;
-import net.citizensnpcs.api.trait.TraitInfo;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.manager.api.gui.*;
 
 import java.util.*;
 

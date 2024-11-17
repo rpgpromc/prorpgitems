@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.utils.actions.params;
 
-import studio.magemonkey.codex.hooks.Hooks;
-import studio.magemonkey.codex.util.actions.params.IParamValue;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.hooks.Hooks;
+import studio.magemonkey.codex.util.actions.params.IParamValue;
 
 import java.util.HashSet;
 import java.util.Set;

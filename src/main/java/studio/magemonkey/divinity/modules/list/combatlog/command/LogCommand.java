@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.combatlog.command;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.ClickText;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.command.MCmd;
 import studio.magemonkey.divinity.modules.list.combatlog.CombatLogManager;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class LogCommand extends MCmd<CombatLogManager> {
 

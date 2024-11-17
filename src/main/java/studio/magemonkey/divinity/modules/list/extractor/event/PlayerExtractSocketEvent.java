@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.extractor.event;
 
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
-import studio.magemonkey.divinity.stats.items.attributes.SocketAttribute;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.divinity.stats.items.attributes.SocketAttribute;
 
 import java.util.List;
 

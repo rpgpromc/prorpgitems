@@ -1,15 +1,15 @@
 package studio.magemonkey.divinity.utils.actions.executors;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.actions.actions.IActionExecutor;
 import studio.magemonkey.codex.util.actions.params.IParamResult;
 import studio.magemonkey.codex.util.actions.params.IParamType;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.config.EngineCfg;
 import studio.magemonkey.divinity.utils.ParticleUtils;
-import org.bukkit.Location;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;

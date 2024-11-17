@@ -1,5 +1,10 @@
 package studio.magemonkey.divinity.modules.list.classes.gui;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.ContentType;
 import studio.magemonkey.codex.manager.api.gui.GuiClick;
@@ -11,11 +16,6 @@ import studio.magemonkey.divinity.modules.list.classes.api.RPGClass;
 import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttribute;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttributeType;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

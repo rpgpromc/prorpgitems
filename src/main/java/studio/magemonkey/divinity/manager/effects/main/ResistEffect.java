@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.manager.effects.main;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.divinity.manager.effects.IEffectType;
 import studio.magemonkey.divinity.manager.effects.IExpirableEffect;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;

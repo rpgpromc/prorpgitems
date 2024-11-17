@@ -1,13 +1,11 @@
 package studio.magemonkey.divinity.api;
 
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.modules.*;
-import studio.magemonkey.divinity.modules.*;
-import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.divinity.stats.tiers.Tier;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.*;
+import studio.magemonkey.divinity.modules.api.QModuleDrop;
 
 public class DivinityAPI {
 

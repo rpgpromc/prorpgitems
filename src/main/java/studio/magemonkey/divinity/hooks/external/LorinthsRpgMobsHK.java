@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.hooks.external;
 
+import me.lorinth.rpgmobs.LorinthsRpgMobs;
+import org.bukkit.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.HookState;
 import studio.magemonkey.codex.hooks.NHook;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.HookMobLevel;
-import me.lorinth.rpgmobs.LorinthsRpgMobs;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.NotNull;
 
 public class LorinthsRpgMobsHK extends NHook<Divinity> implements HookMobLevel {
 

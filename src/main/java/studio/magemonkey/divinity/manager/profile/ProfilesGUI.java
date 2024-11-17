@@ -1,19 +1,19 @@
 package studio.magemonkey.divinity.manager.profile;
 
-import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.util.CollectionsUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.data.api.DivinityUser;
-import studio.magemonkey.divinity.data.api.UserProfile;
-import studio.magemonkey.divinity.modules.list.classes.ClassManager;
-import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.*;
+import studio.magemonkey.codex.util.CollectionsUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.data.api.DivinityUser;
+import studio.magemonkey.divinity.data.api.UserProfile;
+import studio.magemonkey.divinity.modules.list.classes.ClassManager;
+import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 
 import java.util.ArrayList;
 import java.util.Collections;

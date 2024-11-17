@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.generators;
 
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.random.Rnd;
 import studio.magemonkey.divinity.Divinity;
@@ -7,12 +11,7 @@ import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManage
 import studio.magemonkey.divinity.modules.list.itemgenerator.api.AbstractAttributeGenerator;
 import studio.magemonkey.divinity.stats.bonus.BonusCalculator;
 import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
-import studio.magemonkey.divinity.utils.ItemUtils;
 import studio.magemonkey.divinity.utils.LoreUT;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.HashMap;

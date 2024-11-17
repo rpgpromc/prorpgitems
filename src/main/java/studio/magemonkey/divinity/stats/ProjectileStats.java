@@ -1,6 +1,5 @@
 package studio.magemonkey.divinity.stats;
 
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Projectile;
 import org.bukkit.entity.Trident;
@@ -8,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.divinity.Divinity;
 
 public class ProjectileStats {
 

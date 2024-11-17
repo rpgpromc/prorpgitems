@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.stats.items.attributes.stats;
 
+import org.bukkit.entity.LivingEntity;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.eval.Evaluator;
 import studio.magemonkey.divinity.manager.effects.main.BleedEffect;
 import studio.magemonkey.divinity.stats.EntityStats;
 import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
-import org.bukkit.entity.LivingEntity;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 

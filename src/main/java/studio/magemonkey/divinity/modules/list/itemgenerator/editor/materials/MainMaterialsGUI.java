@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.materials;
 
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.items.exception.CodexItemException;
 import studio.magemonkey.codex.items.exception.MissingItemException;
@@ -13,9 +16,6 @@ import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEdit
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
 import studio.magemonkey.divinity.types.ItemGroup;
 import studio.magemonkey.divinity.types.ItemSubType;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 public class MainMaterialsGUI extends AbstractEditorGUI {
     public MainMaterialsGUI(Player player, ItemGeneratorReference itemGenerator) {

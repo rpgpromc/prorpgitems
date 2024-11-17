@@ -3,10 +3,9 @@
  */
 package studio.magemonkey.divinity.modules.list.customitems;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.bukkit.ChatColor;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.divinity.Divinity;
@@ -15,7 +14,6 @@ import studio.magemonkey.divinity.modules.EModule;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import studio.magemonkey.divinity.modules.list.customitems.CustomItemsManager.CustomItem;
-import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.divinity.stats.tiers.Tier;
 import studio.magemonkey.divinity.stats.tiers.Tiered;
 

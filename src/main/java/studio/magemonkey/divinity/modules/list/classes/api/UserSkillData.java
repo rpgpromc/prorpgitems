@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.modules.list.classes.api;
 
-import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboKey;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboKey;
 
 public class UserSkillData {
 

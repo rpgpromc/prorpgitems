@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.modules.api.socketing.merchant;
 
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.Loadable;
 import studio.magemonkey.codex.modules.IModuleExecutor;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class MerchantSocket implements Loadable {
 

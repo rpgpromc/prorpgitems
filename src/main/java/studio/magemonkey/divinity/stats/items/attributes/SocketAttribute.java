@@ -55,7 +55,8 @@ public class SocketAttribute extends DuplicableItemLoreStat<String[]> implements
                 this.getTier().format(StringUT.color(formatValueFilled).replace("%name%", this.getName()));
 
         // Legacy keys
-        this.keys.add(NamespacedKey.fromString("prorpgitems:item_socket_" + type.name().toLowerCase() + "_" + this.getId()));
+        this.keys.add(NamespacedKey.fromString(
+                "prorpgitems:item_socket_" + type.name().toLowerCase() + "_" + this.getId()));
         this.keys.add(NamespacedKey.fromString("prorpgitems:item_socket_" + type.name().toLowerCase() + this.getId()));
         this.keys.add(NamespacedKey.fromString(
                 "prorpgitems:qrpg_item_socket_" + type.name().toLowerCase() + this.getId()));

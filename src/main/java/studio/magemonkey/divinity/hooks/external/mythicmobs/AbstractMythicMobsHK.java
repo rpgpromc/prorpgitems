@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.hooks.external.mythicmobs;
 
+import org.bukkit.entity.Entity;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.NHook;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.HookMobLevel;
-import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractMythicMobsHK extends NHook<Divinity> implements HookMobLevel {
 

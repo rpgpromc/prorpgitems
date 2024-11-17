@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.utils;
 
-import studio.magemonkey.codex.util.NumberUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.config.EngineCfg;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.util.NumberUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.config.EngineCfg;
 
 import java.util.List;
 import java.util.Set;

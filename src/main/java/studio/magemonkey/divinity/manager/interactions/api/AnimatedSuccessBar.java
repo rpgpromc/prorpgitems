@@ -123,7 +123,7 @@ public class AnimatedSuccessBar extends ICustomInteraction {
         @Override
         @SuppressWarnings("MethodDoesntCallSuperMethod")
         public Builder clone() {
-            Builder clone   = new Builder(plugin, barTitle, barChar);
+            Builder clone = new Builder(plugin, barTitle, barChar);
             clone.barFormat = barFormat;
             clone.colorNeutral = colorNeutral;
             clone.colorSuccess = colorSuccess;
@@ -148,7 +148,7 @@ public class AnimatedSuccessBar extends ICustomInteraction {
         Task() {
             super(AnimatedSuccessBar.this.plugin, AnimatedSuccessBar.this.fillInterval, true);
             int calculatedResult = Math.round(Rnd.get(true));
-            int iterations = (int) Math.ceil(100D / fillAmount);
+            int iterations       = (int) Math.ceil(100D / fillAmount);
             // Map the iteration to the relative success for the result
             for (int i = 0; i < iterations; i++) {
                 mappedResult.add(i * fillAmount < calculatedResult);

@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.hooks.external;
 
+import me.clip.placeholderapi.PlaceholderAPI;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.HookState;
 import studio.magemonkey.codex.hooks.NHook;
 import studio.magemonkey.codex.util.NumberUT;
@@ -13,10 +17,6 @@ import studio.magemonkey.divinity.stats.items.attributes.DamageAttribute;
 import studio.magemonkey.divinity.stats.items.attributes.DefenseAttribute;
 import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
-import me.clip.placeholderapi.PlaceholderAPI;
-import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class PlaceholderAPIHK extends NHook<Divinity> {
 

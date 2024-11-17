@@ -1,10 +1,5 @@
 package studio.magemonkey.divinity.modules.list.itemhints;
 
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.StringUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.modules.EModule;
-import studio.magemonkey.divinity.modules.api.QModule;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Item;
@@ -18,6 +13,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.EModule;
+import studio.magemonkey.divinity.modules.api.QModule;
 
 import java.util.HashSet;
 import java.util.List;

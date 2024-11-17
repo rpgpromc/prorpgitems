@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.modules.list.drops.object;
 
-import studio.magemonkey.codex.util.random.Rnd;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.random.Rnd;
 
 public class Drop {
 

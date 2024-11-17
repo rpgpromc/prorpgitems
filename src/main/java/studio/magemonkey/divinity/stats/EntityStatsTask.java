@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.stats;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.manager.api.task.ITask;
 import studio.magemonkey.divinity.Divinity;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 

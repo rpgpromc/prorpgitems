@@ -1,11 +1,6 @@
 package studio.magemonkey.divinity.manager.listener.object;
 
 import com.google.common.collect.Sets;
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.config.EngineCfg;
-import studio.magemonkey.divinity.utils.ItemUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -23,6 +18,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.config.EngineCfg;
+import studio.magemonkey.divinity.utils.ItemUtils;
 
 import java.util.Set;
 

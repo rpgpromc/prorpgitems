@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.materials;
 
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 
 import java.util.Collections;
 import java.util.List;

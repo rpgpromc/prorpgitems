@@ -1,10 +1,5 @@
 package studio.magemonkey.divinity.stats.items.api;
 
-import studio.magemonkey.codex.util.DataUT;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.divinity.stats.bonus.StatBonus;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.utils.LoreUT;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -12,6 +7,11 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.util.DataUT;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.divinity.stats.bonus.StatBonus;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.utils.LoreUT;
 
 import java.util.ArrayList;
 import java.util.List;

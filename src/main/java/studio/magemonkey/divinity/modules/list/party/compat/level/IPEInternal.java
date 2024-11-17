@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.modules.list.party.compat.level;
 
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.DivinityAPI;
 import studio.magemonkey.divinity.modules.list.classes.ClassManager;
@@ -7,9 +10,6 @@ import studio.magemonkey.divinity.modules.list.classes.event.PlayerClassExpGainE
 import studio.magemonkey.divinity.modules.list.classes.object.ExpSource;
 import studio.magemonkey.divinity.modules.list.party.PartyManager;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.Party;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.jetbrains.annotations.NotNull;
 
 public class IPEInternal extends IPartyLevelManager {
 

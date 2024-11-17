@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.modules.list.essences;
 
+import net.citizensnpcs.api.trait.TraitInfo;
+import org.bukkit.Location;
+import org.bukkit.entity.LivingEntity;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
 import studio.magemonkey.codex.util.EffectUT;
@@ -10,10 +14,6 @@ import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
 import studio.magemonkey.divinity.modules.list.essences.EssencesManager.Essence;
 import studio.magemonkey.divinity.modules.list.essences.merchant.MerchantTrait;
 import studio.magemonkey.divinity.utils.ParticleUtils;
-import net.citizensnpcs.api.trait.TraitInfo;
-import org.bukkit.Location;
-import org.bukkit.entity.LivingEntity;
-import org.jetbrains.annotations.NotNull;
 
 public class EssencesManager extends ModuleSocket<Essence> {
 

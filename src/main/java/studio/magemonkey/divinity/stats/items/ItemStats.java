@@ -356,11 +356,11 @@ public class ItemStats {
             // Attack speed the number of full-strength attacks per second.
             // A base value of 4.0 represents 4 attacks per second.
 
-            boolean isArmor           = ItemUtils.isArmor(item);
-            double  weaponModifier    =
+            boolean isArmor = ItemUtils.isArmor(item);
+            double weaponModifier =
                     SimpleStat.getDefaultAttackSpeed(item, DEFAULT_ATTACK_SPEED) + DEFAULT_ATTACK_SPEED;
-            double  baseSpeedModifier = getStat(item, player, TypedStat.Type.BASE_ATTACK_SPEED, weaponModifier);
-            double  baseSpeed         = baseSpeedModifier - DEFAULT_ATTACK_SPEED;
+            double baseSpeedModifier = getStat(item, player, TypedStat.Type.BASE_ATTACK_SPEED, weaponModifier);
+            double baseSpeed         = baseSpeedModifier - DEFAULT_ATTACK_SPEED;
             if (isArmor) {
                 baseSpeed = baseSpeedModifier;
             }

@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.hooks.external.mythicmobs;
 
-import studio.magemonkey.codex.hooks.HookState;
-import studio.magemonkey.divinity.Divinity;
 import io.lumine.mythic.bukkit.MythicBukkit;
 import io.lumine.mythic.core.mobs.ActiveMob;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.hooks.HookState;
+import studio.magemonkey.divinity.Divinity;
 
 import java.util.Optional;
 

@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.manager.effects.main;
 
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.divinity.manager.effects.IEffect;
-import studio.magemonkey.divinity.manager.effects.IEffectType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.divinity.manager.effects.IEffect;
+import studio.magemonkey.divinity.manager.effects.IEffectType;
 
 public class DisarmEffect extends IEffect {
 

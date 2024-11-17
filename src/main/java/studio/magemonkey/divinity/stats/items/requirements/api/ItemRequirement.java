@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.stats.items.requirements.api;
 
-import studio.magemonkey.codex.config.api.ILangMsg;
-import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.config.api.ILangMsg;
+import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 
 public abstract class ItemRequirement<Z> extends ItemLoreStat<Z> {
 

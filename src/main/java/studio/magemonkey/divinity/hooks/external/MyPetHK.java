@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.hooks.external;
 
-import studio.magemonkey.codex.hooks.HookState;
-import studio.magemonkey.codex.hooks.NHook;
-import studio.magemonkey.divinity.Divinity;
 import de.Keyle.MyPet.api.entity.MyPetBukkitEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.hooks.HookState;
+import studio.magemonkey.codex.hooks.NHook;
+import studio.magemonkey.divinity.Divinity;
 
 public class MyPetHK extends NHook<Divinity> {
 

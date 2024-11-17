@@ -1,5 +1,12 @@
 package studio.magemonkey.divinity.modules.list.classes.api;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.manager.api.gui.JIcon;
@@ -11,13 +18,6 @@ import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.classes.ClassManager;
 import studio.magemonkey.divinity.modules.list.classes.event.PlayerCastSkillEvent;
 import studio.magemonkey.divinity.modules.list.classes.event.PlayerPreCastSkillEvent;
-import org.bukkit.Material;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.util.*;

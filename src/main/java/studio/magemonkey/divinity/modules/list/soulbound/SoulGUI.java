@@ -1,8 +1,5 @@
 package studio.magemonkey.divinity.modules.list.soulbound;
 
-import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -10,7 +7,10 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.*;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.divinity.Divinity;
 
 public class SoulGUI extends NGUI<Divinity> {
 

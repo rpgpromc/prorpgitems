@@ -1,5 +1,13 @@
 package studio.magemonkey.divinity.modules.list.dismantle;
 
+import net.citizensnpcs.api.trait.TraitInfo;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.ILangMsg;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.VaultHK;
@@ -22,14 +30,6 @@ import studio.magemonkey.divinity.modules.list.dismantle.command.DismantleOpenCm
 import studio.magemonkey.divinity.modules.list.dismantle.event.PlayerDismantleItemEvent;
 import studio.magemonkey.divinity.modules.list.dismantle.event.PlayerPreDismantleItemEvent;
 import studio.magemonkey.divinity.stats.items.ItemStats;
-import net.citizensnpcs.api.trait.TraitInfo;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 

@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.nms.packets.versions;
 
-import studio.magemonkey.divinity.Divinity;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Divinity;
 
 public class V1_16_R3 extends UniversalPacketHandler {
 

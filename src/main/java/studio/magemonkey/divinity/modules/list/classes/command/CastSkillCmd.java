@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.modules.list.classes.command;
 
-import studio.magemonkey.divinity.Perms;
-import studio.magemonkey.divinity.modules.command.MCmd;
-import studio.magemonkey.divinity.modules.list.classes.ClassManager;
-import studio.magemonkey.divinity.modules.list.classes.api.IAbstractSkill;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Perms;
+import studio.magemonkey.divinity.modules.command.MCmd;
+import studio.magemonkey.divinity.modules.list.classes.ClassManager;
+import studio.magemonkey.divinity.modules.list.classes.api.IAbstractSkill;
 
 import java.util.ArrayList;
 import java.util.Arrays;

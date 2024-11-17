@@ -1,15 +1,15 @@
 package studio.magemonkey.divinity.utils.actions.params;
 
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.actions.params.IAutoValidated;
 import studio.magemonkey.codex.util.actions.params.IParamValue;
 import studio.magemonkey.codex.util.actions.params.defaults.IParamBoolean;
 import studio.magemonkey.divinity.api.PartyAPI;
 import studio.magemonkey.divinity.modules.list.party.PartyManager;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.Party;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;

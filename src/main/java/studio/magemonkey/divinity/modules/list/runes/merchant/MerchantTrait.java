@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.modules.list.runes.merchant;
 
-import studio.magemonkey.divinity.api.DivinityAPI;
-import studio.magemonkey.divinity.modules.api.socketing.merchant.MerchantSocket;
-import studio.magemonkey.divinity.modules.list.runes.RuneManager;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.trait.Trait;
 import net.citizensnpcs.api.trait.TraitName;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import studio.magemonkey.divinity.api.DivinityAPI;
+import studio.magemonkey.divinity.modules.api.socketing.merchant.MerchantSocket;
+import studio.magemonkey.divinity.modules.list.runes.RuneManager;
 
 @TraitName("runes-merchant")
 public class MerchantTrait extends Trait {

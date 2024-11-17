@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.manager.damage;
 
-import studio.magemonkey.divinity.modules.list.arrows.ArrowManager.QArrow;
-import studio.magemonkey.divinity.stats.EntityStats;
-import studio.magemonkey.divinity.stats.items.attributes.DamageAttribute;
-import studio.magemonkey.divinity.stats.items.attributes.DefenseAttribute;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.divinity.modules.list.arrows.ArrowManager.QArrow;
+import studio.magemonkey.divinity.stats.EntityStats;
+import studio.magemonkey.divinity.stats.items.attributes.DamageAttribute;
+import studio.magemonkey.divinity.stats.items.attributes.DefenseAttribute;
 
 import java.util.HashMap;
 import java.util.Map;

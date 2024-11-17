@@ -1,17 +1,5 @@
 package studio.magemonkey.divinity.modules.list.soulbound;
 
-import studio.magemonkey.codex.commands.CommandRegister;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.StringUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.Perms;
-import studio.magemonkey.divinity.modules.EModule;
-import studio.magemonkey.divinity.modules.api.QModule;
-import studio.magemonkey.divinity.modules.list.soulbound.command.SoulboundSoulCmd;
-import studio.magemonkey.divinity.modules.list.soulbound.command.SoulboundUntradeCmd;
-import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
-import studio.magemonkey.divinity.stats.items.requirements.user.SoulboundRequirement;
-import studio.magemonkey.divinity.stats.items.requirements.user.UntradeableRequirement;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -32,6 +20,18 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.commands.CommandRegister;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.Perms;
+import studio.magemonkey.divinity.modules.EModule;
+import studio.magemonkey.divinity.modules.api.QModule;
+import studio.magemonkey.divinity.modules.list.soulbound.command.SoulboundSoulCmd;
+import studio.magemonkey.divinity.modules.list.soulbound.command.SoulboundUntradeCmd;
+import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
+import studio.magemonkey.divinity.stats.items.requirements.user.SoulboundRequirement;
+import studio.magemonkey.divinity.stats.items.requirements.user.UntradeableRequirement;
 
 import java.util.*;
 

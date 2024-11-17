@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor;
 
-import studio.magemonkey.codex.manager.api.menu.Slot;
-import studio.magemonkey.codex.util.constants.JStrings;
-import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
+import studio.magemonkey.codex.manager.api.menu.Slot;
+import studio.magemonkey.codex.util.constants.JStrings;
+import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -71,7 +71,7 @@ public class ItemFlagsGUI extends AbstractEditorGUI {
                 }
             }
 
-            if(flag.name().equals("HIDE_POTION_EFFECTS") || flag.name().equals("HIDE_ADDITIONAL_TOOLTIP")) {
+            if (flag.name().equals("HIDE_POTION_EFFECTS") || flag.name().equals("HIDE_ADDITIONAL_TOOLTIP")) {
                 material = Material.POTION;
             }
 

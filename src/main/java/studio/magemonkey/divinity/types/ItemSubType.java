@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.types;
 
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.items.ItemType;
 import studio.magemonkey.codex.items.exception.CodexItemException;
 import studio.magemonkey.codex.items.providers.VanillaProvider;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Divinity;
-import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;

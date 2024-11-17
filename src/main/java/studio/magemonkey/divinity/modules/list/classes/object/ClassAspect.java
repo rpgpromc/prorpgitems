@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.modules.list.classes.object;
 
-import studio.magemonkey.codex.util.StringUT;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.StringUT;
 
 public class ClassAspect {
 

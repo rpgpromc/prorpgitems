@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.bonuses;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.codex.util.StringUT;
@@ -16,9 +19,6 @@ import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
 import studio.magemonkey.fabled.Fabled;
 import studio.magemonkey.fabled.manager.FabledAttribute;
-import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Player;
 
 import java.util.*;
 import java.util.function.Function;

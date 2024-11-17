@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.stats.bonus;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.NumberUT;
@@ -13,7 +14,6 @@ import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 import studio.magemonkey.divinity.stats.items.attributes.*;
 import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.HashMap;

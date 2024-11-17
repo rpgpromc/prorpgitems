@@ -1,5 +1,7 @@
 package studio.magemonkey.divinity.hooks.internal;
 
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.data.api.DivinityUser;
@@ -8,8 +10,6 @@ import studio.magemonkey.divinity.hooks.HookClass;
 import studio.magemonkey.divinity.hooks.HookLevel;
 import studio.magemonkey.divinity.modules.list.classes.ClassManager;
 import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class DivinityHook implements HookLevel, HookClass {
     private Divinity plugin;

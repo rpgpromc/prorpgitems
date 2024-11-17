@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.hooks.external.mimic;
 
-import studio.magemonkey.divinity.api.DivinityAPI;
-import studio.magemonkey.divinity.modules.list.classes.ClassManager;
-import studio.magemonkey.divinity.modules.list.classes.api.RPGClass;
-import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Nullable;
 import ru.endlesscode.mimic.level.ExpLevelConverter;
 import ru.endlesscode.mimic.util.ExistingWeakReference;
+import studio.magemonkey.divinity.api.DivinityAPI;
+import studio.magemonkey.divinity.modules.list.classes.ClassManager;
+import studio.magemonkey.divinity.modules.list.classes.api.RPGClass;
+import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 
 import java.util.Objects;
 

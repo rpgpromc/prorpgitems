@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.hooks.external.mythicmobs;
 
-import studio.magemonkey.codex.hooks.HookState;
-import studio.magemonkey.divinity.Divinity;
 import io.lumine.xikage.mythicmobs.MythicMobs;
 import io.lumine.xikage.mythicmobs.mobs.ActiveMob;
 import org.bukkit.entity.Entity;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.hooks.HookState;
+import studio.magemonkey.divinity.Divinity;
 
 public class MythicMobsHK extends AbstractMythicMobsHK {
 

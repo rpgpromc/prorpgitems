@@ -1,8 +1,5 @@
 package studio.magemonkey.divinity.modules.list.party.compat.quest;
 
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.modules.list.party.PartyManager;
-import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyMember;
 import me.Cutiemango.MangoQuest.Main;
 import me.Cutiemango.MangoQuest.QuestUtil;
 import me.Cutiemango.MangoQuest.data.QuestPlayerData;
@@ -11,6 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.list.party.PartyManager;
+import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyMember;
 
 import java.util.Set;
 

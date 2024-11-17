@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.modules.list.drops.object;
 
-import studio.magemonkey.codex.util.random.Rnd;
-import studio.magemonkey.divinity.config.EngineCfg;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
+import studio.magemonkey.codex.util.random.Rnd;
+import studio.magemonkey.divinity.config.EngineCfg;
 
 public class DropExperience extends DropNonItem {
     private final double chance;

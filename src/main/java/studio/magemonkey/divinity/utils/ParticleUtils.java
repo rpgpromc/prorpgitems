@@ -1,9 +1,5 @@
 package studio.magemonkey.divinity.utils;
 
-import studio.magemonkey.codex.util.EffectUT;
-import studio.magemonkey.codex.util.LocUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.modules.list.essences.EssencesManager.EssenceEffect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -11,6 +7,10 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import studio.magemonkey.codex.util.EffectUT;
+import studio.magemonkey.codex.util.LocUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.list.essences.EssencesManager.EssenceEffect;
 
 public class ParticleUtils {
 
@@ -86,12 +86,12 @@ public class ParticleUtils {
 
     public static void doParticle(final Entity e, final String eff1, final String eff2) {
         new BukkitRunnable() {
-            int i = 1;
-            int k = 0;
-            World localWorld = e.getWorld();
-            double d3 = e.getLocation().getX();
-            double d5 = e.getLocation().getY();
-            double d7 = e.getLocation().getZ();
+            int    i          = 1;
+            int    k          = 0;
+            World  localWorld = e.getWorld();
+            double d3         = e.getLocation().getX();
+            double d5         = e.getLocation().getY();
+            double d7         = e.getLocation().getZ();
 
             @Override
             public void run() {

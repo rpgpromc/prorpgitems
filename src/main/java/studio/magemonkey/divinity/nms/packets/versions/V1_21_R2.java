@@ -24,12 +24,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class V1_21_R2 extends V1_21_R1 {
-    private final Class<?>  playoutUpdateAttributes = Reflex.getClass(PACKET_LOCATION, "PacketPlayOutUpdateAttributes");
-    private final Class<?>  craftServerClass        = Reflex.getCraftClass("CraftServer");
-    private final Class<?>  nmsEntityClass          = Reflex.getClass("net.minecraft.world.entity", "Entity");
-    private final Class<?>  worldServerClass        = Reflex.getClass("net.minecraft.server.level", "WorldServer");
-    private final Method getEntity               = Reflex.getMethod(worldServerClass, "a", int.class);
-    private final Method getServer               = Reflex.getMethod(craftServerClass, "getServer");
+    private final Class<?> playoutUpdateAttributes = Reflex.getClass(PACKET_LOCATION, "PacketPlayOutUpdateAttributes");
+    private final Class<?> craftServerClass        = Reflex.getCraftClass("CraftServer");
+    private final Class<?> nmsEntityClass          = Reflex.getClass("net.minecraft.world.entity", "Entity");
+    private final Class<?> worldServerClass        = Reflex.getClass("net.minecraft.server.level", "WorldServer");
+    private final Method   getEntity               = Reflex.getMethod(worldServerClass, "a", int.class);
+    private final Method   getServer               = Reflex.getMethod(craftServerClass, "getServer");
 
     public V1_21_R2(@NotNull Divinity plugin) {super(plugin);}
 

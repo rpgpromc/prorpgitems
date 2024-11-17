@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.modules.list.classes.object;
 
-import studio.magemonkey.codex.util.AttributeUT;
-import studio.magemonkey.codex.util.StringUT;
 import org.bukkit.attribute.Attribute;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.AttributeUT;
+import studio.magemonkey.codex.util.StringUT;
 
 public enum ClassAttributeType {
 

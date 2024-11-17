@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.hooks.external;
 
 import com.gmail.nossr50.api.ExperienceAPI;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.HookState;
 import studio.magemonkey.codex.hooks.NHook;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.HookLevel;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class McmmoHK extends NHook<Divinity> implements HookLevel {
 

@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.command;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import studio.magemonkey.divinity.modules.command.MCmd;
 import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

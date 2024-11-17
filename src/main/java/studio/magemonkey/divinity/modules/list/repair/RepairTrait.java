@@ -1,6 +1,5 @@
 package studio.magemonkey.divinity.modules.list.repair;
 
-import studio.magemonkey.divinity.api.DivinityAPI;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.citizensnpcs.api.npc.NPC;
 import net.citizensnpcs.api.trait.Trait;
@@ -12,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import studio.magemonkey.divinity.api.DivinityAPI;
 
 @TraitName("repair")
 public class RepairTrait extends Trait {

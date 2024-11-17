@@ -1,5 +1,12 @@
 package studio.magemonkey.divinity.modules.list.runes;
 
+import net.citizensnpcs.api.trait.TraitInfo;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
 import studio.magemonkey.divinity.Divinity;
@@ -10,13 +17,6 @@ import studio.magemonkey.divinity.modules.list.runes.RuneManager.Rune;
 import studio.magemonkey.divinity.modules.list.runes.merchant.MerchantTrait;
 import studio.magemonkey.divinity.stats.EntityStats;
 import studio.magemonkey.divinity.stats.EntityStatsTask;
-import net.citizensnpcs.api.trait.TraitInfo;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Map;
 import java.util.TreeMap;

@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.modules.list.classes.object;
 
-import studio.magemonkey.codex.util.NumberUT;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.util.NumberUT;
 
 public class ClassAttribute {
 

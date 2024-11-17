@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.manager.interactions.api;
 
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Divinity;
 
 public abstract class ICustomInteraction {
 

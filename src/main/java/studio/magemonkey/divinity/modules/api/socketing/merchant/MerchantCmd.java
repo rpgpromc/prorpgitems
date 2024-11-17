@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.api.socketing.merchant;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.PlayerUT;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
 import studio.magemonkey.divinity.modules.command.MCmd;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,13 +1,5 @@
 package studio.magemonkey.divinity.modules.api.socketing.merchant;
 
-import studio.magemonkey.codex.hooks.external.VaultHK;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.NumberUT;
-import studio.magemonkey.divinity.modules.SocketItem;
-import studio.magemonkey.divinity.modules.api.socketing.ISocketGUI;
-import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -16,6 +8,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.hooks.external.VaultHK;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.NumberUT;
+import studio.magemonkey.divinity.modules.SocketItem;
+import studio.magemonkey.divinity.modules.api.socketing.ISocketGUI;
+import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
 
 import java.util.List;
 

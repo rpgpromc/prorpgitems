@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.modules.list.magicdust.event;
 
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
 
 public class PlayerImproveItemSocketRateEvent extends ICancellableEvent {
 

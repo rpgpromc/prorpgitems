@@ -1,6 +1,9 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.testutil.MockedTest;
 

@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.modules.list.party.compat.level;
 
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.party.PartyManager;
 import studio.magemonkey.fabled.Fabled;
 import studio.magemonkey.fabled.api.enums.ExpSource;
 import studio.magemonkey.fabled.api.event.PlayerExperienceGainEvent;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.jetbrains.annotations.NotNull;
 
 public class IPEFabled extends IPartyLevelManager {
 

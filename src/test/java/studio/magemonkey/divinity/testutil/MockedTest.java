@@ -1,8 +1,5 @@
 package studio.magemonkey.divinity.testutil;
 
-import org.mockbukkit.mockbukkit.MockBukkit;
-import org.mockbukkit.mockbukkit.ServerMock;
-import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -12,10 +9,12 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
+import org.mockbukkit.mockbukkit.MockBukkit;
+import org.mockbukkit.mockbukkit.ServerMock;
+import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import org.mockito.MockedStatic;
 import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.mccore.commands.CommandManager;
-import studio.magemonkey.codex.nms.NMS;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.reflection.ReflectionManager;
 import studio.magemonkey.codex.util.reflection.ReflectionUtil;

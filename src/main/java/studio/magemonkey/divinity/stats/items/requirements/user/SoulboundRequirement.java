@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.stats.items.requirements.user;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.ILangMsg;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.list.soulbound.SoulboundManager;
 import studio.magemonkey.divinity.stats.items.ItemTags;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 

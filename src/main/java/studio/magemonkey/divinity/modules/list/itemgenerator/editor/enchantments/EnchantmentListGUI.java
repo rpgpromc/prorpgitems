@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.enchantments;
 
-import studio.magemonkey.codex.manager.api.menu.Slot;
-import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
-import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import studio.magemonkey.codex.manager.api.menu.Slot;
+import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
+import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

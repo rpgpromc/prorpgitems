@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor;
 
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.divinity.config.Config;
 import studio.magemonkey.divinity.stats.tiers.Tier;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 
 public class TierGUI extends AbstractEditorGUI {
 

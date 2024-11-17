@@ -1,6 +1,5 @@
 package studio.magemonkey.divinity.api.event;
 
-import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -10,6 +9,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.modules.api.QModuleDrop;
 
 @Getter
 @RequiredArgsConstructor

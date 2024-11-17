@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.modules.list.party.compat.level;
 
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.party.PartyManager;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.Party;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyExpMode;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyMember;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;
 

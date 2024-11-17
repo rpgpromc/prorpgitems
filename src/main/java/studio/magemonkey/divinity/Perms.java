@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity;
 
-import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
 
 public class Perms {
 

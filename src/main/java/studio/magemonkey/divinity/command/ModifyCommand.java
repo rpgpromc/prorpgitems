@@ -1,12 +1,5 @@
 package studio.magemonkey.divinity.command;
 
-import studio.magemonkey.codex.commands.api.ISubCommand;
-import studio.magemonkey.codex.util.CollectionsUT;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.StringUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.Perms;
-import studio.magemonkey.divinity.utils.ItemUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Color;
 import org.bukkit.NamespacedKey;
@@ -17,6 +10,13 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.commands.api.ISubCommand;
+import studio.magemonkey.codex.util.CollectionsUT;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.Perms;
+import studio.magemonkey.divinity.utils.ItemUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

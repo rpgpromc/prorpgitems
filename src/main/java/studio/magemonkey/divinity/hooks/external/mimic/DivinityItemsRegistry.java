@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.hooks.external.mimic;
 
-import studio.magemonkey.codex.modules.ModuleManager;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.modules.ModuleItem;
-import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.endlesscode.mimic.items.BukkitItemsRegistry;
+import studio.magemonkey.codex.modules.ModuleManager;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.ModuleItem;
+import studio.magemonkey.divinity.modules.api.QModuleDrop;
 
 import java.util.Collection;
 import java.util.Objects;

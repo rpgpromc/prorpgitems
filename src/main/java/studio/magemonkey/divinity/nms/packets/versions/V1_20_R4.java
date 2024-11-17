@@ -18,7 +18,6 @@ import studio.magemonkey.divinity.data.api.DivinityUser;
 import studio.magemonkey.divinity.data.api.UserProfile;
 import studio.magemonkey.divinity.manager.EntityManager;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.UUID;
@@ -152,8 +151,8 @@ public class V1_20_R4 extends V1_20_R3 {
         Class<?> packetParticlesClass = Reflex.getClass(PACKET_LOCATION, "PacketPlayOutWorldParticles");
         Class<?> particleParamClass   = Reflex.getClass("net.minecraft.core.particles", "ParticleParam");
 
-        Class<?> registries            = Reflex.getClass("net.minecraft.core.registries.BuiltInRegistries");
-        Object   particleRegistry      = Reflex.getFieldValue(registries, "j");
+        Class<?> registries       = Reflex.getClass("net.minecraft.core.registries.BuiltInRegistries");
+        Object   particleRegistry = Reflex.getFieldValue(registries, "j");
 
         Object p = packetParticlesClass.cast(packet);
 

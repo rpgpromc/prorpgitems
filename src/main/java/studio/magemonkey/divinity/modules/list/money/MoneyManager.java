@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.modules.list.money;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.commands.list.HelpCommand;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.VaultHK;
@@ -9,7 +10,6 @@ import studio.magemonkey.divinity.modules.EModule;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import studio.magemonkey.divinity.modules.command.MReloadCmd;
-import org.jetbrains.annotations.NotNull;
 
 public class MoneyManager extends QModuleDrop<MoneyManager.QMoney> {
 

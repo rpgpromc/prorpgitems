@@ -1,14 +1,14 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.requirements;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
-import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;

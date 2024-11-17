@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor;
 
-import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.manager.api.menu.Slot;
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+import studio.magemonkey.codex.config.api.JYML;
+import studio.magemonkey.codex.manager.api.menu.Slot;
+import studio.magemonkey.divinity.Divinity;
 
 import java.util.ArrayList;
 import java.util.List;

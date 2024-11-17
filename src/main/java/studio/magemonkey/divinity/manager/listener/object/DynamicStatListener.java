@@ -1,9 +1,5 @@
 package studio.magemonkey.divinity.manager.listener.object;
 
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.stats.items.api.DynamicStat;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,6 +11,10 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.stats.items.api.DynamicStat;
 
 import java.util.ArrayList;
 import java.util.Arrays;

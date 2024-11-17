@@ -1,10 +1,5 @@
 package studio.magemonkey.divinity.hooks.external;
 
-import studio.magemonkey.codex.hooks.HookState;
-import studio.magemonkey.codex.hooks.NHook;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.hooks.HookClass;
-import studio.magemonkey.divinity.hooks.HookLevel;
 import net.pwing.races.api.PwingRacesAPI;
 import net.pwing.races.api.race.Race;
 import net.pwing.races.api.race.RaceData;
@@ -12,6 +7,11 @@ import net.pwing.races.api.race.RaceManager;
 import net.pwing.races.api.race.RacePlayer;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.hooks.HookState;
+import studio.magemonkey.codex.hooks.NHook;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.hooks.HookClass;
+import studio.magemonkey.divinity.hooks.HookLevel;
 
 public class PwingRacesHK extends NHook<Divinity> implements HookClass, HookLevel {
 

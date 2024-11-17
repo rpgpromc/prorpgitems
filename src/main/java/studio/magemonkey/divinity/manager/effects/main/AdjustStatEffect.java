@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.manager.effects.main;
 
 import com.google.common.collect.Sets;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.divinity.manager.effects.IEffectType;
 import studio.magemonkey.divinity.manager.effects.IExpirableEffect;
 import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
 import java.util.HashMap;

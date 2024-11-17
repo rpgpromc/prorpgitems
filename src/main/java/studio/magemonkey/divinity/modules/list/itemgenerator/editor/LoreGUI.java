@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor;
 
-import studio.magemonkey.codex.manager.api.menu.Slot;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import studio.magemonkey.codex.manager.api.menu.Slot;
 
 import java.util.ArrayList;
 import java.util.List;

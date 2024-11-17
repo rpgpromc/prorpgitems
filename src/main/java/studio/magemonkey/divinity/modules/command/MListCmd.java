@@ -1,5 +1,7 @@
 package studio.magemonkey.divinity.modules.command;
 
+import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.modules.IModuleExecutor;
 import studio.magemonkey.codex.util.ClickText;
 import studio.magemonkey.codex.util.CollectionsUT;
@@ -8,8 +10,6 @@ import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
-import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.api;
 
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.party.PartyManager;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.Party;
 import studio.magemonkey.divinity.modules.list.party.PartyManager.PartyMember;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class PartyAPI {
 

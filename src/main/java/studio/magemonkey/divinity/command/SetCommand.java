@@ -1,5 +1,9 @@
 package studio.magemonkey.divinity.command;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.commands.api.ISubCommand;
 import studio.magemonkey.codex.util.CollectionsUT;
 import studio.magemonkey.codex.util.ItemUT;
@@ -16,10 +20,6 @@ import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
 import studio.magemonkey.divinity.stats.items.requirements.user.ClassRequirement;
 import studio.magemonkey.divinity.stats.items.requirements.user.LevelRequirement;
 import studio.magemonkey.divinity.utils.ItemUtils;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;

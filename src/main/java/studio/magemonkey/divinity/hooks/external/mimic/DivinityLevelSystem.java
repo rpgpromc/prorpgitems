@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.hooks.external.mimic;
 
-import studio.magemonkey.divinity.api.DivinityAPI;
-import studio.magemonkey.divinity.modules.list.classes.ClassManager;
-import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import ru.endlesscode.mimic.level.BukkitLevelSystem;
 import ru.endlesscode.mimic.level.ExpLevelConverter;
+import studio.magemonkey.divinity.api.DivinityAPI;
+import studio.magemonkey.divinity.modules.list.classes.ClassManager;
+import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 
 import java.util.Objects;
 

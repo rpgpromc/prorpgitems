@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.stats.tiers;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.stats.items.ItemTags;
-import org.jetbrains.annotations.NotNull;
 
 public class Tier {
 

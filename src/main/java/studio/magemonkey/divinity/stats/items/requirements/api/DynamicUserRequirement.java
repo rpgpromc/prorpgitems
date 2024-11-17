@@ -1,16 +1,16 @@
 package studio.magemonkey.divinity.stats.items.requirements.api;
 
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.StringUT;
-import studio.magemonkey.divinity.config.EngineCfg;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.stats.items.api.DynamicStat;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.divinity.config.EngineCfg;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.stats.items.api.DynamicStat;
 
 import java.util.List;
 

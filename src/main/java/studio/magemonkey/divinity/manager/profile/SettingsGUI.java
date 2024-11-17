@@ -1,5 +1,10 @@
 package studio.magemonkey.divinity.manager.profile;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.ContentType;
 import studio.magemonkey.codex.manager.api.gui.GuiClick;
@@ -9,11 +14,6 @@ import studio.magemonkey.codex.util.CollectionsUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.data.api.DivinityUser;
 import studio.magemonkey.divinity.data.api.UserProfile;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

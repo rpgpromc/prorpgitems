@@ -1,6 +1,15 @@
 package studio.magemonkey.divinity.modules.list.classes;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
+import studio.magemonkey.codex.manager.api.gui.*;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Divinity;
@@ -15,15 +24,6 @@ import studio.magemonkey.divinity.modules.list.classes.object.ClassAttribute;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttributeType;
 import studio.magemonkey.divinity.stats.bonus.BonusMap;
 import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
-import org.bukkit.Material;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.manager.api.gui.*;
 
 import java.util.*;
 import java.util.function.BiFunction;

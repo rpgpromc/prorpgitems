@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.manager.listener;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.manager.api.Loadable;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.HookListener;
@@ -7,8 +8,6 @@ import studio.magemonkey.divinity.manager.listener.object.*;
 import studio.magemonkey.divinity.stats.items.ItemStats;
 import studio.magemonkey.divinity.stats.items.attributes.stats.DurabilityStat;
 import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
-import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.divinity.manager.listener.object.*;
 
 public class ListenerManager implements Loadable {
 

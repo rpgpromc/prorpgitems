@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.items.ItemType;
 import studio.magemonkey.codex.manager.api.Loadable;
 import studio.magemonkey.codex.util.FileUT;
 import studio.magemonkey.divinity.config.Config;
 import studio.magemonkey.divinity.stats.tiers.Tier;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
 import java.io.File;

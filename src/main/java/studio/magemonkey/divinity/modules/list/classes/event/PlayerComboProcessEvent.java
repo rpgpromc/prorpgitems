@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.list.classes.event;
 
-import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboInfo;
-import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboKey;
-import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboInfo;
+import studio.magemonkey.divinity.modules.list.classes.ComboManager.ComboKey;
+import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 
 public class PlayerComboProcessEvent extends PlayerClassEvent implements Cancellable {
 

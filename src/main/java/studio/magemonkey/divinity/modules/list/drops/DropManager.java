@@ -1,22 +1,6 @@
 package studio.magemonkey.divinity.modules.list.drops;
 
 import com.google.common.collect.Sets;
-import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.hooks.Hooks;
-import studio.magemonkey.codex.manager.types.MobGroup;
-import studio.magemonkey.codex.util.actions.ActionManipulator;
-import studio.magemonkey.codex.util.constants.JStrings;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.api.DivinityAPI;
-import studio.magemonkey.divinity.hooks.external.MyPetHK;
-import studio.magemonkey.divinity.hooks.external.mythicmobs.AbstractMythicMobsHK;
-import studio.magemonkey.divinity.modules.EModule;
-import studio.magemonkey.divinity.modules.api.QModule;
-import studio.magemonkey.divinity.modules.list.drops.commands.DropsDropCmd;
-import studio.magemonkey.divinity.modules.list.drops.commands.DropsGiveCmd;
-import studio.magemonkey.divinity.modules.list.drops.object.*;
-import studio.magemonkey.divinity.stats.EntityStats;
-import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -34,6 +18,22 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.config.api.JYML;
+import studio.magemonkey.codex.hooks.Hooks;
+import studio.magemonkey.codex.manager.types.MobGroup;
+import studio.magemonkey.codex.util.actions.ActionManipulator;
+import studio.magemonkey.codex.util.constants.JStrings;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.api.DivinityAPI;
+import studio.magemonkey.divinity.hooks.external.MyPetHK;
+import studio.magemonkey.divinity.hooks.external.mythicmobs.AbstractMythicMobsHK;
+import studio.magemonkey.divinity.modules.EModule;
+import studio.magemonkey.divinity.modules.api.QModule;
+import studio.magemonkey.divinity.modules.list.drops.commands.DropsDropCmd;
+import studio.magemonkey.divinity.modules.list.drops.commands.DropsGiveCmd;
+import studio.magemonkey.divinity.modules.list.drops.object.*;
+import studio.magemonkey.divinity.stats.EntityStats;
+import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -321,8 +321,8 @@ public class DropManager extends QModule {
 //            List<String> dropConditions = dropConfig.getConditions();
 //            if (!ActionManipulator.processConditions(plugin, target, dropConditions, mapTarget)) continue;
 
-            String    itemId    = dropConfig.getItemId();
-            String    tierId    = dropConfig.getTierId();
+            String itemId = dropConfig.getItemId();
+            String tierId = dropConfig.getTierId();
 
             for (int i = 0; i < dropItem.getCount(); i++) {
                 ItemStack dropStack =

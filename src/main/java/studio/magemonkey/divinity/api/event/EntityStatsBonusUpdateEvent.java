@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.api.event;
 
-import studio.magemonkey.divinity.stats.EntityStats;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.stats.EntityStats;
 
 public class EntityStatsBonusUpdateEvent extends Event {
     private static final HandlerList handlers = new HandlerList();

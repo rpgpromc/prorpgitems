@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.command;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.commands.api.ISubCommand;
 import studio.magemonkey.codex.util.PlayerUT;
 import studio.magemonkey.codex.util.TimeUT;
@@ -10,9 +13,6 @@ import studio.magemonkey.divinity.manager.effects.buffs.SavedBuff;
 import studio.magemonkey.divinity.stats.items.ItemStats;
 import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;

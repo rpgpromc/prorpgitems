@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.command;
 
+import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.command.MCmd;
 import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
-import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.InputStreamReader;

@@ -1,7 +1,5 @@
 package studio.magemonkey.divinity.api.event;
 
-import studio.magemonkey.divinity.config.EngineCfg;
-import studio.magemonkey.divinity.stats.ProjectileStats;
 import org.bukkit.Location;
 import org.bukkit.entity.*;
 import org.bukkit.event.Cancellable;
@@ -10,6 +8,8 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.divinity.config.EngineCfg;
+import studio.magemonkey.divinity.stats.ProjectileStats;
 
 public class DivinityProjectileLaunchEvent extends Event implements Cancellable {
     private static final HandlerList  handlers = new HandlerList();

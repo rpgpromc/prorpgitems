@@ -1,12 +1,12 @@
 package studio.magemonkey.divinity.stats.items.requirements;
 
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.divinity.stats.items.requirements.api.ItemRequirement;
-import studio.magemonkey.divinity.stats.items.requirements.api.UserRequirement;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.divinity.stats.items.requirements.api.ItemRequirement;
+import studio.magemonkey.divinity.stats.items.requirements.api.UserRequirement;
 
 import java.util.Collection;
 import java.util.HashMap;

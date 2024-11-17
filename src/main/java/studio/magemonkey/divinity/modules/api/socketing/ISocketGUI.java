@@ -1,6 +1,13 @@
 package studio.magemonkey.divinity.modules.api.socketing;
 
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
+import studio.magemonkey.codex.manager.api.gui.*;
 import studio.magemonkey.codex.util.ClickText;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.random.Rnd;
@@ -10,13 +17,6 @@ import studio.magemonkey.divinity.modules.SocketItem;
 import studio.magemonkey.divinity.modules.api.socketing.merchant.MerchantGUI;
 import studio.magemonkey.divinity.modules.api.socketing.merchant.MerchantSocket;
 import studio.magemonkey.divinity.modules.list.fortify.FortifyManager;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.manager.api.gui.*;
 
 import java.util.function.Function;
 

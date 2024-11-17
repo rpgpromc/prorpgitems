@@ -1,19 +1,19 @@
 package studio.magemonkey.divinity.modules;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
+import studio.magemonkey.divinity.modules.list.gems.GemManager;
 import studio.magemonkey.divinity.stats.bonus.BonusMap;
 import studio.magemonkey.divinity.stats.items.ItemTags;
 import studio.magemonkey.divinity.stats.items.requirements.ItemRequirements;
 import studio.magemonkey.divinity.stats.items.requirements.item.ItemSocketRequirement;
-import org.bukkit.Material;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.divinity.modules.list.gems.GemManager;
 
 public abstract class SocketItem extends RatedItem {
     protected String socketDisplay;

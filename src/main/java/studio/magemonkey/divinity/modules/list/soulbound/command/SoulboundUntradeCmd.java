@@ -1,15 +1,15 @@
 package studio.magemonkey.divinity.modules.list.soulbound.command;
 
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Perms;
 import studio.magemonkey.divinity.modules.command.MCmd;
 import studio.magemonkey.divinity.modules.list.soulbound.SoulboundManager;
 import studio.magemonkey.divinity.stats.items.requirements.user.UntradeableRequirement;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.list.party.command;
 
-import studio.magemonkey.divinity.Perms;
-import studio.magemonkey.divinity.modules.command.MCmd;
-import studio.magemonkey.divinity.modules.list.party.PartyManager;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Perms;
+import studio.magemonkey.divinity.modules.command.MCmd;
+import studio.magemonkey.divinity.modules.list.party.PartyManager;
 
 public class PartyLeaveCmd extends MCmd<PartyManager> {
 

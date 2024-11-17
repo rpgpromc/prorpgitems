@@ -1,5 +1,7 @@
 package studio.magemonkey.divinity.utils;
 
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.items.CodexItemManager;
 import studio.magemonkey.codex.items.ItemType;
 import studio.magemonkey.codex.items.providers.ICodexItemProvider;
@@ -8,8 +10,6 @@ import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import studio.magemonkey.divinity.stats.items.ItemStats;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 

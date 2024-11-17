@@ -2,7 +2,6 @@ package studio.magemonkey.divinity.data.api.serialize;
 
 import com.google.gson.*;
 import studio.magemonkey.codex.util.CollectionsUT;
-import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.DivinityAPI;
 import studio.magemonkey.divinity.data.api.UserEntityNamesMode;
@@ -12,7 +11,6 @@ import studio.magemonkey.divinity.modules.EModule;
 import studio.magemonkey.divinity.modules.list.classes.ClassManager;
 import studio.magemonkey.divinity.modules.list.classes.api.RPGClass;
 import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
-import org.bukkit.inventory.ItemStack;
 
 import java.lang.reflect.Type;
 import java.util.HashSet;

@@ -50,7 +50,8 @@ public class AmmoAttribute extends ItemLoreStat<String> {
         SHULKER_BULLET(ShulkerBullet.class, EntityType.SHULKER_BULLET),
         LLAMA_SPIT(LlamaSpit.class, EntityType.LLAMA_SPIT),
         ENDER_PEARL(EnderPearl.class, EntityType.ENDER_PEARL),
-        EXP_POTION(ThrownExpBottle.class, EntityType.fromName("experience_bottle")), // THROWN_EXP_BOTTLE/EXPERIENCE_BOTTLE
+        EXP_POTION(ThrownExpBottle.class,
+                EntityType.fromName("experience_bottle")), // THROWN_EXP_BOTTLE/EXPERIENCE_BOTTLE
         ;
 
         private Class<? extends Projectile> clazz;

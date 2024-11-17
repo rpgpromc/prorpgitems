@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.modules.list.classes.gui;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.ContentType;
 import studio.magemonkey.codex.manager.api.gui.GuiClick;
@@ -7,9 +10,6 @@ import studio.magemonkey.codex.manager.api.gui.GuiItem;
 import studio.magemonkey.codex.manager.api.gui.NGUI;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.classes.ClassManager;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.jetbrains.annotations.NotNull;
 
 public class ClassPreSelectionGUI extends NGUI<Divinity> {
 

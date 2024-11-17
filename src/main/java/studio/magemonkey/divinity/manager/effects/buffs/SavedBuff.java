@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.manager.effects.buffs;
 
-import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 
 public class SavedBuff {
 

@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.modules.api;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.commands.list.HelpCommand;
 import studio.magemonkey.codex.modules.IModule;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
 import studio.magemonkey.divinity.modules.command.*;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class QModule extends IModule<Divinity> {
 

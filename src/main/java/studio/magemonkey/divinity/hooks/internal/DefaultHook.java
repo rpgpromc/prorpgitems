@@ -1,13 +1,13 @@
 package studio.magemonkey.divinity.hooks.internal;
 
-import studio.magemonkey.divinity.Perms;
-import studio.magemonkey.divinity.hooks.HookClass;
-import studio.magemonkey.divinity.hooks.HookLevel;
-import studio.magemonkey.divinity.hooks.HookMobLevel;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachmentInfo;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Perms;
+import studio.magemonkey.divinity.hooks.HookClass;
+import studio.magemonkey.divinity.hooks.HookLevel;
+import studio.magemonkey.divinity.hooks.HookMobLevel;
 
 public class DefaultHook implements HookLevel, HookClass, HookMobLevel {
     @Override

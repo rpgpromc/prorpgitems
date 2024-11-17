@@ -20,15 +20,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class StatBonus {
-    private static final List<NamespacedKey> VALUE = List.of(
+    private static final List<NamespacedKey> VALUE           = List.of(
             new NamespacedKey(Divinity.getInstance(), "value"),
             Objects.requireNonNull(NamespacedKey.fromString("prorpgitems:value"))
     );
-    private static final List<NamespacedKey> PERCENT = List.of(
+    private static final List<NamespacedKey> PERCENT         = List.of(
             new NamespacedKey(Divinity.getInstance(), "percent"),
             Objects.requireNonNull(NamespacedKey.fromString("prorpgitems:percent"))
     );
-    private static final List<NamespacedKey> EMPTY = List.of(
+    private static final List<NamespacedKey> EMPTY           = List.of(
             new NamespacedKey(Divinity.getInstance(), "empty")
     );
     private static final List<NamespacedKey> CLASS_CONDITION = List.of(

@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.skills;
 
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.AbstractEditorGUI;
 import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
 
 public class MainSkillsGUI extends AbstractEditorGUI {
 

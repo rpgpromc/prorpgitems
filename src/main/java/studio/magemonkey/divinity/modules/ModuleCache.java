@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.modules;
 
+import lombok.Getter;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.arrows.ArrowManager;
 import studio.magemonkey.divinity.modules.list.classes.ClassManager;
@@ -25,9 +28,6 @@ import studio.magemonkey.divinity.modules.list.runes.RuneManager;
 import studio.magemonkey.divinity.modules.list.sell.SellManager;
 import studio.magemonkey.divinity.modules.list.sets.SetManager;
 import studio.magemonkey.divinity.modules.list.soulbound.SoulboundManager;
-import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class ModuleCache {
     private final Divinity plugin;

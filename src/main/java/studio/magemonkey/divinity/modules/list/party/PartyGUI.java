@@ -1,16 +1,16 @@
 package studio.magemonkey.divinity.modules.list.party;
 
-import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.StringUT;
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.*;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.StringUT;
+import studio.magemonkey.divinity.Divinity;
 
 import java.util.ArrayList;
 import java.util.List;

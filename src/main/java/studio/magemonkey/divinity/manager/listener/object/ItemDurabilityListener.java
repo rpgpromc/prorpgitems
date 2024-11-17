@@ -1,13 +1,5 @@
 package studio.magemonkey.divinity.manager.listener.object;
 
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
-import studio.magemonkey.divinity.api.event.DivinityProjectileLaunchEvent;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
-import studio.magemonkey.divinity.stats.items.attributes.stats.DurabilityStat;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
@@ -21,6 +13,14 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
+import studio.magemonkey.divinity.api.event.DivinityProjectileLaunchEvent;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
+import studio.magemonkey.divinity.stats.items.attributes.stats.DurabilityStat;
 
 public class ItemDurabilityListener extends IListener<Divinity> {
 

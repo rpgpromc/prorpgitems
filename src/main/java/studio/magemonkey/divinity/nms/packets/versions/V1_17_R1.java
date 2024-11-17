@@ -1,6 +1,11 @@
 package studio.magemonkey.divinity.nms.packets.versions;
 
 import com.mojang.datafixers.util.Pair;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.nms.packets.IPacketHandler;
@@ -14,11 +19,6 @@ import studio.magemonkey.divinity.data.api.DivinityUser;
 import studio.magemonkey.divinity.data.api.UserEntityNamesMode;
 import studio.magemonkey.divinity.data.api.UserProfile;
 import studio.magemonkey.divinity.manager.EntityManager;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Method;
 import java.util.List;

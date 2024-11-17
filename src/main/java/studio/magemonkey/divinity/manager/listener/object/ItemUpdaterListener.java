@@ -1,10 +1,5 @@
 package studio.magemonkey.divinity.manager.listener.object;
 
-import studio.magemonkey.codex.api.meta.NBTAttribute;
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.codex.util.DataUT;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.stats.items.ItemStats;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
@@ -23,6 +18,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.api.meta.NBTAttribute;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.codex.util.DataUT;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.stats.items.ItemStats;
 
 public class ItemUpdaterListener extends IListener<Divinity> {
 

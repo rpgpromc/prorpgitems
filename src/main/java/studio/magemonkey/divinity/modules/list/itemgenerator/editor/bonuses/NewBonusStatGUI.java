@@ -1,5 +1,8 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.bonuses;
 
+import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.EHook;
@@ -10,9 +13,6 @@ import studio.magemonkey.divinity.stats.items.ItemStats;
 import studio.magemonkey.divinity.stats.items.attributes.*;
 import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
 import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
-import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.HashSet;

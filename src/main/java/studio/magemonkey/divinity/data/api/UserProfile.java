@@ -2,7 +2,8 @@ package studio.magemonkey.divinity.data.api;
 
 import lombok.Getter;
 import lombok.Setter;
-import studio.magemonkey.codex.util.ItemUT;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.divinity.manager.effects.buffs.SavedBuff;
 import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
@@ -10,11 +11,6 @@ import studio.magemonkey.divinity.stats.items.api.ItemLoreStat;
 import studio.magemonkey.divinity.stats.items.attributes.DamageAttribute;
 import studio.magemonkey.divinity.stats.items.attributes.DefenseAttribute;
 import studio.magemonkey.divinity.stats.items.attributes.api.SimpleStat;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.List;

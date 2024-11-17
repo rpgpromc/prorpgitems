@@ -81,12 +81,12 @@ public class ItemHandListener extends IListener<Divinity> {
             plugin.lang().Module_Item_Interact_Error_Hand.send(player);
             e.setCancelled(true);
             e.setResult(Event.Result.DENY);
-           String server = Bukkit.getServer().getName();
-           if (server.contains("Mohist")) {
-               // Mohist is dumb... and doesn't properly reset slots
-               // after the event is cancelled
-               player.getInventory().setItemInOffHand(null);
-           }
+            String server = Bukkit.getServer().getName();
+            if (server.contains("Mohist")) {
+                // Mohist is dumb... and doesn't properly reset slots
+                // after the event is cancelled
+                player.getInventory().setItemInOffHand(null);
+            }
         }
     }
 

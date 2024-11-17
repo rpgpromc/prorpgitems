@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.hooks.external.mimic;
 
-import studio.magemonkey.divinity.Divinity;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.ServicePriority;
 import ru.endlesscode.mimic.MimicApiLevel;
 import ru.endlesscode.mimic.items.BukkitItemsRegistry;
+import studio.magemonkey.divinity.Divinity;
 
 public class MimicHook {
 

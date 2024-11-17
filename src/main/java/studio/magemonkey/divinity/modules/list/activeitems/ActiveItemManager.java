@@ -1,10 +1,10 @@
 package studio.magemonkey.divinity.modules.list.activeitems;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.UsableItem;
 import studio.magemonkey.divinity.modules.api.QModuleUsage;
-import org.jetbrains.annotations.NotNull;
 
 public class ActiveItemManager extends QModuleUsage<ActiveItemManager.ActiveItem> {
     public ActiveItemManager(@NotNull Divinity plugin) {

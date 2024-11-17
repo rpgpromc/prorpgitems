@@ -1,11 +1,10 @@
 package studio.magemonkey.divinity.modules.api.socketing;
 
-import studio.magemonkey.codex.manager.api.gui.JIcon;
-import studio.magemonkey.divinity.stats.items.ItemStats;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.stats.items.ItemStats;
 
 public class UserGUI extends ISocketGUI {
 

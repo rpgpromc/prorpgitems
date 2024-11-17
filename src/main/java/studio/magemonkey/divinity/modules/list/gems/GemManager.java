@@ -1,5 +1,10 @@
 package studio.magemonkey.divinity.modules.list.gems;
 
+import net.citizensnpcs.api.trait.TraitInfo;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
 import studio.magemonkey.codex.util.StringUT;
@@ -10,11 +15,6 @@ import studio.magemonkey.divinity.modules.api.socketing.ModuleSocket;
 import studio.magemonkey.divinity.modules.list.gems.GemManager.Gem;
 import studio.magemonkey.divinity.modules.list.gems.merchant.MerchantTrait;
 import studio.magemonkey.divinity.stats.bonus.BonusMap;
-import net.citizensnpcs.api.trait.TraitInfo;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;

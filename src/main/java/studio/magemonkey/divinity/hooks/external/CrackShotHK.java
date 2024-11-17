@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.hooks.external;
 
-import studio.magemonkey.codex.hooks.HookState;
-import studio.magemonkey.codex.hooks.NHook;
-import studio.magemonkey.divinity.Divinity;
 import com.shampaggon.crackshot.CSDirector;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.hooks.HookState;
+import studio.magemonkey.codex.hooks.NHook;
+import studio.magemonkey.divinity.Divinity;
 
 public class CrackShotHK extends NHook<Divinity> {
 

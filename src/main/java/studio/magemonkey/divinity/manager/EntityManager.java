@@ -1,16 +1,5 @@
 package studio.magemonkey.divinity.manager;
 
-import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.divinity.Divinity;
-import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
-import studio.magemonkey.divinity.api.event.EntityDivinityItemPickupEvent;
-import studio.magemonkey.divinity.api.event.EntityEquipmentChangeEvent;
-import studio.magemonkey.divinity.modules.api.QModuleDrop;
-import studio.magemonkey.divinity.stats.EntityStats;
-import studio.magemonkey.divinity.stats.EntityStatsTask;
-import studio.magemonkey.divinity.stats.ProjectileStats;
-import studio.magemonkey.divinity.stats.items.ItemStats;
-import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
@@ -25,6 +14,17 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.codex.manager.IListener;
+import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
+import studio.magemonkey.divinity.api.event.EntityDivinityItemPickupEvent;
+import studio.magemonkey.divinity.api.event.EntityEquipmentChangeEvent;
+import studio.magemonkey.divinity.modules.api.QModuleDrop;
+import studio.magemonkey.divinity.stats.EntityStats;
+import studio.magemonkey.divinity.stats.EntityStatsTask;
+import studio.magemonkey.divinity.stats.ProjectileStats;
+import studio.magemonkey.divinity.stats.items.ItemStats;
+import studio.magemonkey.divinity.stats.items.attributes.api.TypedStat;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,11 +1,11 @@
 package studio.magemonkey.divinity.hooks.external;
 
 import com.elmakers.mine.bukkit.api.magic.MagicAPI;
+import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.HookState;
 import studio.magemonkey.codex.hooks.NHook;
 import studio.magemonkey.divinity.Divinity;
-import org.bukkit.plugin.Plugin;
-import org.jetbrains.annotations.NotNull;
 
 public class MagicHK extends NHook<Divinity> {
 

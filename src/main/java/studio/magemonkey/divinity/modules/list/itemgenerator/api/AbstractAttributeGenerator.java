@@ -1,8 +1,8 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.api;
 
+import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager.GeneratorItem;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 

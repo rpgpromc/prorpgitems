@@ -5,6 +5,11 @@
 
 package studio.magemonkey.divinity.modules;
 
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
@@ -18,11 +23,6 @@ import studio.magemonkey.divinity.stats.items.requirements.user.ClassRequirement
 import studio.magemonkey.divinity.stats.items.requirements.user.LevelRequirement;
 import studio.magemonkey.divinity.types.QClickType;
 import studio.magemonkey.divinity.utils.LoreUT;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 import java.util.Map.Entry;

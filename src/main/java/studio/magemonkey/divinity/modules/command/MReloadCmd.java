@@ -1,9 +1,9 @@
 package studio.magemonkey.divinity.modules.command;
 
-import studio.magemonkey.divinity.Perms;
-import studio.magemonkey.divinity.modules.api.QModule;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
+import studio.magemonkey.divinity.Perms;
+import studio.magemonkey.divinity.modules.api.QModule;
 
 public class MReloadCmd extends MCmd<QModule> {
 
