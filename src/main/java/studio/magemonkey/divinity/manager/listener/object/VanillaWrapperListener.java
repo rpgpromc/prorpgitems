@@ -283,7 +283,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         if (statsDamager != null && !skillShouldIgnore && !exempt) {
             // Deduct vanilla weapon or hand damage value.
             if (weapon != null && !ItemUT.isAir(weapon)) {
-                double defaultDamage = DamageAttribute.getVanillaDamage(weapon);
+                double defaultDamage = DamageAttribute.getVanillaDamage(weapon) + 1;
                 long countCustomDamage = damages.keySet().stream()
                         .filter(att -> {
                             DamageAttribute def = ItemStats.getDamageByDefault();
