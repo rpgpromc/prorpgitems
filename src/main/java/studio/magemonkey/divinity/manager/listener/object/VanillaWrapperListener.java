@@ -1,6 +1,7 @@
 package studio.magemonkey.divinity.manager.listener.object;
 
 import org.bukkit.Material;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -19,6 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.registry.attribute.AttributeRegistry;
+import studio.magemonkey.codex.util.AttributeUT;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
@@ -283,7 +285,18 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         if (statsDamager != null && !skillShouldIgnore && !exempt) {
             // Deduct vanilla weapon or hand damage value.
             if (weapon != null && !ItemUT.isAir(weapon)) {
-                double defaultDamage = DamageAttribute.getVanillaDamage(weapon) + 1;
+                // If the weapon is a true divinity item, then we need to factor in the damager's attack damage attribute.
+                // If it's not (it's vanilla), then we'll just use the vanilla damage minus one for the damage.
+                double damagerAttackDamage = 0;
+
+                if (Divinity.getInstance().getModuleCache().getTierManager().isItemOfThisModule(weapon)) {
+                    AttributeInstance attackDamageAttribute =
+                            damager.getAttribute(AttributeUT.resolve("ATTACK_DAMAGE"));
+                    damagerAttackDamage =
+                            attackDamageAttribute != null ? attackDamageAttribute.getBaseValue() : 1;
+                }
+
+                double defaultDamage = DamageAttribute.getVanillaDamage(weapon) + damagerAttackDamage;
                 long countCustomDamage = damages.keySet().stream()
                         .filter(att -> {
                             DamageAttribute def = ItemStats.getDamageByDefault();
