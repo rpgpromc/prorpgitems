@@ -247,7 +247,6 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         }
         meta.setWeapon(weapon);
 
-        boolean exempt            = skillApi != null && damager != null && skillApi.isExempt(damager);
         boolean skillShouldIgnore = skillApi != null && damager != null && skillApi.ignoreDivinity(damager);
 
         // +----------------------------------------------------+
@@ -261,7 +260,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         final Map<DefenseAttribute, Double> defenses = new HashMap<>();
 
         // Pre-cache damager damage types.
-        if (statsDamager != null && !skillShouldIgnore && isFullDamage && !exempt) {
+        if (statsDamager != null && !skillShouldIgnore && isFullDamage) {
             damages.putAll(statsDamager.getDamageTypes(false));
         }
         if (damages.isEmpty()) {
@@ -282,7 +281,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         // | that is added to the default hand/weapon damage by |
         // | AttributeModifiers and such other things.          |
         // +----------------------------------------------------+
-        if (statsDamager != null && !skillShouldIgnore && !exempt) {
+        if (statsDamager != null && !skillShouldIgnore) {
             // Deduct vanilla weapon or hand damage value.
             if (weapon != null && !ItemUT.isAir(weapon)) {
                 // If the weapon is a true divinity item, then we need to factor in the damager's attack damage attribute.
@@ -332,7 +331,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
 
         DivinityDamageEvent.Start eventStart =
                 new DivinityDamageEvent.Start(victim, damager, projectile, damages, defenses,
-                        stats, e, meta, exempt);
+                        stats, e, meta, skillShouldIgnore);
         plugin.getPluginManager().callEvent(eventStart);
         if (eventStart.isCancelled() || e.isCancelled()) {
 //            Divinity.getInstance().info("Damage event was cancelled.");

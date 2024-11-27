@@ -133,15 +133,12 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
         data.setMana(Math.max(0, cur - amount));
     }
 
-    private final List<UUID> exempt          = new ArrayList<>();
     private final List<UUID> divinityIgnored = new ArrayList<>();
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void skillDamage(SkillDamageEvent event) {
         LivingEntity player = event.getDamager();
 
-        if (event.isKnockback())
-            exempt.add(player.getUniqueId());
         if (event.isIgnoreDivinity())
             divinityIgnored.add(player.getUniqueId());
     }
@@ -151,12 +148,7 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
         if (!(event.getDamager() instanceof LivingEntity))
             return;
 
-        exempt.remove(event.getDamager().getUniqueId());
         divinityIgnored.remove(event.getDamager().getUniqueId());
-    }
-
-    public boolean isExempt(LivingEntity player) {
-        return exempt.contains(player.getUniqueId());
     }
 
     public void ignoreDivinity(LivingEntity player, boolean ignore) {
