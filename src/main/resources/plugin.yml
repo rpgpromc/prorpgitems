@@ -3,7 +3,7 @@ version: ${project.version}
 name: ${project.name}
 authors: [ Travja, Sentropic, goflish ]
 description: The most advanced, customizable and configurable RPG-Core plugin!
-libraries: [ org.apache.commons:commons-lang3:${apache.version} ]
+libraries: [ com.mysql:mysql-connector-j:${mysql.version}, org.apache.commons:commons-lang3:${apache.version} ]
 depend: [ CodexCore ]
 loadafter: [ Magic, Fabled ]
 provides: [ ProRPGItems, QuantumRPG ]

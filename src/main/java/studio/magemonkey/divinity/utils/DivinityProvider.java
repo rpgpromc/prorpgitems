@@ -2,9 +2,9 @@ package studio.magemonkey.divinity.utils;
 
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.items.CodexItemManager;
-import studio.magemonkey.codex.items.ItemType;
-import studio.magemonkey.codex.items.providers.ICodexItemProvider;
+import studio.magemonkey.codex.api.items.ItemType;
+import studio.magemonkey.codex.api.items.PrefixHelper;
+import studio.magemonkey.codex.api.items.providers.ICodexItemProvider;
 import studio.magemonkey.codex.modules.IModule;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.ModuleItem;
@@ -35,7 +35,7 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
     public DivinityItemType getItem(String id) {
         if (id == null || id.isBlank()) return null;
 
-        id = CodexItemManager.stripPrefix(NAMESPACE, id);
+        id = PrefixHelper.stripPrefix(NAMESPACE, id);
 
         String[] split = id.split(":", 2);
         if (split.length == 2) { // Module name
@@ -72,7 +72,7 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
 
     @Override
     public boolean isCustomItemOfId(ItemStack item, String id) {
-        id = CodexItemManager.stripPrefix(NAMESPACE, id);
+        id = PrefixHelper.stripPrefix(NAMESPACE, id);
 
         String itemId = ItemStats.getId(item);
         return itemId != null && itemId.equals(id);

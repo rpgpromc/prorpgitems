@@ -9,6 +9,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.api.NMSProvider;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.StringUT;
@@ -153,11 +154,11 @@ public class DefenseAttribute extends DuplicableItemLoreStat<StatBonus> implemen
     }
 
     public static double getVanillaArmor(@NotNull ItemStack item) {
-        return Divinity.getInstance().getPMS().getDefaultArmor(item);
+        return NMSProvider.getNms().getDefaultArmor(item);
     }
 
     public static double getVanillaToughness(@NotNull ItemStack item) {
-        return Divinity.getInstance().getPMS().getDefaultToughness(item);
+        return NMSProvider.getNms().getDefaultToughness(item);
     }
 
     public boolean isDefault() {

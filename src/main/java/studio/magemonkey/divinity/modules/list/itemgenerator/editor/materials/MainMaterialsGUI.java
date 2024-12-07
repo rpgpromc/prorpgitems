@@ -4,10 +4,10 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import studio.magemonkey.codex.CodexEngine;
-import studio.magemonkey.codex.items.exception.CodexItemException;
-import studio.magemonkey.codex.items.exception.MissingItemException;
-import studio.magemonkey.codex.items.exception.MissingProviderException;
-import studio.magemonkey.codex.items.providers.VanillaProvider;
+import studio.magemonkey.codex.api.items.exception.CodexItemException;
+import studio.magemonkey.codex.api.items.exception.MissingItemException;
+import studio.magemonkey.codex.api.items.exception.MissingProviderException;
+import studio.magemonkey.codex.api.items.providers.VanillaProvider;
 import studio.magemonkey.codex.manager.api.menu.Slot;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.constants.JStrings;
@@ -98,7 +98,7 @@ public class MainMaterialsGUI extends AbstractEditorGUI {
             }
 
             // If not found, find first thing that matches
-            for (studio.magemonkey.codex.items.ItemType material : Config.getAllRegisteredMaterials()) {
+            for (studio.magemonkey.codex.api.items.ItemType material : Config.getAllRegisteredMaterials()) {
                 String materialName = material.getNamespacedID().toUpperCase();
                 if (split[0].isEmpty() && materialName.endsWith(split[1])
                         || split[1].isEmpty() && materialName.startsWith(split[0])) return material.create();

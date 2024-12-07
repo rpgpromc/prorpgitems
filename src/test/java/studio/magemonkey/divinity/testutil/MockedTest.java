@@ -3,7 +3,6 @@ package studio.magemonkey.divinity.testutil;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -14,10 +13,10 @@ import org.mockbukkit.mockbukkit.ServerMock;
 import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import org.mockito.MockedStatic;
 import studio.magemonkey.codex.CodexEngine;
+import studio.magemonkey.codex.api.NMS;
+import studio.magemonkey.codex.api.NMSProvider;
 import studio.magemonkey.codex.mccore.commands.CommandManager;
 import studio.magemonkey.codex.util.ItemUT;
-import studio.magemonkey.codex.util.reflection.ReflectionManager;
-import studio.magemonkey.codex.util.reflection.ReflectionUtil;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.fabled.api.player.PlayerData;
 
@@ -33,14 +32,12 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class MockedTest {
-    protected ServerMock                      server;
-    protected CodexEngine                     engine;
-    protected Divinity                        plugin;
-    protected List<PlayerMock>                players          = new ArrayList<>();
-    protected Map<UUID, PlayerData>           activePlayerData = new HashMap<>();
-    protected MockedStatic<ReflectionManager> reflectionManager;
-    protected ReflectionUtil                  reflectionUtil;
-    protected MockedStatic<CodexEngine>       codexEngine;
+    protected ServerMock                server;
+    protected CodexEngine               engine;
+    protected Divinity                  plugin;
+    protected List<PlayerMock>          players          = new ArrayList<>();
+    protected Map<UUID, PlayerData>     activePlayerData = new HashMap<>();
+    protected MockedStatic<CodexEngine> codexEngine;
 
     @BeforeAll
     public void setupServer() {
@@ -61,27 +58,11 @@ public abstract class MockedTest {
             throw new RuntimeException(e);
         }
 
-        reflectionUtil = mock(ReflectionUtil.class);
-        reflectionManager = mockStatic(ReflectionManager.class);
-        reflectionManager.when(ReflectionManager::getReflectionUtil)
-                .thenReturn(reflectionUtil);
-        when(reflectionUtil.fixColors(anyString()))
-                .thenAnswer(args -> args.getArgument(0));
-        when(reflectionUtil.getDefaultDamage(any(ItemStack.class)))
-                .thenAnswer(args -> {
-                    switch (((ItemStack) args.getArgument(0)).getType()) {
-                        case DIAMOND_SWORD:
-                            return 7.0;
-                        case IRON_SWORD:
-                            return 6.0;
-                        case WOODEN_SWORD:
-                            return 4.0;
-                        case TRIDENT:
-                            return 9.0;
-                        default:
-                            return 1.0;
-                    }
-                });
+        NMS nms = mock(NMS.class);
+        when(nms.getVersion()).thenReturn("test");
+        when(nms.fixColors(anyString())).thenAnswer(ans -> ans.getArgument(0));
+
+        NMSProvider.setNms(nms);
 
         engine = MockBukkit.load(CodexEngine.class);
         codexEngine = mockStatic(CodexEngine.class);
@@ -99,7 +80,6 @@ public abstract class MockedTest {
         plugin.disable();
         CommandManager.unregisterAll();
         MockBukkit.unmock();
-        reflectionManager.close();
         if (codexEngine != null) codexEngine.close();
     }
 
@@ -169,7 +149,6 @@ public abstract class MockedTest {
         }
     }
 
-    @NotNull
     private void addFile(FileInputStream f, String sd, ZipOutputStream out) throws IOException {
         byte            data[] = new byte[BUFFER];
         FileInputStream fi     = f;

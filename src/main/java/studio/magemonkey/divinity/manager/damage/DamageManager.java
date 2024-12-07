@@ -22,8 +22,8 @@ import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.api.items.PrefixHelper;
 import studio.magemonkey.codex.hooks.Hooks;
-import studio.magemonkey.codex.items.CodexItemManager;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.registry.damage.DamageTypeProvider;
 import studio.magemonkey.codex.util.LocUT;
@@ -521,7 +521,7 @@ public class DamageManager extends IListener<Divinity> implements DamageTypeProv
                               String damageType,
                               @Nullable LivingEntity damager) {
         DamageAttribute damageAttribute =
-                ItemStats.getDamageById(CodexItemManager.stripPrefix(getNamespace(), damageType));
+                ItemStats.getDamageById(PrefixHelper.stripPrefix(getNamespace(), damageType));
         if (damageAttribute == null) return false;
         final boolean[] success = {false};
         Listener listener = new Listener() {

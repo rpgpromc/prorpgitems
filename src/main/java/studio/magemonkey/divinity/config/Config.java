@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.IConfigTemplate;
 import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.items.ItemType;
+import studio.magemonkey.codex.api.items.ItemType;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.actions.ActionManipulator;
 import studio.magemonkey.codex.util.constants.JStrings;

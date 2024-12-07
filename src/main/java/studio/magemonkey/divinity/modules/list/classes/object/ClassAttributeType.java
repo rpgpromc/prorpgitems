@@ -2,11 +2,10 @@ package studio.magemonkey.divinity.modules.list.classes.object;
 
 import org.bukkit.attribute.Attribute;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.util.AttributeUT;
+import studio.magemonkey.codex.api.NMSProvider;
 import studio.magemonkey.codex.util.StringUT;
 
 public enum ClassAttributeType {
-
     ARMOR(0D),
     ARMOR_TOUGHNESS(0D),
     ATTACK_DAMAGE(1D),
@@ -22,8 +21,8 @@ public enum ClassAttributeType {
     private String    name;
     private double    defValue;
 
-    private ClassAttributeType(double def) {
-        this.att = AttributeUT.resolve(this.name());
+    ClassAttributeType(double def) {
+        this.att = NMSProvider.getNms().getAttribute(this.name());
         this.name = this.name();
         this.defValue = def;
     }
