@@ -583,7 +583,7 @@ public class ComboManager extends IListener<Divinity> implements Loadable {
         }
 
         @Override
-        protected void onCreate(Player player, Inventory inv, int page) {
+        protected void onCreate(@NotNull Player player, @NotNull Inventory inv, int page) {
             // Show current skill combo
             int count = 0;
             for (ComboKey key : this.data.getCombo()) {

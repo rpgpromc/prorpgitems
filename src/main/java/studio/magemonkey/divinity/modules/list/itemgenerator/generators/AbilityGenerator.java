@@ -5,7 +5,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.manager.types.ClickType;
+import studio.magemonkey.codex.manager.api.ClickType;
 import studio.magemonkey.codex.util.DataUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.random.Rnd;

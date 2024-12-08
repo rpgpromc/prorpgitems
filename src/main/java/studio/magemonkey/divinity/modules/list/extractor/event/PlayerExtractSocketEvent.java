@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.codex.api.events.ICancellableEvent;
 import studio.magemonkey.divinity.stats.items.attributes.SocketAttribute;
 
 import java.util.List;

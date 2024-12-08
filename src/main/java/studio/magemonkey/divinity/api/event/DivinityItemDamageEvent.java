@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.ItemStack;
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.codex.api.events.ICancellableEvent;
 
 @Getter
 @RequiredArgsConstructor

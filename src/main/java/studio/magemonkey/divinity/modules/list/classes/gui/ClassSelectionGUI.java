@@ -19,10 +19,10 @@ import java.util.List;
 
 public class ClassSelectionGUI extends NGUI<Divinity> {
 
-    private ClassManager classManager;
-    private boolean      allowClose;
-    private int[]        objSlots;
-    private boolean      isMainSelector;
+    private final ClassManager classManager;
+    private final boolean      allowClose;
+    private final int[]        objSlots;
+    private final boolean      isMainSelector;
 
     public ClassSelectionGUI(@NotNull ClassManager classManager,
                              @NotNull JYML cfg,

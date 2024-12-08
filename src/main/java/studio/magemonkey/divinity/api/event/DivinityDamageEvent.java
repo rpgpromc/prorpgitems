@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.codex.api.events.ICancellableEvent;
 import studio.magemonkey.divinity.manager.damage.DamageMeta;
 import studio.magemonkey.divinity.modules.list.arrows.ArrowManager.QArrow;
 import studio.magemonkey.divinity.stats.EntityStats;

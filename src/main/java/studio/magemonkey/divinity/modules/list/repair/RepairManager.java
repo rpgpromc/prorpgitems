@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.VaultHK;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
-import studio.magemonkey.codex.manager.types.ClickType;
+import studio.magemonkey.codex.manager.api.ClickType;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.PlayerUT;
 import studio.magemonkey.codex.util.StringUT;

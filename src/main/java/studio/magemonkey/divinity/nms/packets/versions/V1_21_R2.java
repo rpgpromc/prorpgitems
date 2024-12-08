@@ -12,7 +12,7 @@ import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.hooks.Hooks;
-import studio.magemonkey.codex.nms.packets.events.EnginePlayerPacketEvent;
+import studio.magemonkey.codex.api.events.EnginePlayerPacketEvent;
 import studio.magemonkey.codex.util.Reflex;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.event.EntityEquipmentChangeEvent;
