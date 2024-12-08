@@ -3,7 +3,6 @@ package studio.magemonkey.divinity.testutil;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,7 +13,7 @@ import org.mockbukkit.mockbukkit.entity.PlayerMock;
 import org.mockito.MockedStatic;
 import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.api.NMS;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.mccore.commands.CommandManager;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
@@ -62,7 +61,7 @@ public abstract class MockedTest {
         when(nms.getVersion()).thenReturn("test");
         when(nms.fixColors(anyString())).thenAnswer(ans -> ans.getArgument(0));
 
-        NMSProvider.setNms(nms);
+        VersionManager.setNms(nms);
 
         engine = MockBukkit.load(CodexEngine.class);
         codexEngine = mockStatic(CodexEngine.class);

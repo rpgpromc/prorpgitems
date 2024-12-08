@@ -17,7 +17,7 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.projectiles.ProjectileSource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.api.meta.NBTAttribute;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.util.EntityUT;
@@ -175,7 +175,7 @@ public class EntityStats {
     }
 
     public static double getEntityMaxHealth(@NotNull LivingEntity entity) {
-        AttributeInstance ai = entity.getAttribute(NMSProvider.getNms().getAttribute("MAX_HEALTH"));
+        AttributeInstance ai = entity.getAttribute(VersionManager.getNms().getAttribute("MAX_HEALTH"));
         if (ai == null) return 0;
 
         return ai.getValue();
@@ -727,7 +727,7 @@ public class EntityStats {
             }
             bonuses.addAll(this.getBonuses(dt));
             if (dt.isDefault()) {
-                AttributeInstance attribute = entity.getAttribute(NMSProvider.getNms().getAttribute("ARMOR"));
+                AttributeInstance attribute = entity.getAttribute(VersionManager.getNms().getAttribute("ARMOR"));
                 if (attribute != null) {
                     bonuses.add((isPercent, input) -> isPercent ? input : input + attribute.getBaseValue());
                 }
@@ -780,7 +780,7 @@ public class EntityStats {
         bonuses.addAll(this.getBonuses(stat));
 
         if (type == TypedStat.Type.ARMOR_TOUGHNESS) {
-            AttributeInstance attribute = entity.getAttribute(NMSProvider.getNms().getAttribute("ARMOR_TOUGHNESS"));
+            AttributeInstance attribute = entity.getAttribute(VersionManager.getNms().getAttribute("ARMOR_TOUGHNESS"));
             if (attribute != null) {
                 bonuses.add((isPercent, input) -> isPercent ? input : input + attribute.getValue());
             }

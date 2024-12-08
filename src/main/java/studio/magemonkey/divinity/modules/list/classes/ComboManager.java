@@ -17,7 +17,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.manager.api.Loadable;
@@ -285,7 +285,7 @@ public class ComboManager extends IListener<Divinity> implements Loadable {
     public void playAttackAnim(@NotNull Player player, boolean main) {
         int animId = main ? 0 : 3;
         this.stopCombo(player);
-        NMSProvider.getNms().sendAttackPacket(player, animId);
+        VersionManager.getNms().sendAttackPacket(player, animId);
     }
 
     public void stopCombo(@NotNull Player p) {

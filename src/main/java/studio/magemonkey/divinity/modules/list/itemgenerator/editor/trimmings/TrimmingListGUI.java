@@ -1,5 +1,7 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator.editor.trimmings;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
@@ -18,7 +20,6 @@ import studio.magemonkey.divinity.modules.list.itemgenerator.editor.EditorGUI;
 import java.util.*;
 
 public class TrimmingListGUI extends AbstractEditorGUI {
-
     public TrimmingListGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
@@ -94,6 +95,7 @@ public class TrimmingListGUI extends AbstractEditorGUI {
                 }
             }
         }
+
         if (next == null) {
             ArmorTrim armorTrim = new ArmorTrim(null, null);
             if (!map.containsKey(armorTrim)) {
@@ -254,28 +256,14 @@ public class TrimmingListGUI extends AbstractEditorGUI {
         }
     }
 
+    @Getter
+    @Setter
     public static class TrimmingEntry {
         private ArmorTrim armorTrim;
         private double    weight;
 
         public TrimmingEntry(ArmorTrim armorTrim, double weight) {
             this.armorTrim = armorTrim;
-            this.weight = weight;
-        }
-
-        public ArmorTrim getArmorTrim() {
-            return armorTrim;
-        }
-
-        public void setArmorTrim(ArmorTrim armorTrim) {
-            this.armorTrim = armorTrim;
-        }
-
-        public double getWeight() {
-            return weight;
-        }
-
-        public void setWeight(double weight) {
             this.weight = weight;
         }
     }

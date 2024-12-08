@@ -17,7 +17,7 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.registry.attribute.AttributeRegistry;
@@ -290,7 +290,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
 
                 if (Divinity.getInstance().getModuleCache().getTierManager().isItemOfThisModule(weapon)) {
                     AttributeInstance attackDamageAttribute =
-                            damager.getAttribute(NMSProvider.getNms().getAttribute("ATTACK_DAMAGE"));
+                            damager.getAttribute(VersionManager.getNms().getAttribute("ATTACK_DAMAGE"));
                     damagerAttackDamage =
                             attackDamageAttribute != null ? attackDamageAttribute.getBaseValue() : 1;
                 }

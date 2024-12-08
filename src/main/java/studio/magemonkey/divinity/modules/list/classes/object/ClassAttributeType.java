@@ -2,7 +2,7 @@ package studio.magemonkey.divinity.modules.list.classes.object;
 
 import org.bukkit.attribute.Attribute;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.util.StringUT;
 
 public enum ClassAttributeType {
@@ -22,7 +22,7 @@ public enum ClassAttributeType {
     private double    defValue;
 
     ClassAttributeType(double def) {
-        this.att = NMSProvider.getNms().getAttribute(this.name());
+        this.att = VersionManager.getNms().getAttribute(this.name());
         this.name = this.name();
         this.defValue = def;
     }

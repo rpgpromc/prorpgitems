@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.CodexEngine;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.nms.packets.events.EnginePlayerPacketEvent;
 import studio.magemonkey.codex.util.Reflex;
@@ -142,7 +142,7 @@ public class V1_20_R2 extends V1_20_R1 {
             if (profile.isHideHelmet()) {
                 ItemStack air = new ItemStack(Material.AIR);
                 slots.remove(helmet);
-                slots.add(new Pair<>(helmet.getFirst(), NMSProvider.getNms().getNMSCopy(air)));
+                slots.add(new Pair<>(helmet.getFirst(), VersionManager.getNms().getNMSCopy(air)));
             }
         });
     }

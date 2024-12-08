@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.api.NMSProvider;
+import studio.magemonkey.codex.api.VersionManager;
 import studio.magemonkey.codex.api.meta.NBTAttribute;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.modules.IModule;
@@ -320,8 +320,8 @@ public class ItemStats {
         // For 1.20.4+, the HIDE_ATTRIBUTES flag doesn't work unless an attribute has been added that's not the default.
         // Note: This only applies to Paper and its forks.
         if (Version.CURRENT.isAtLeast(Version.V1_20_R4)) {
-            im.addAttributeModifier(NMSProvider.getNms().getAttribute("ATTACK_SPEED"),
-                    new AttributeModifier(NMSProvider.getNms().getAttribute("ATTACK_SPEED").getKey().getKey(),
+            im.addAttributeModifier(VersionManager.getNms().getAttribute("ATTACK_SPEED"),
+                    new AttributeModifier(VersionManager.getNms().getAttribute("ATTACK_SPEED").getKey().getKey(),
                             0,
                             Operation.ADD_NUMBER));
         }
