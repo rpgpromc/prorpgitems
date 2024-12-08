@@ -3,6 +3,7 @@ package studio.magemonkey.divinity.testutil;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
+import org.bukkit.inventory.Inventory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +16,7 @@ import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.compat.NMS;
 import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.mccore.commands.CommandManager;
+import studio.magemonkey.codex.util.InventoryUtil;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.fabled.api.player.PlayerData;
@@ -31,12 +33,13 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class MockedTest {
-    protected ServerMock                server;
-    protected CodexEngine               engine;
-    protected Divinity                  plugin;
-    protected List<PlayerMock>          players          = new ArrayList<>();
-    protected Map<UUID, PlayerData>     activePlayerData = new HashMap<>();
-    protected MockedStatic<CodexEngine> codexEngine;
+    protected ServerMock                  server;
+    protected CodexEngine                 engine;
+    protected Divinity                    plugin;
+    protected List<PlayerMock>            players          = new ArrayList<>();
+    protected Map<UUID, PlayerData>       activePlayerData = new HashMap<>();
+    protected MockedStatic<CodexEngine>   codexEngine;
+    protected MockedStatic<InventoryUtil> inventoryUtil;
 
     @BeforeAll
     public void setupServer() {
@@ -56,6 +59,18 @@ public abstract class MockedTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        inventoryUtil = mockStatic(InventoryUtil.class);
+        inventoryUtil.when(() -> InventoryUtil.getTopInventory(any(Player.class)))
+                .thenAnswer(ans -> {
+                    Player    player = ((Player) ans.getArgument(0));
+                    Inventory inv    = player.getOpenInventory().getTopInventory();
+                    //noinspection ConstantValue
+                    if (inv != null) return inv;
+
+                    // It shouldn't be possible to have a null topInventory, but is for MockBukkit
+                    return player.getInventory();
+                });
 
         NMS nms = mock(NMS.class);
         when(nms.getVersion()).thenReturn("test");
@@ -80,6 +95,7 @@ public abstract class MockedTest {
         CommandManager.unregisterAll();
         MockBukkit.unmock();
         if (codexEngine != null) codexEngine.close();
+        if (inventoryUtil != null) inventoryUtil.close();
     }
 
     @AfterEach
