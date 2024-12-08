@@ -2,7 +2,7 @@ package studio.magemonkey.divinity.modules.list.classes.object;
 
 import org.bukkit.attribute.Attribute;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.api.VersionManager;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.util.StringUT;
 
 public enum ClassAttributeType {

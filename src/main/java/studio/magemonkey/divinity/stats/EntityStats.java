@@ -17,7 +17,8 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.projectiles.ProjectileSource;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.api.VersionManager;
+import studio.magemonkey.codex.compat.Compat;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.api.meta.NBTAttribute;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.util.EntityUT;
@@ -61,9 +62,7 @@ import java.util.stream.Collectors;
 import static org.bukkit.attribute.AttributeModifier.Operation;
 
 public class EntityStats {
-
     private static final Map<String, EntityStats> STATS;
-    private static final UUID                     ATTRIBUTE_BONUS_UUID;
     private static final SimpleStat.Type[]        ATTRIBUTE_BONUS_STATS;
     private static final NBTAttribute[]           ATTRIBUTE_BONUS_NBT;
     private static final double                   DEFAULT_ATTACK_POWER = 1D;
@@ -71,7 +70,6 @@ public class EntityStats {
     static {
         STATS = Collections.synchronizedMap(new HashMap<>());
 
-        ATTRIBUTE_BONUS_UUID = UUID.fromString("11f1173c-6666-4444-8888-02cb0285f9c1");
         ATTRIBUTE_BONUS_STATS = new SimpleStat.Type[]{
                 TypedStat.Type.MAX_HEALTH,
                 TypedStat.Type.ATTACK_SPEED,
@@ -519,12 +517,7 @@ public class EntityStats {
                         try {
                             uuid = mod.getUniqueId();
                         } catch (Exception e) {
-                            String attKey;
-                            try {
-                                attKey = mod.getKey().toString();
-                            } catch (NoSuchMethodError ignored) {
-                                attKey = mod.getName();
-                            }
+                            String attKey = VersionManager.getCompat().getAttributeKey(mod);
                             try {
                                 uuid = UUID.fromString(attKey.replace("minecraft:", ""));
                             } catch (Exception ignored) {
@@ -532,7 +525,7 @@ public class EntityStats {
                             }
                         }
 
-                        return uuid.equals(ATTRIBUTE_BONUS_UUID);
+                        return uuid.equals(Compat.ATTRIBUTE_BONUS_UUID);
                     })
                     .collect(Collectors.toList())
                     .forEach(attr::removeModifier);
@@ -598,12 +591,7 @@ public class EntityStats {
             try {
                 uuid = attMod.getUniqueId();
             } catch (Exception e) {
-                String attKey;
-                try {
-                    attKey = attMod.getKey().toString();
-                } catch (NoSuchMethodError ignored) {
-                    attKey = attMod.getName();
-                }
+                String attKey = VersionManager.getCompat().getAttributeKey(attMod);
 
                 try {
                     uuid = UUID.fromString(attKey.replace("minecraft:", ""));
@@ -612,7 +600,7 @@ public class EntityStats {
                 }
             }
 
-            if (uuid.equals(ATTRIBUTE_BONUS_UUID)) {
+            if (uuid.equals(Compat.ATTRIBUTE_BONUS_UUID)) {
                 if (attMod.getAmount() == value) {
                     return;
                 }
@@ -623,12 +611,7 @@ public class EntityStats {
 
         if (value == 0D) return;
 
-        AttributeModifier am;
-        try {
-            am = new AttributeModifier(att.getAttribute().getKey(), value, Operation.ADD_NUMBER, null);
-        } catch (Exception | Error ignored) {
-            am = new AttributeModifier(ATTRIBUTE_BONUS_UUID, att.getNmsName(), value, Operation.ADD_NUMBER);
-        }
+        AttributeModifier am = VersionManager.getCompat().createAttributeModifier(att, value, Operation.ADD_NUMBER);
         attInst.addModifier(am);
     }
 

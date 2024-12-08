@@ -16,7 +16,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.CodexEngine;
-import studio.magemonkey.codex.api.VersionManager;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.api.items.ItemType;
 import studio.magemonkey.codex.api.items.exception.MissingItemException;
 import studio.magemonkey.codex.api.items.exception.MissingProviderException;
