@@ -33,7 +33,6 @@ import studio.magemonkey.divinity.manager.listener.ListenerManager;
 import studio.magemonkey.divinity.manager.profile.ProfileManager;
 import studio.magemonkey.divinity.manager.worth.WorthManager;
 import studio.magemonkey.divinity.modules.ModuleCache;
-import studio.magemonkey.divinity.nms.engine.PMS;
 import studio.magemonkey.divinity.nms.engine.PMSManager;
 import studio.magemonkey.divinity.stats.EntityStats;
 import studio.magemonkey.divinity.stats.items.ItemStats;
@@ -53,7 +52,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Divinity 
+ * Divinity
+ *
  * @author ©2024 MageMonkeyStudio
  */
 public class Divinity extends CodexDataPlugin<Divinity, DivinityUser> {
@@ -118,11 +118,9 @@ public class Divinity extends CodexDataPlugin<Divinity, DivinityUser> {
 
         }
 
-        if (this.pms.get() == null || !minCoreVersionMet) {
-            if (!minCoreVersionMet) {
-                warn("Missing required Codex version. " + coreVersion + " installed. "
-                        + DependencyRequirement.MIN_CORE_VERSION + " required. Disabling.");
-            }
+        if (!minCoreVersionMet) {
+            warn("Missing required Codex version. " + coreVersion + " installed. "
+                    + DependencyRequirement.MIN_CORE_VERSION + " required. Disabling.");
             this.getPluginManager().disablePlugin(this);
             return;
         }
@@ -301,11 +299,6 @@ public class Divinity extends CodexDataPlugin<Divinity, DivinityUser> {
         this.getActionsManager().registerExecutor(new ActionParticleLine(this));
         this.getActionsManager().registerExecutor(new ActionParticlePulse(this));
         this.getActionsManager().registerExecutor(new ActionTakeMana(this));
-    }
-
-    @NotNull
-    public PMS getPMS() {
-        return this.pms.get();
     }
 
     @NotNull

@@ -3,7 +3,7 @@ package studio.magemonkey.divinity.config;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.config.api.ILangMsg;
 import studio.magemonkey.codex.core.config.CoreLang;
-import studio.magemonkey.codex.manager.types.ClickType;
+import studio.magemonkey.codex.manager.api.ClickType;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.data.api.UserEntityNamesMode;
 import studio.magemonkey.divinity.modules.list.classes.object.ClassAttributeType;

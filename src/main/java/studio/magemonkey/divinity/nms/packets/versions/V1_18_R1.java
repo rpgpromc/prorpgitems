@@ -9,10 +9,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.CodexEngine;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.nms.packets.IPacketHandler;
-import studio.magemonkey.codex.nms.packets.events.EnginePlayerPacketEvent;
-import studio.magemonkey.codex.nms.packets.events.EngineServerPacketEvent;
+import studio.magemonkey.codex.api.events.EnginePlayerPacketEvent;
+import studio.magemonkey.codex.api.events.EngineServerPacketEvent;
 import studio.magemonkey.codex.util.Reflex;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.event.EntityEquipmentChangeEvent;
@@ -229,7 +230,7 @@ public class V1_18_R1 extends UniversalPacketHandler implements IPacketHandler {
             if (profile.isHideHelmet()) {
                 ItemStack air = new ItemStack(Material.AIR);
                 slots.remove(helmet);
-                slots.add(new Pair<>(helmet.getFirst(), reflectionUtil.getNMSCopy(air)));
+                slots.add(new Pair<>(helmet.getFirst(), VersionManager.getNms().getNMSCopy(air)));
             }
         });
     }

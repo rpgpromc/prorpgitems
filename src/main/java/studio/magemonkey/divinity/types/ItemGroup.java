@@ -5,9 +5,9 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.CodexEngine;
-import studio.magemonkey.codex.items.ItemType;
-import studio.magemonkey.codex.items.exception.CodexItemException;
-import studio.magemonkey.codex.items.providers.VanillaProvider;
+import studio.magemonkey.codex.api.items.ItemType;
+import studio.magemonkey.codex.api.items.exception.CodexItemException;
+import studio.magemonkey.codex.api.items.providers.VanillaProvider;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.divinity.Divinity;
 

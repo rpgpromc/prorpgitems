@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.nms.packets.versions;
 
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.nms.packets.events.EnginePlayerPacketEvent;
+import studio.magemonkey.codex.api.events.EnginePlayerPacketEvent;
 import studio.magemonkey.codex.util.Reflex;
 import studio.magemonkey.divinity.Divinity;
 

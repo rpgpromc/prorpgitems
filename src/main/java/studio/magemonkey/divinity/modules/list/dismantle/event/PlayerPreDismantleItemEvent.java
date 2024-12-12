@@ -3,7 +3,7 @@ package studio.magemonkey.divinity.modules.list.dismantle.event;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.codex.api.events.ICancellableEvent;
 import studio.magemonkey.divinity.modules.list.dismantle.DismantleManager.OutputContainer;
 
 import java.util.Map;

@@ -3,7 +3,7 @@ package studio.magemonkey.divinity.modules.list.identify.event;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.manager.api.event.ICancellableEvent;
+import studio.magemonkey.codex.api.events.ICancellableEvent;
 import studio.magemonkey.divinity.modules.list.identify.IdentifyManager.IdentifyTome;
 import studio.magemonkey.divinity.modules.list.identify.IdentifyManager.UnidentifiedItem;
 

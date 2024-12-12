@@ -8,11 +8,9 @@ import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.nms.packets.IPacketHandler;
-import studio.magemonkey.codex.nms.packets.events.EnginePlayerPacketEvent;
-import studio.magemonkey.codex.nms.packets.events.EngineServerPacketEvent;
+import studio.magemonkey.codex.api.events.EnginePlayerPacketEvent;
+import studio.magemonkey.codex.api.events.EngineServerPacketEvent;
 import studio.magemonkey.codex.util.Reflex;
-import studio.magemonkey.codex.util.reflection.ReflectionManager;
-import studio.magemonkey.codex.util.reflection.ReflectionUtil;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.event.EntityEquipmentChangeEvent;
 import studio.magemonkey.divinity.config.EngineCfg;
@@ -28,11 +26,9 @@ import java.util.UUID;
 public class UniversalPacketHandler implements IPacketHandler {
 
     protected Divinity       plugin;
-    protected ReflectionUtil reflectionUtil;
 
     public UniversalPacketHandler(@NotNull Divinity plugin) {
         this.plugin = plugin;
-        reflectionUtil = ReflectionManager.getReflectionUtil();
     }
 
     @Override

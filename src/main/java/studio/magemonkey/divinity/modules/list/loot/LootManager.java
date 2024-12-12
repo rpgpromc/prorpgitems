@@ -23,6 +23,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.hooks.external.WorldGuardHK;
 import studio.magemonkey.codex.manager.api.task.ITask;
@@ -171,7 +172,7 @@ public class LootManager extends QModule {
             directional.setRotation(face != null ? face : BlockFace.EAST);
             block.setBlockData(directional);
         }
-        plugin.getPMS().changeSkull(block, this.boxSkullHash);
+        VersionManager.getNms().changeSkull(block, this.boxSkullHash);
 
         LootHolder lootHolder = new LootHolder(this, boxLoc, killer, dead, loot);
         this.loots.putIfAbsent(boxLoc, lootHolder);

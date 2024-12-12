@@ -2,7 +2,7 @@ package studio.magemonkey.divinity.modules.list.classes.event;
 
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.manager.api.event.IEvent;
+import studio.magemonkey.codex.api.events.IEvent;
 import studio.magemonkey.divinity.modules.list.classes.api.UserClassData;
 
 public abstract class PlayerClassEvent extends IEvent {

@@ -4,7 +4,6 @@ import lombok.Getter;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.Registry;
 import org.bukkit.block.Banner;
 import org.bukkit.block.banner.Pattern;
 import org.bukkit.block.banner.PatternType;
@@ -12,22 +11,19 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ArmorMeta;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.trim.ArmorTrim;
-import org.bukkit.inventory.meta.trim.TrimMaterial;
-import org.bukkit.inventory.meta.trim.TrimPattern;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.CodexEngine;
+import studio.magemonkey.codex.compat.VersionManager;
+import studio.magemonkey.codex.api.items.ItemType;
+import studio.magemonkey.codex.api.items.exception.MissingItemException;
+import studio.magemonkey.codex.api.items.exception.MissingProviderException;
+import studio.magemonkey.codex.api.items.providers.ICodexItemProvider;
+import studio.magemonkey.codex.api.items.providers.VanillaProvider;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.core.Version;
-import studio.magemonkey.codex.items.ItemType;
-import studio.magemonkey.codex.items.exception.MissingItemException;
-import studio.magemonkey.codex.items.exception.MissingProviderException;
-import studio.magemonkey.codex.items.providers.ICodexItemProvider;
-import studio.magemonkey.codex.items.providers.VanillaProvider;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.Reflex;
 import studio.magemonkey.codex.util.StringUT;
@@ -501,10 +497,11 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                         continue;
                     }
                     if (!split[0].equals("*")
-                            && Registry.TRIM_MATERIAL.get(NamespacedKey.minecraft(split[0])) == null) {
+                            && VersionManager.getArmorUtil().getTrimMaterial(NamespacedKey.minecraft(split[0])) == null) {
                         continue;
                     }
-                    if (!split[1].equals("*") && Registry.TRIM_PATTERN.get(NamespacedKey.minecraft(split[1])) == null) {
+                    if (!split[1].equals("*") &&
+                            VersionManager.getArmorUtil().getTrimPattern(NamespacedKey.minecraft(split[1])) == null) {
                         continue;
                     }
                     totalWeight += weight;
@@ -819,55 +816,9 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 bmeta.setBlockState(banner);
             }
 
-            if (!armorTrims.isEmpty() && meta instanceof ArmorMeta) {
-                String    trimString = armorTrims.ceilingEntry(Rnd.nextDouble() * armorTrims.lastKey()).getValue();
-                ArmorTrim armorTrim;
-                if (trimString == null) {
-                    armorTrim = null;
-                } else {
-                    String[]     split        = trimString.split(":");
-                    TrimMaterial trimMaterial = null;
-                    if (split[0].equals("*")) {
-                        int size = 0;
-                        for (TrimMaterial ignored : Registry.TRIM_MATERIAL) {
-                            size++;
-                        }
-                        int index = Rnd.get(size);
-                        int i     = 0;
-                        for (Iterator<TrimMaterial> iterator = Registry.TRIM_MATERIAL.iterator();
-                             iterator.hasNext(); ) {
-                            TrimMaterial next = iterator.next();
-                            if (index == i) {
-                                trimMaterial = next;
-                                break;
-                            }
-                            i++;
-                        }
-                    } else {
-                        trimMaterial = Registry.TRIM_MATERIAL.get(NamespacedKey.minecraft(split[0]));
-                    }
-                    TrimPattern trimPattern = null;
-                    if (split[1].equals("*")) {
-                        int size = 0;
-                        for (TrimPattern ignored : Registry.TRIM_PATTERN) {
-                            size++;
-                        }
-                        int index = Rnd.get(size);
-                        int i     = 0;
-                        for (TrimPattern next : Registry.TRIM_PATTERN) {
-                            if (index == i) {
-                                trimPattern = next;
-                                break;
-                            }
-                            i++;
-                        }
-                    } else {
-                        trimPattern = Registry.TRIM_PATTERN.get(NamespacedKey.minecraft(split[1]));
-                    }
-                    armorTrim =
-                            new ArmorTrim(Objects.requireNonNull(trimMaterial), Objects.requireNonNull(trimPattern));
-                }
-                ((ArmorMeta) meta).setTrim(armorTrim);
+            if (!armorTrims.isEmpty()) {
+                String trimString = armorTrims.ceilingEntry(Rnd.nextDouble() * armorTrims.lastKey()).getValue();
+                VersionManager.getArmorUtil().addTrim(meta, trimString.split(":")[0], trimString.split(":")[1]);
             }
 
             item.setItemMeta(meta);

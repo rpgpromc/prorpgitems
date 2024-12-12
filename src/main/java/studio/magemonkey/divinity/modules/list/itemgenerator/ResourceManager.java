@@ -1,7 +1,7 @@
 package studio.magemonkey.divinity.modules.list.itemgenerator;
 
 import org.jetbrains.annotations.NotNull;
-import studio.magemonkey.codex.items.ItemType;
+import studio.magemonkey.codex.api.items.ItemType;
 import studio.magemonkey.codex.manager.api.Loadable;
 import studio.magemonkey.codex.util.FileUT;
 import studio.magemonkey.divinity.config.Config;
