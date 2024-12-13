@@ -16,7 +16,7 @@
     <description>Custom items, combat, and more!</description>
 
     <properties>
-        <codex.version>1.1.0-R0.1-SNAPSHOT</codex.version>
+        <codex.version>1.1.0-R0.2-SNAPSHOT</codex.version>
         <fabled.version>1.0.4-R0.8-SNAPSHOT</fabled.version>
     </properties>
 
@@ -228,6 +228,19 @@
                         <CODEX_VERSION>${codex.version}</CODEX_VERSION>
                         <DIVINITY_VERSION>${project.version}</DIVINITY_VERSION>
                     </systemPropertyVariables>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <paperweight-mappings-namespace>spigot</paperweight-mappings-namespace>
+                        </manifestEntries>
+                    </archive>
+                    <outputDirectory>${outputDir}</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

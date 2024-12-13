@@ -1,46 +1,25 @@
 package studio.magemonkey.divinity.modules.list.classes.object;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.util.NumberUT;
 
+@Getter
+@Setter
 public class ClassAttribute {
-
     private double startValue;
     private double maxValue;
-    private double lvlValue;
+    private double perLevelValue;
 
     public ClassAttribute(
             double startValue,
             double maxValue,
-            double lvlValue
+            double perLevelValue
     ) {
         this.setStartValue(startValue);
         this.setMaxValue(maxValue);
-        this.setPerLevelValue(lvlValue);
-    }
-
-    public double getStartValue() {
-        return this.startValue;
-    }
-
-    public void setStartValue(double startValue) {
-        this.startValue = startValue;
-    }
-
-    public double getMaxValue() {
-        return this.maxValue;
-    }
-
-    public void setMaxValue(double maxValue) {
-        this.maxValue = maxValue;
-    }
-
-    public double getPerLevelValue() {
-        return this.lvlValue;
-    }
-
-    public void setPerLevelValue(double lvlValue) {
-        this.lvlValue = lvlValue;
+        this.setPerLevelValue(perLevelValue);
     }
 
     @NotNull

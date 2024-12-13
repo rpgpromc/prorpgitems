@@ -11,9 +11,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.manager.api.gui.*;
-import studio.magemonkey.codex.util.*;
+import studio.magemonkey.codex.util.ClickText;
+import studio.magemonkey.codex.util.DataUT;
+import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.actions.ActionManipulator;
 import studio.magemonkey.codex.util.random.Rnd;
 import studio.magemonkey.divinity.Divinity;
@@ -535,7 +539,7 @@ public class RefineManager extends QModuleDrop<RefineItem> {
             return false;
         }
 
-        InventoryUtil.setCursor(e, null);
+        VersionManager.getCompat().setCursor(e, null);
         this.splitDragItem(player, src, target);
         this.gui.open(player, target, src);
         src.setAmount(0);

@@ -10,10 +10,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.external.VaultHK;
 import studio.magemonkey.codex.hooks.external.citizens.CitizensHK;
-import studio.magemonkey.codex.util.InventoryUtil;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.actions.ActionManipulator;
 import studio.magemonkey.codex.util.eval.Evaluator;
@@ -183,7 +183,7 @@ public class ExtractorManager extends QModuleDrop<ExtractorTool> {
             @NotNull ItemStack target,
             @NotNull ExtractorTool mItem,
             @NotNull InventoryClickEvent e) {
-        InventoryUtil.setCursor(e, null);
+        VersionManager.getCompat().setCursor(e, null);
         boolean open = this.openExtraction(player, target, src, null, true);
         if (open) src.setAmount(0);
 

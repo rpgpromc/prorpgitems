@@ -22,7 +22,7 @@ public enum ClassAttributeType {
     private double    defValue;
 
     ClassAttributeType(double def) {
-        this.att = VersionManager.getNms().getAttribute(this.name());
+        this.att = (Attribute) VersionManager.getNms().getAttribute(this.name());
         this.name = this.name();
         this.defValue = def;
     }

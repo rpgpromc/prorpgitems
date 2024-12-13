@@ -1,6 +1,8 @@
 package studio.magemonkey.divinity.stats.items;
 
+import org.bukkit.Keyed;
 import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.attribute.AttributeModifier.Operation;
 import org.bukkit.entity.Player;
@@ -11,8 +13,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.api.meta.NBTAttribute;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.modules.IModule;
 import studio.magemonkey.codex.util.DataUT;
@@ -42,33 +44,38 @@ public class ItemStats {
     private static final Map<String, DuplicableItemLoreStat<?>>  MULTI_ATTRIBUTES = new HashMap<>();
     private static final Set<DynamicStat>                        DYNAMIC_STATS    = new HashSet<>();
     private static final Divinity                                plugin           = Divinity.getInstance();
-    private static final List<NamespacedKey>                     KEY_ID           = List.of(
-            new NamespacedKey(plugin, ItemTags.TAG_ITEM_ID),
-            Objects.requireNonNull(NamespacedKey.fromString("prorpgitems:" + ItemTags.TAG_ITEM_ID.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString("prorpgitems:qrpg_" + ItemTags.TAG_ITEM_ID.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString("quantumrpg:qrpg_" + ItemTags.TAG_ITEM_ID.toLowerCase())));
-    private static final List<NamespacedKey>                     KEY_MODULE       = List.of(
-            new NamespacedKey(plugin, ItemTags.TAG_ITEM_MODULE),
-            Objects.requireNonNull(NamespacedKey.fromString("prorpgitems:" + ItemTags.TAG_ITEM_MODULE.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_MODULE.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_MODULE.toLowerCase())));
-    private static final List<NamespacedKey>                     KEY_LEVEL        = List.of(
-            new NamespacedKey(plugin, ItemTags.TAG_ITEM_LEVEL),
-            Objects.requireNonNull(NamespacedKey.fromString("prorpgitems:" + ItemTags.TAG_ITEM_LEVEL.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_LEVEL.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_LEVEL.toLowerCase())));
-    private static final List<NamespacedKey>                     KEY_SOCKET       = List.of(
-            new NamespacedKey(plugin, ItemTags.TAG_ITEM_SOCKET_RATE),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "prorpgitems:" + ItemTags.TAG_ITEM_SOCKET_RATE.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_SOCKET_RATE.toLowerCase())),
-            Objects.requireNonNull(NamespacedKey.fromString(
-                    "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_SOCKET_RATE.toLowerCase())));
+    private static final List<NamespacedKey>                     KEY_ID           =
+            List.of(new NamespacedKey(plugin, ItemTags.TAG_ITEM_ID),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:" + ItemTags.TAG_ITEM_ID.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_ID.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_ID.toLowerCase())));
+    private static final List<NamespacedKey>                     KEY_MODULE       =
+            List.of(new NamespacedKey(plugin, ItemTags.TAG_ITEM_MODULE),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:" + ItemTags.TAG_ITEM_MODULE.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_MODULE.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_MODULE.toLowerCase())));
+    private static final List<NamespacedKey>                     KEY_LEVEL        =
+            List.of(new NamespacedKey(plugin, ItemTags.TAG_ITEM_LEVEL),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:" + ItemTags.TAG_ITEM_LEVEL.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_LEVEL.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_LEVEL.toLowerCase())));
+    private static final List<NamespacedKey>                     KEY_SOCKET       =
+            List.of(new NamespacedKey(plugin, ItemTags.TAG_ITEM_SOCKET_RATE),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:" + ItemTags.TAG_ITEM_SOCKET_RATE.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "prorpgitems:qrpg_" + ItemTags.TAG_ITEM_SOCKET_RATE.toLowerCase())),
+                    Objects.requireNonNull(NamespacedKey.fromString(
+                            "quantumrpg:qrpg_" + ItemTags.TAG_ITEM_SOCKET_RATE.toLowerCase())));
     private static       DamageAttribute                         DAMAGE_DEFAULT;
     private static       DefenseAttribute                        DEFENSE_DEFAULT;
 
@@ -134,7 +141,8 @@ public class ItemStats {
         if (DAMAGES.isEmpty()) return;
 
         for (DamageAttribute dmg : ItemStats.getDamages()) {
-            Optional<DefenseAttribute> opt = ItemStats.getDefenses().stream()
+            Optional<DefenseAttribute> opt = ItemStats.getDefenses()
+                    .stream()
                     .filter(def -> def.isBlockable(dmg))
                     .sorted((def1, def2) -> def2.getPriority() - def1.getPriority())
                     .findFirst();
@@ -160,9 +168,8 @@ public class ItemStats {
 
     @Nullable
     public static DamageAttribute getDamageByCause(@NotNull DamageCause cause) {
-        Optional<DamageAttribute> opt = ItemStats.getDamages().stream()
-                .filter(dmg -> dmg.isAttached(cause))
-                .sorted((dmg1, dmg2) -> {
+        Optional<DamageAttribute> opt =
+                ItemStats.getDamages().stream().filter(dmg -> dmg.isAttached(cause)).sorted((dmg1, dmg2) -> {
                     return dmg2.getPriority() - dmg1.getPriority();
                 }).findFirst();
 
@@ -305,8 +312,7 @@ public class ItemStats {
         addAttribute(item, player, NBTAttribute.ATTACK_SPEED, getStat(item, player, TypedStat.Type.ATTACK_SPEED));
 
         double vanilla = DamageAttribute.getVanillaDamage(item);
-        if (vanilla > 1)
-            addAttribute(item, player, NBTAttribute.ATTACK_DAMAGE, vanilla);
+        if (vanilla > 1) addAttribute(item, player, NBTAttribute.ATTACK_DAMAGE, vanilla);
         if (ItemUtils.isArmor(item)) {
             addAttribute(item, player, NBTAttribute.ARMOR, DefenseAttribute.getVanillaArmor(item));
             double toughness = getStat(item, player, TypedStat.Type.ARMOR_TOUGHNESS);
@@ -320,10 +326,10 @@ public class ItemStats {
         // For 1.20.4+, the HIDE_ATTRIBUTES flag doesn't work unless an attribute has been added that's not the default.
         // Note: This only applies to Paper and its forks.
         if (Version.CURRENT.isAtLeast(Version.V1_20_R4)) {
-            im.addAttributeModifier(VersionManager.getNms().getAttribute("ATTACK_SPEED"),
-                    new AttributeModifier(VersionManager.getNms().getAttribute("ATTACK_SPEED").getKey().getKey(),
-                            0,
-                            Operation.ADD_NUMBER));
+            Attribute attackSpeed = VersionManager.getNms().getAttribute("ATTACK_SPEED");
+            //noinspection RedundantCast
+            im.addAttributeModifier(attackSpeed,
+                    new AttributeModifier(((Keyed) attackSpeed).getKey().getKey(), 0, Operation.ADD_NUMBER));
         }
 
         im.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
@@ -381,16 +387,12 @@ public class ItemStats {
         }
 
         for (EquipmentSlot slot : ItemUtils.getItemSlots(item)) {
-            if (slot == EquipmentSlot.OFF_HAND
-                    && (att == NBTAttribute.ATTACK_DAMAGE || att == NBTAttribute.ATTACK_SPEED)) continue;
+            if (slot == EquipmentSlot.OFF_HAND && (att == NBTAttribute.ATTACK_DAMAGE
+                    || att == NBTAttribute.ATTACK_SPEED)) continue;
             if (slot != EquipmentSlot.HAND && !ItemUtils.isArmor(item) && att == NBTAttribute.ATTACK_SPEED) continue;
 
-            AttributeModifier am = new AttributeModifier(
-                    att.getUUID(slot),
-                    att.getNmsName(),
-                    value,
-                    Operation.ADD_NUMBER,
-                    slot);
+            AttributeModifier am =
+                    new AttributeModifier(att.getUUID(slot), att.getNmsName(), value, Operation.ADD_NUMBER, slot);
 
             meta.removeAttributeModifier(att.getAttribute(), am); // Avoid dupe and error
             meta.addAttributeModifier(att.getAttribute(), am);
@@ -472,7 +474,7 @@ public class ItemStats {
     // ====================================================== //
 
     public static void registerSocket(@NotNull SocketAttribute socket) {
-        SocketAttribute.Type         type = socket.getType();
+        Type                         type = socket.getType();
         Map<String, SocketAttribute> map  = SOCKETS.get(type);
         if (map == null) map = new HashMap<>();
 
@@ -481,7 +483,7 @@ public class ItemStats {
     }
 
     @Nullable
-    public static SocketAttribute getSocket(@NotNull SocketAttribute.Type type, @NotNull String id) {
+    public static SocketAttribute getSocket(@NotNull Type type, @NotNull String id) {
         Map<String, SocketAttribute> map = SOCKETS.get(type);
         if (map == null) return null;
 
@@ -489,7 +491,7 @@ public class ItemStats {
     }
 
     @NotNull
-    public static Collection<SocketAttribute> getSockets(@NotNull SocketAttribute.Type type) {
+    public static Collection<SocketAttribute> getSockets(@NotNull Type type) {
         Map<String, SocketAttribute> map = SOCKETS.get(type);
         if (map == null) return Collections.emptySet();
 

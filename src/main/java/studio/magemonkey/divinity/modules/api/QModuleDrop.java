@@ -11,8 +11,8 @@ import org.bukkit.event.inventory.InventoryType.SlotType;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.config.api.JYML;
-import studio.magemonkey.codex.util.InventoryUtil;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.random.Rnd;
@@ -201,8 +201,8 @@ public abstract class QModuleDrop<I extends ModuleItem> extends QModule {
         ItemStack current = src.clone();
         if (this.onDragDrop(p, current, target.clone(), mItem, e)) {
             e.setCancelled(true);
-            if (current.getAmount() > 0) InventoryUtil.setCursor(e, current);
-            else if (current.getType() == Material.AIR) InventoryUtil.setCursor(e, null);
+            if (current.getAmount() > 0) VersionManager.getCompat().setCursor(e, current);
+            else if (current.getType() == Material.AIR) VersionManager.getCompat().setCursor(e, null);
         }
     }
 
@@ -254,13 +254,13 @@ public abstract class QModuleDrop<I extends ModuleItem> extends QModule {
             this.takeItemCharge(toModify);
 
         if (!ItemUT.isAir(toModify)) {
-            InventoryUtil.setCursor(e, toModify);
+            VersionManager.getCompat().setCursor(e, toModify);
             if (toSave != null) {
                 ItemUT.addItem(p, toSave);
             }
         } else {
             if (toSave != null) {
-                InventoryUtil.setCursor(e, toSave);
+                VersionManager.getCompat().setCursor(e, toSave);
             }
         }
     }

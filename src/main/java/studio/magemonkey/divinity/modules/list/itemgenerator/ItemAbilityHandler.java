@@ -17,9 +17,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.api.armor.ArmorEquipEvent;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.manager.api.Loadable;
-import studio.magemonkey.codex.util.InventoryUtil;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.hooks.EHook;
@@ -131,8 +131,8 @@ public class ItemAbilityHandler extends IListener<Divinity> implements Loadable 
     }
 
     private void updateSkills(InventoryEvent event) {
-        Inventory top    = InventoryUtil.getTopInventory(event);
-        Inventory bottom = InventoryUtil.getBottomInventory(event);
+        Inventory top    = VersionManager.getCompat().getTopInventory(event);
+        Inventory bottom = VersionManager.getCompat().getBottomInventory(event);
         for (Inventory inventory : new Inventory[]{top, bottom}) {
             if (!(inventory instanceof PlayerInventory)) {
                 continue;
