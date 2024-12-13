@@ -16,12 +16,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.CodexEngine;
-import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.api.items.ItemType;
 import studio.magemonkey.codex.api.items.exception.MissingItemException;
 import studio.magemonkey.codex.api.items.exception.MissingProviderException;
 import studio.magemonkey.codex.api.items.providers.ICodexItemProvider;
 import studio.magemonkey.codex.api.items.providers.VanillaProvider;
+import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.util.ItemUT;
@@ -497,7 +497,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                         continue;
                     }
                     if (!split[0].equals("*")
-                            && VersionManager.getArmorUtil().getTrimMaterial(NamespacedKey.minecraft(split[0])) == null) {
+                            && VersionManager.getArmorUtil().getTrimMaterial(NamespacedKey.minecraft(split[0]))
+                            == null) {
                         continue;
                     }
                     if (!split[1].equals("*") &&

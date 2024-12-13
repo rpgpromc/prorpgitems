@@ -29,7 +29,7 @@ public class V1_21_R1 extends V1_20_R4 {
             Object   particleType = Reflex.invokeMethod(a, particleParam);
             String   mcKey        = "damage_indicator";
             Class<?> keyClass     = Reflex.getClass("net.minecraft.resources.MinecraftKey");
-            Object   key          =
+            Object key =
                     Reflex.getConstructor(keyClass, String.class, String.class).newInstance("minecraft", mcKey);
             Object damageIndicator = Reflex.invokeMethod(Reflex.getMethod(particleRegistry.getClass(), "a", keyClass),
                     particleRegistry,
