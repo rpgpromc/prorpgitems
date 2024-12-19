@@ -3,20 +3,30 @@ package studio.magemonkey.divinity.utils;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.Codex;
+import studio.magemonkey.codex.CodexEngine;
 import studio.magemonkey.codex.api.items.ItemType;
 import studio.magemonkey.codex.api.items.PrefixHelper;
+import studio.magemonkey.codex.api.items.exception.MissingItemException;
+import studio.magemonkey.codex.api.items.exception.MissingProviderException;
 import studio.magemonkey.codex.api.items.providers.ICodexItemProvider;
 import studio.magemonkey.codex.modules.IModule;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.LeveledItem;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
+import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 import studio.magemonkey.divinity.stats.items.ItemStats;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DivinityProvider implements ICodexItemProvider<DivinityProvider.DivinityItemType> {
     public static final String NAMESPACE = "DIVINITY";
+
+    private static Pattern levelPattern    = Pattern.compile(".*~level:(\\d+).*");
+    private static Pattern materialPattern = Pattern.compile(".*~material:(\\w+).*");
 
     @Override
     public String pluginName() {
@@ -39,7 +49,34 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
 
         id = PrefixHelper.stripPrefix(NAMESPACE, id);
 
-        String[]   split      = id.split(":", 3);
+        int      level    = -1;
+        ItemType material = null;
+
+        Matcher levelMatcher = levelPattern.matcher(id);
+        if (levelMatcher.matches()) {
+            try {
+                level = Integer.parseInt(levelMatcher.group(1));
+            } catch (NumberFormatException ignored) {
+                Codex.warn("Failed to get level for Divinity item " + id
+                        + ". Using -1 instead.");
+            }
+            id = id.replace("~level:" + levelMatcher.group(1), "");
+        }
+
+        Matcher materialMatcher = materialPattern.matcher(id);
+        if (materialMatcher.matches()) {
+            try {
+                material = CodexEngine.get().getItemManager()
+                        .getItemType(materialMatcher.group(1));
+            } catch (MissingProviderException | MissingItemException ignored) {
+                Codex.warn("Failed to get material item for Divinity item " + id
+                        + ". Using the item's configuration instead.");
+            }
+            id = id.replace("~material:" + materialMatcher.group(1), "");
+        }
+
+
+        String[]   split      = id.split(":", 2);
         ModuleItem moduleItem = null;
         if (split.length >= 2) { // Module name
             IModule<?> module = Divinity.getInstance().getModuleManager().getModule(split[0]);
@@ -54,21 +91,7 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
             }
         }
 
-        if (moduleItem != null) {
-            int level = -1;
-
-            // If the split has a 3rd element, that should be the level.
-            // Attempt to parse it as an integer and use that for the level, defaulting to -1
-            // if it fails or if the length is not 3
-            if (split.length >= 3) {
-                try {
-                    level = Integer.parseInt(split[2]);
-                } catch (NumberFormatException ignored) {
-                }
-            }
-
-            return new DivinityItemType(moduleItem, level);
-        }
+        if (moduleItem != null) return new DivinityItemType(moduleItem, level, material);
 
         return null;
     }
@@ -95,19 +118,25 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
     }
 
     public static class DivinityItemType extends ItemType {
+        @Getter
         private final ModuleItem moduleItem;
         @Getter
         private final int        level;
+        @Nullable
+        @Getter
+        private       ItemType   material;
 
         /**
          * Constructs a new DivinityItemType. The level parameter is only used for {@link LeveledItem}s
          * and is ignored for other types of items.
          * @param moduleItem The module item
          * @param level The level of the item, use <code>-1</code> for a random level.
+         * @param material The material of the item, or <code>null</code> if none
          */
-        public DivinityItemType(ModuleItem moduleItem, int level) {
+        public DivinityItemType(ModuleItem moduleItem, int level, @Nullable ItemType material) {
             this.moduleItem = moduleItem;
             this.level = level;
+            this.material = material;
         }
 
         @Override
@@ -127,6 +156,11 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
 
         @Override
         public ItemStack create() {
+            if (this.moduleItem instanceof ItemGeneratorManager.GeneratorItem) {
+                return ((ItemGeneratorManager.GeneratorItem) this.moduleItem)
+                        .create(this.level, -1, this.material);
+            }
+
             if (this.moduleItem instanceof LeveledItem) {
                 return ((LeveledItem) this.moduleItem).create(this.level);
             }
