@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.utils;
 
+import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.api.items.ItemType;
@@ -7,6 +8,7 @@ import studio.magemonkey.codex.api.items.PrefixHelper;
 import studio.magemonkey.codex.api.items.providers.ICodexItemProvider;
 import studio.magemonkey.codex.modules.IModule;
 import studio.magemonkey.divinity.Divinity;
+import studio.magemonkey.divinity.modules.LeveledItem;
 import studio.magemonkey.divinity.modules.ModuleItem;
 import studio.magemonkey.divinity.modules.api.QModuleDrop;
 import studio.magemonkey.divinity.stats.items.ItemStats;
@@ -37,21 +39,35 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
 
         id = PrefixHelper.stripPrefix(NAMESPACE, id);
 
-        String[] split = id.split(":", 2);
-        if (split.length == 2) { // Module name
+        String[]   split      = id.split(":", 3);
+        ModuleItem moduleItem = null;
+        if (split.length >= 2) { // Module name
             IModule<?> module = Divinity.getInstance().getModuleManager().getModule(split[0]);
             if (!(module instanceof QModuleDrop)) return null;
-            ModuleItem moduleItem = ((QModuleDrop<?>) module).getItemById(split[1]);
-            return moduleItem == null ? null : new DivinityItemType(moduleItem);
+            moduleItem = ((QModuleDrop<?>) module).getItemById(split[1]);
         } else { // Look in all modules
             for (IModule<?> module : Divinity.getInstance().getModuleManager().getModules()) {
                 if (!(module instanceof QModuleDrop)) continue;
 
-                ModuleItem item = ((QModuleDrop<? extends ModuleItem>) module).getItemById(id);
-                if (item != null) {
-                    return new DivinityItemType(item);
+                moduleItem = ((QModuleDrop<? extends ModuleItem>) module).getItemById(id);
+                break;
+            }
+        }
+
+        if (moduleItem != null) {
+            int level = -1;
+
+            // If the split has a 3rd element, that should be the level.
+            // Attempt to parse it as an integer and use that for the level, defaulting to -1
+            // if it fails or if the length is not 3
+            if (split.length >= 3) {
+                try {
+                    level = Integer.parseInt(split[2]);
+                } catch (NumberFormatException ignored) {
                 }
             }
+
+            return new DivinityItemType(moduleItem, level);
         }
 
         return null;
@@ -80,9 +96,18 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
 
     public static class DivinityItemType extends ItemType {
         private final ModuleItem moduleItem;
+        @Getter
+        private final int        level;
 
-        public DivinityItemType(ModuleItem moduleItem) {
+        /**
+         * Constructs a new DivinityItemType. The level parameter is only used for {@link LeveledItem}s
+         * and is ignored for other types of items.
+         * @param moduleItem The module item
+         * @param level The level of the item, use <code>-1</code> for a random level.
+         */
+        public DivinityItemType(ModuleItem moduleItem, int level) {
             this.moduleItem = moduleItem;
+            this.level = level;
         }
 
         @Override
@@ -102,6 +127,10 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
 
         @Override
         public ItemStack create() {
+            if (this.moduleItem instanceof LeveledItem) {
+                return ((LeveledItem) this.moduleItem).create(this.level);
+            }
+
             return this.moduleItem.create();
         }
 
