@@ -13,6 +13,7 @@ import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.arrows.ArrowManager;
 import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -55,6 +56,7 @@ class DivinityProviderTest {
 
         itemGenModule = spy(new ItemGeneratorManager(divinity));
         when(moduleManager.getModule("item_generator")).thenReturn(itemGenModule);
+        when(moduleManager.getModules()).thenReturn(List.of(arrowModule, itemGenModule));
 
         //noinspection unchecked
         when(divinity.getModuleManager()).thenReturn(moduleManager);
@@ -94,6 +96,21 @@ class DivinityProviderTest {
         assertEquals(-1, item.getLevel());
         assertEquals(Material.DIAMOND.name().toLowerCase(), item.getMaterial().getID());
         assertEquals("VANILLA", item.getMaterial().getNamespace());
+        assertEquals(generatorItem, item.getModuleItem());
+        assertInstanceOf(DivinityProvider.DivinityItemType.class, item);
+    }
+
+    @Test
+    void getItem_noModule_returnsItem() {
+        ItemGeneratorManager.GeneratorItem generatorItem = mock(ItemGeneratorManager.GeneratorItem.class);
+        doReturn(generatorItem).when(itemGenModule).getItemById("foobar");
+
+        DivinityProvider.DivinityItemType item = provider.getItem("DIVINITY_foobar");
+
+        assertNotNull(item);
+        verify(itemGenModule).getItemById("foobar");
+        assertEquals(-1, item.getLevel());
+        assertNull(item.getMaterial());
         assertEquals(generatorItem, item.getModuleItem());
         assertInstanceOf(DivinityProvider.DivinityItemType.class, item);
     }

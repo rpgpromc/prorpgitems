@@ -87,7 +87,7 @@ public class DivinityProvider implements ICodexItemProvider<DivinityProvider.Div
                 if (!(module instanceof QModuleDrop)) continue;
 
                 moduleItem = ((QModuleDrop<? extends ModuleItem>) module).getItemById(id);
-                break;
+                if (moduleItem != null) break;
             }
         }
 
