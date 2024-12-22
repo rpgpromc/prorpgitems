@@ -51,7 +51,7 @@ public class ItemUpdaterListener extends IListener<Divinity> {
         update(event.getItemDrop().getItemStack(), null);
     }
 
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler(priority = EventPriority.MONITOR)
     public void pickup(EntityPickupItemEvent event) {
         LivingEntity entity = event.getEntity();
         update(event.getItem().getItemStack(), entity instanceof Player ? (Player) entity : null);
@@ -82,10 +82,15 @@ public class ItemUpdaterListener extends IListener<Divinity> {
 
         NamespacedKey key   = NamespacedKey.fromString("rpgpro.fixed_damage");
         boolean       fixed = DataUT.getBooleanData(item, key);
-        if (fixed) {
-            DataUT.removeData(item, key);
-            ItemMeta meta = item.getItemMeta();
-            meta.removeItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        ItemMeta      meta  = item.getItemMeta();
+
+        if (meta != null) {
+            if (fixed) {
+                DataUT.removeData(item, key);
+                meta.removeItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+            } else {
+                meta.addItemFlags(ItemFlag.values());
+            }
             item.setItemMeta(meta);
         }
 
