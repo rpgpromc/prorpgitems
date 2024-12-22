@@ -20,6 +20,11 @@ public class DropMoney extends DropNonItem {
 
     @Override
     public void execute(Player target) {
+        if (CodexEngine.get().getVault() == null
+                || CodexEngine.get().getVault().getEconomy() == null) {
+            return;
+        }
+
         CodexEngine.get()
                 .getVault()
                 .getEconomy()
