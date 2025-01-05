@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.magemonkey.codex.api.items.PrefixHelper;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.codex.registry.damage.DamageTypeProvider;
+import studio.magemonkey.codex.registry.provider.DamageTypeProvider;
 import studio.magemonkey.codex.util.LocUT;
 import studio.magemonkey.codex.util.NamespaceResolver;
 import studio.magemonkey.codex.util.random.Rnd;

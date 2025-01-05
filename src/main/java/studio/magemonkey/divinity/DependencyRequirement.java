@@ -7,14 +7,14 @@ import java.util.stream.Collectors;
 
 public class DependencyRequirement {
 
-    public static final String MIN_CORE_VERSION = "1.1.0-R0.2-SNAPSHOT";
+    public static final String MIN_CORE_VERSION = "1.1.0-R0.6-SNAPSHOT";
 
     public static boolean meetsVersion(String requiredVersion, String providedVersion) {
         List<Integer> required = splitVersion(requiredVersion);
         List<Integer> provided = splitVersion(providedVersion);
-        if (required.size() == 0) {
+        if (required.isEmpty()) {
             return true;
-        } else if (provided.size() == 0) {
+        } else if (provided.isEmpty()) {
             return false;
         }
 
@@ -32,7 +32,7 @@ public class DependencyRequirement {
         List<Integer> result = new ArrayList<>();
         for (String a : version.split("-")) {
             result.addAll(
-                    Arrays.asList(a.split("\\.")).stream().map(
+                    Arrays.stream(a.split("\\.")).map(
                             str -> {
                                 try {
                                     return Integer.parseInt(str.replace("R", "").replace("SNAPSHOT", ""));

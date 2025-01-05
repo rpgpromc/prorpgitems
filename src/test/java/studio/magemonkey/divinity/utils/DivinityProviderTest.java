@@ -11,6 +11,7 @@ import studio.magemonkey.codex.items.CodexItemManager;
 import studio.magemonkey.codex.modules.ModuleManager;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.modules.list.arrows.ArrowManager;
+import studio.magemonkey.divinity.modules.list.customitems.CustomItemsManager;
 import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 
 import java.util.List;
@@ -27,6 +28,7 @@ class DivinityProviderTest {
 
     private ArrowManager         arrowModule;
     private ItemGeneratorManager itemGenModule;
+    private CustomItemsManager   customItemsModule;
 
     private CodexItemManager itemManager;
     private DivinityProvider provider = new DivinityProvider();
@@ -57,6 +59,9 @@ class DivinityProviderTest {
         itemGenModule = spy(new ItemGeneratorManager(divinity));
         when(moduleManager.getModule("item_generator")).thenReturn(itemGenModule);
         when(moduleManager.getModules()).thenReturn(List.of(arrowModule, itemGenModule));
+
+        customItemsModule = spy(new CustomItemsManager(divinity));
+        when(moduleManager.getModule("custom_items")).thenReturn(customItemsModule);
 
         //noinspection unchecked
         when(divinity.getModuleManager()).thenReturn(moduleManager);
@@ -112,6 +117,21 @@ class DivinityProviderTest {
         assertEquals(-1, item.getLevel());
         assertNull(item.getMaterial());
         assertEquals(generatorItem, item.getModuleItem());
+        assertInstanceOf(DivinityProvider.DivinityItemType.class, item);
+    }
+
+    @Test
+    void getItem_customItems_returnsItem() {
+        CustomItemsManager.CustomItem codexItem = mock(CustomItemsManager.CustomItem.class);
+        doReturn(codexItem).when(customItemsModule).getItemById("foobar");
+
+        DivinityProvider.DivinityItemType item = provider.getItem("DIVINITY_custom_items:foobar");
+
+        assertNotNull(item);
+        verify(customItemsModule).getItemById("foobar");
+        assertEquals(-1, item.getLevel());
+        assertNull(item.getMaterial());
+        assertEquals(codexItem, item.getModuleItem());
         assertInstanceOf(DivinityProvider.DivinityItemType.class, item);
     }
 }

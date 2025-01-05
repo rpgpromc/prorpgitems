@@ -11,7 +11,7 @@ import studio.magemonkey.codex.commands.api.IGeneralCommand;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.migration.MigrationUtil;
-import studio.magemonkey.codex.registry.damage.DamageRegistry;
+import studio.magemonkey.codex.registry.DamageRegistry;
 import studio.magemonkey.divinity.command.BuffCommand;
 import studio.magemonkey.divinity.command.ModifyCommand;
 import studio.magemonkey.divinity.command.SetCommand;

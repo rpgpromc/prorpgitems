@@ -20,7 +20,8 @@ import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.IListener;
-import studio.magemonkey.codex.registry.attribute.AttributeRegistry;
+import studio.magemonkey.codex.registry.AttributeRegistry;
+import studio.magemonkey.codex.registry.BuffRegistry;
 import studio.magemonkey.codex.util.ItemUT;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
@@ -70,9 +71,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         if (bow != null) {
             AmmoAttribute ammo = ItemStats.getAmmo(bow);
             if (ammo != null && ammo.getType() != AmmoAttribute.Type.ARROW) {
-                boolean bounce = pj.doesBounce(),
-                        glow = pj.isGlowing(),
-                        gravity = pj.hasGravity();
+                boolean bounce = pj.doesBounce(), glow = pj.isGlowing(), gravity = pj.hasGravity();
                 pj = ammo.getProjectile(shooter);
                 pj.setVelocity(orig);
                 pj.setBounce(bounce);
@@ -288,22 +287,23 @@ public class VanillaWrapperListener extends IListener<Divinity> {
                 // If it's not (it's vanilla), then we'll just use the vanilla damage minus one for the damage.
                 double damagerAttackDamage = 0;
 
-                if (Divinity.getInstance().getModuleCache().getTierManager().isItemOfThisModule(weapon)) {
+                if (Divinity.getInstance().getModuleCache().getTierManager() != null && Divinity.getInstance()
+                        .getModuleCache()
+                        .getTierManager()
+                        .isItemOfThisModule(weapon)) {
                     AttributeInstance attackDamageAttribute =
                             damager.getAttribute(VersionManager.getNms().getAttribute("ATTACK_DAMAGE"));
-                    damagerAttackDamage =
-                            attackDamageAttribute != null ? attackDamageAttribute.getBaseValue() : 1;
+                    damagerAttackDamage = attackDamageAttribute != null ? attackDamageAttribute.getBaseValue() : 1;
                 }
 
                 double defaultDamage = DamageAttribute.getVanillaDamage(weapon) + damagerAttackDamage;
-                long countCustomDamage = damages.keySet().stream()
-                        .filter(att -> {
-                            DamageAttribute def = ItemStats.getDamageByDefault();
-                            // Heh... well. If we have a damage type that's doing more than 1 damage and is not the
-                            // default damage type and is doing more than 1 damage (since 1 is sort of our hard-coded
-                            // default), then we can assume that this damage is intended to override the vanilla damage.
-                            return !att.equals(def) || (att.equals(def) && damages.get(att) != 1);
-                        }).count();
+                long countCustomDamage = damages.keySet().stream().filter(att -> {
+                    DamageAttribute def = ItemStats.getDamageByDefault();
+                    // Heh... well. If we have a damage type that's doing more than 1 damage and is not the
+                    // default damage type and is doing more than 1 damage (since 1 is sort of our hard-coded
+                    // default), then we can assume that this damage is intended to override the vanilla damage.
+                    return !att.equals(def) || (att.equals(def) && damages.get(att) != 1);
+                }).count();
                 if (projectile != null && countCustomDamage > 0) {
                     // If it's a projectile, the NMS for default damage doesn't work. so we'll just assume that the
                     // event damage is the default.
@@ -325,15 +325,23 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         // | Add additional damage to all damager's attributes. |
         // +----------------------------------------------------+
         final double damageStart2 = damageStart;
-        damages.keySet().forEach((dmgAtt) -> damages.compute(dmgAtt, (dmgKey, dmgVal) -> dmgVal + damageStart2));
+        damages.keySet()
+                .forEach((dmgAtt) -> damages.compute(dmgAtt,
+                        (dmgKey, dmgVal) -> (dmgVal != null ? dmgVal : 0) + damageStart2));
 
         scaleValuesWithCore(damager, projectile, damages, defenses, victim);
 
-        DivinityDamageEvent.Start eventStart =
-                new DivinityDamageEvent.Start(victim, damager, projectile, damages, defenses,
-                        stats, e, meta, skillShouldIgnore);
+        DivinityDamageEvent.Start eventStart = new DivinityDamageEvent.Start(victim,
+                damager,
+                projectile,
+                damages,
+                defenses,
+                stats,
+                e,
+                meta,
+                skillShouldIgnore);
         plugin.getPluginManager().callEvent(eventStart);
-        if (eventStart.isCancelled() || e.isCancelled()) {
+        if (eventStart.isCancelled()) {
 //            Divinity.getInstance().info("Damage event was cancelled.");
             return;
         }
@@ -400,24 +408,23 @@ public class VanillaWrapperListener extends IListener<Divinity> {
                 else id = "rpgdamage-" + id;
 
                 double damage = value;
-                damage = AttributeRegistry.scaleAttribute(
-                        id,
-                        damager,
-                        damage
-                );
+
+                damage = BuffRegistry.scaleValue("DIVINITY_damage_" + id.replace("rpgdamage-", ""), damager, damage);
+
+                damage = AttributeRegistry.scaleAttribute(id, damager, damage);
 
                 if (projectile != null) {
-                    damage = AttributeRegistry.scaleAttribute(
-                            AttributeRegistry.PROJECTILE_DAMAGE,
+                    damage = BuffRegistry.scaleValue("DIVINITY_damage_" + AttributeRegistry.PROJECTILE_DAMAGE,
                             damager,
-                            damage
-                    );
+                            damage);
+
+                    damage = AttributeRegistry.scaleAttribute(AttributeRegistry.PROJECTILE_DAMAGE, damager, damage);
                 } else {
-                    damage = AttributeRegistry.scaleAttribute(
-                            AttributeRegistry.MELEE_DAMAGE,
+                    damage = BuffRegistry.scaleValue("DIVINITY_damage_" + AttributeRegistry.MELEE_DAMAGE,
                             damager,
-                            damage
-                    );
+                            damage);
+
+                    damage = AttributeRegistry.scaleAttribute(AttributeRegistry.MELEE_DAMAGE, damager, damage);
                 }
 
                 damages.put(dmgAtt, damage);
@@ -434,24 +441,25 @@ public class VanillaWrapperListener extends IListener<Divinity> {
                 else id = "rpgdefense-" + id;
 
                 double defense = value;
-                defense = AttributeRegistry.scaleAttribute(
-                        id,
+
+                defense = BuffRegistry.scaleValue(id, damager, defense);
+
+                defense = AttributeRegistry.scaleAttribute("DIVINITY_defense_" + id.replace("rpgdefense-", ""),
                         victim,
-                        defense
-                );
+                        defense);
 
                 if (projectile != null) {
-                    defense = AttributeRegistry.scaleAttribute(
-                            AttributeRegistry.PROJECTILE_DEFENSE,
+                    defense = BuffRegistry.scaleValue("DIVINITY_defense_" + AttributeRegistry.PROJECTILE_DEFENSE,
                             victim,
-                            defense
-                    );
+                            defense);
+
+                    defense = AttributeRegistry.scaleAttribute(AttributeRegistry.PROJECTILE_DEFENSE, victim, defense);
                 } else {
-                    defense = AttributeRegistry.scaleAttribute(
-                            AttributeRegistry.MELEE_DEFENSE,
+                    defense = BuffRegistry.scaleValue("DIVINITY_defense_" + AttributeRegistry.MELEE_DEFENSE,
                             victim,
-                            defense
-                    );
+                            defense);
+
+                    defense = AttributeRegistry.scaleAttribute(AttributeRegistry.MELEE_DEFENSE, victim, defense);
                 }
 
                 defenses.put(defAtt, defense);
