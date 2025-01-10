@@ -18,6 +18,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.magemonkey.codex.CodexEngine;
+import studio.magemonkey.codex.api.items.ItemType;
 import studio.magemonkey.codex.api.meta.NBTAttribute;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.util.DataUT;
@@ -79,6 +81,9 @@ public class ItemUpdaterListener extends IListener<Divinity> {
 
     public void update(ItemStack item, @Nullable Player player) {
         if (item == null || item.getType() == Material.AIR) return;
+
+        ItemType itemType = CodexEngine.get().getItemManager().getMainItemType(item);
+        if (itemType == null || !itemType.getNamespace().equals("DIVINITY")) return;
 
         NamespacedKey key   = NamespacedKey.fromString("rpgpro.fixed_damage");
         boolean       fixed = DataUT.getBooleanData(item, key);

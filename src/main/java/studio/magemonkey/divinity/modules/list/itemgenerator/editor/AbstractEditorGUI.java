@@ -67,27 +67,27 @@ public abstract class AbstractEditorGUI extends Menu {
 
     protected static ItemStack createItem(ItemStack itemStack, String name, List<String> lore) {
         ItemMeta meta = itemStack.getItemMeta();
-        if (meta != null) {
-            ItemFlag hidePotionsFlag;
-            try {
-                hidePotionsFlag = ItemFlag.HIDE_ADDITIONAL_TOOLTIP;
-            } catch (NoSuchFieldError ignored) {
-                hidePotionsFlag = ItemFlag.valueOf("HIDE_POTION_EFFECTS");
-            }
+        if (meta == null) return itemStack;
 
-            meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-            meta.addItemFlags(hidePotionsFlag);
-            if (Version.CURRENT.isHigher(Version.V1_19_R3)) {
-                meta.addItemFlags(ItemFlag.HIDE_ARMOR_TRIM);
-            }
-            meta.setDisplayName(StringUT.color(name));
-            List<String> coloredLore = new ArrayList<>(lore.size());
-            for (String loreLine : lore) {
-                coloredLore.add(StringUT.color(loreLine));
-            }
-            meta.setLore(coloredLore);
-            itemStack.setItemMeta(meta);
+        ItemFlag hidePotionsFlag;
+        try {
+            hidePotionsFlag = ItemFlag.HIDE_ADDITIONAL_TOOLTIP;
+        } catch (NoSuchFieldError ignored) {
+            hidePotionsFlag = ItemFlag.valueOf("HIDE_POTION_EFFECTS");
         }
+
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        meta.addItemFlags(hidePotionsFlag);
+        if (Version.CURRENT.isHigher(Version.V1_19_R3)) {
+            meta.addItemFlags(ItemFlag.HIDE_ARMOR_TRIM);
+        }
+        meta.setDisplayName(StringUT.color(name));
+        List<String> coloredLore = new ArrayList<>(lore.size());
+        for (String loreLine : lore) {
+            coloredLore.add(StringUT.color(loreLine));
+        }
+        meta.setLore(coloredLore);
+        itemStack.setItemMeta(meta);
         return itemStack;
     }
 

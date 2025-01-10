@@ -326,10 +326,10 @@ public class ItemStats {
         // For 1.20.4+, the HIDE_ATTRIBUTES flag doesn't work unless an attribute has been added that's not the default.
         // Note: This only applies to Paper and its forks.
         if (Version.CURRENT.isAtLeast(Version.V1_20_R4)) {
-            Attribute attackSpeed = VersionManager.getNms().getAttribute("ATTACK_SPEED");
+            Attribute moveSpeed = VersionManager.getNms().getAttribute("MOVEMENT_SPEED");
             //noinspection RedundantCast
-            im.addAttributeModifier(attackSpeed,
-                    new AttributeModifier(((Keyed) attackSpeed).getKey().getKey(), 0, Operation.ADD_NUMBER));
+            im.addAttributeModifier(moveSpeed,
+                    new AttributeModifier(((Keyed) moveSpeed).getKey().getKey(), 0, Operation.ADD_NUMBER));
         }
 
         im.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
