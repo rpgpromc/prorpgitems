@@ -18,6 +18,7 @@ import org.bukkit.projectiles.ProjectileSource;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 import studio.magemonkey.codex.compat.VersionManager;
+import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.hooks.Hooks;
 import studio.magemonkey.codex.manager.IListener;
 import studio.magemonkey.codex.registry.AttributeRegistry;
@@ -61,7 +62,11 @@ public class VanillaWrapperListener extends IListener<Divinity> {
         LivingEntity shooter = e.getEntity();
         Projectile   pj      = (Projectile) e.getProjectile();
         Vector       orig    = pj.getVelocity();
-        double       power   = e.getForce() / 3;
+        double       power   = e.getForce();
+
+        if (Version.CURRENT.isAtLeast(Version.V1_20_R4)) {
+            power /= 3;
+        }
 
         // Quick fix for "high" skeleton damage
         if (shooter instanceof Skeleton) {
