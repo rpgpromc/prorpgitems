@@ -13,6 +13,7 @@ import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -76,6 +77,18 @@ public class ItemUpdaterListener extends IListener<Divinity> {
             for (ItemStack armor : player.getInventory().getArmorContents()) {
                 update(armor, player);
             }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void join(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+        for (ItemStack armor : player.getInventory().getArmorContents()) {
+            update(armor, player);
+        }
+
+        for (ItemStack item : player.getInventory().getContents()) {
+            update(item, player);
         }
     }
 
