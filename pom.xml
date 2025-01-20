@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>divinity</artifactId>
-    <version>1.0.2-R0.29-SNAPSHOT</version>
+    <version>1.0.2-R0.30-SNAPSHOT</version>
     <name>Divinity</name>
     <description>Custom items, combat, and more!</description>
 
