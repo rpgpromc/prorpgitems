@@ -802,7 +802,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 } catch (IncompatibleClassChangeError ignored) {
                     try {
                         Class<?> pattern  = Reflex.getClass("org.bukkit.block.banner.PatternType");
-                        Object[] patterns = pattern.getEnumConstants();
+                        Object[] patterns = (Object[]) pattern.getMethod("values").invoke(null);
                         Object   bPattern = Rnd.get(patterns);
                         banner.addPattern(Pattern.class.getConstructor(DyeColor.class, pattern)
                                 .newInstance(bPatternColor, bPattern));
@@ -831,7 +831,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             List<Map.Entry<Enchantment, String[]>> enchants  = new ArrayList<>(this.enchantsList.entrySet());
             Collections.shuffle(enchants);
 
-            for (Map.Entry<Enchantment, String[]> e : enchants) {
+            for (
+                    Map.Entry<Enchantment, String[]> e : enchants) {
                 if (enchCount >= enchRoll) {
                     break;
                 }
@@ -854,9 +855,15 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
 
             // Quick fix for skull textures of ModuleItem because of ItemGen materials.
             // TODO
-            ItemUT.addSkullTexture(item, this.hash, this.getId());
+            ItemUT.addSkullTexture(item, this.hash, this.
 
-            this.getAttributeGenerators().forEach(generator -> generator.generate(item, itemLvl));
+                    getId());
+
+            this.
+
+                    getAttributeGenerators().
+
+                    forEach(generator -> generator.generate(item, itemLvl));
 
             LoreUT.replacePlaceholder(item, PLACE_GEN_DAMAGE, null);
             LoreUT.replacePlaceholder(item, PLACE_GEN_DEFENSE, null);
@@ -900,7 +907,9 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             // Replace %ENCHANTS% placeholder
             LoreUT.replaceEnchants(item);
             LoreUT.replacePlaceholder(item, "%TYPE%", itemGroupName);
-            LoreUT.replacePlaceholder(item, "%MATERIAL%", plugin.lang().getEnum(item.getType()));
+            LoreUT.replacePlaceholder(item, "%MATERIAL%", plugin.lang().
+
+                    getEnum(item.getType()));
 
             // Delete left Attribute placeholders.
             meta = item.getItemMeta();
@@ -908,22 +917,27 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             lore = meta.getLore();
             if (lore == null) return item;
 
-            for (TypedStat at : ItemStats.getStats()) {
+            for (
+                    TypedStat at : ItemStats.getStats()) {
                 lore.remove(at.getPlaceholder());
             }
-            for (ItemLoreStat<?> at : ItemStats.getDamages()) {
+            for (
+                    ItemLoreStat<?> at : ItemStats.getDamages()) {
                 lore.remove(at.getPlaceholder());
             }
-            for (ItemLoreStat<?> at : ItemStats.getDefenses()) {
+            for (
+                    ItemLoreStat<?> at : ItemStats.getDefenses()) {
                 lore.remove(at.getPlaceholder());
             }
+
             FabledHook fabledHook = (FabledHook) Divinity.getInstance().getHook(EHook.SKILL_API);
             if (fabledHook != null) {
                 for (ItemLoreStat<?> at : fabledHook.getAttributes()) {
                     lore.remove(at.getPlaceholder());
                 }
             }
-            for (SocketAttribute.Type socketType : SocketAttribute.Type.values()) {
+            for (
+                    SocketAttribute.Type socketType : SocketAttribute.Type.values()) {
                 for (ItemLoreStat<?> at : ItemStats.getSockets(socketType)) {
                     lore.remove(at.getPlaceholder());
                 }

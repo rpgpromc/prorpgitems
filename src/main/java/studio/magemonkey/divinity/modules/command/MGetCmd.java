@@ -63,9 +63,8 @@ public class MGetCmd extends MCmd<QModuleDrop<?>> {
             ItemGeneratorManager itemGeneratorManager = (ItemGeneratorManager) this.module;
             GeneratorItem        generatorItem        = itemGeneratorManager.getItemById(args[1]);
             if (generatorItem != null) {
-                List<String> list = generatorItem.getMaterialsList().stream()
+                return generatorItem.getMaterialsList().stream()
                         .map(ItemType::getNamespacedID).collect(Collectors.toList());
-                return list;
             }
         }
         return super.getTab(player, i, args);
