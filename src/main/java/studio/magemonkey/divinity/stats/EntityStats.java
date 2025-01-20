@@ -587,20 +587,15 @@ public class EntityStats {
         // Remove this bonus only if same UUID and different value
         // Do not modify if value is the same
         for (AttributeModifier attMod : new HashSet<>(attInst.getModifiers())) {
-            UUID uuid;
+            UUID uuid = null;
             try {
                 uuid = attMod.getUniqueId();
-            } catch (Exception e) {
-                String attKey = VersionManager.getCompat().getAttributeKey(attMod);
-
-                try {
-                    uuid = UUID.fromString(attKey.replace("minecraft:", ""));
-                } catch (Exception ignored) {
-                    continue;
-                }
+            } catch (Exception ignored) {
             }
 
-            if (uuid.equals(Compat.ATTRIBUTE_BONUS_UUID)) {
+            String attKey = VersionManager.getCompat().getAttributeKey(attMod);
+            String targetKey = VersionManager.getCompat().getAttributeKey(att);
+            if (Compat.ATTRIBUTE_BONUS_UUID.equals(uuid) || targetKey.equals(attKey)) {
                 if (attMod.getAmount() == value) {
                     return;
                 }
@@ -763,7 +758,8 @@ public class EntityStats {
         bonuses.addAll(this.getBonuses(stat));
 
         if (type == TypedStat.Type.ARMOR_TOUGHNESS) {
-            AttributeInstance attribute = entity.getAttribute(VersionManager.getNms().getAttribute("ARMOR_TOUGHNESS"));
+            AttributeInstance attribute =
+                    entity.getAttribute(VersionManager.getNms().getAttribute("ARMOR_TOUGHNESS"));
             if (attribute != null) {
                 bonuses.add((isPercent, input) -> isPercent ? input : input + attribute.getValue());
             }
