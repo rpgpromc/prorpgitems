@@ -11,7 +11,7 @@ public class HandTypesGUI extends AbstractEditorGUI {
     public HandTypesGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.HAND_TYPES.getTitle(),
+                "Editor/" + EditorGUI.ItemType.HAND_TYPES.getTitle(),
                 itemGenerator);
     }
 

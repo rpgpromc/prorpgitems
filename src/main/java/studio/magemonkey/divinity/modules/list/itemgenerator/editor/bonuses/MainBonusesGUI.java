@@ -11,7 +11,7 @@ public class MainBonusesGUI extends AbstractEditorGUI {
     public MainBonusesGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.BONUSES.getTitle(),
+                "Editor/" + EditorGUI.ItemType.BONUSES.getTitle(),
                 itemGenerator);
     }
 
@@ -19,7 +19,9 @@ public class MainBonusesGUI extends AbstractEditorGUI {
     public void setContents() {
         setSlot(0, new Slot(createItem(Material.IRON_ORE,
                 "&eMaterial Modifiers",
-                "&7Modify the base value of the stat, based on the material group of the item",
+                "&7Modify the base value of the stat,",
+                "&7based on the material group of the ",
+                "&7item.",
                 "&6Left-Click: &eModify")) {
             @Override
             public void onLeftClick() {
@@ -42,12 +44,21 @@ public class MainBonusesGUI extends AbstractEditorGUI {
                 openSubMenu(new BonusCategoryGUI(player, itemGenerator, ItemType.CLASS));
             }
         });
+        /*setSlot(3, new Slot(createItem(Material.DIAMOND,
+                "&eRarity bonuses",
+                "&6Left-Click: &eModify")) {
+            @Override
+            public void onLeftClick() {
+                openSubMenu(new BonusCategoryGUI(player, itemGenerator, ItemType.RARITY));
+            }
+        });*/
     }
 
     public enum ItemType {
         MATERIAL_MODIFIERS("material or group"),
         MATERIAL("material or group"),
         CLASS("class"),
+        RARITY("rarity"),
         ;
 
         private final String description;
@@ -56,8 +67,12 @@ public class MainBonusesGUI extends AbstractEditorGUI {
             this.description = description;
         }
 
-        public String getPath() {return "generator.bonuses." + name().toLowerCase().replace('_', '-');}
+        public String getPath() {
+            return "generator.bonuses." + name().toLowerCase().replace('_', '-');
+        }
 
-        public String getDescription() {return description;}
+        public String getDescription() {
+            return description;
+        }
     }
 }

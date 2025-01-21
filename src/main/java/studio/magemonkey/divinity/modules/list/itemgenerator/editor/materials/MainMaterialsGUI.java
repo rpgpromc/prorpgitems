@@ -21,7 +21,7 @@ public class MainMaterialsGUI extends AbstractEditorGUI {
     public MainMaterialsGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.MATERIALS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.MATERIALS.getTitle(),
                 itemGenerator);
     }
 

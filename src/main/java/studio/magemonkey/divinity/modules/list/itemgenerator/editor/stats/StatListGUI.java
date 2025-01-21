@@ -19,7 +19,7 @@ public class StatListGUI extends AbstractEditorGUI {
     private final EditorGUI.ItemType itemType;
 
     public StatListGUI(Player player, ItemGeneratorReference itemGenerator, EditorGUI.ItemType itemType) {
-        super(player, 6, "[&d" + itemGenerator.getId() + "&r] editor/" + itemType.getTitle(), itemGenerator);
+        super(player, 6, "Editor/" + itemType.getTitle(), itemGenerator);
         this.itemType = itemType;
     }
 

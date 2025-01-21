@@ -23,7 +23,7 @@ public class SkillListGUI extends AbstractEditorGUI {
     public SkillListGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
                 itemGenerator);
     }
 

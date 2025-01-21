@@ -18,7 +18,7 @@ public class UsesByLevelGUI extends AbstractEditorGUI {
     public UsesByLevelGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.USES_BY_LEVEL.getTitle(),
+                "Editor/" + EditorGUI.ItemType.USES_BY_LEVEL.getTitle(),
                 itemGenerator);
     }
 

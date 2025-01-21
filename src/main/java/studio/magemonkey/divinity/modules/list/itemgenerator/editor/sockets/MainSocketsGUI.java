@@ -14,7 +14,7 @@ public class MainSocketsGUI extends AbstractEditorGUI {
     public MainSocketsGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.SOCKETS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.SOCKETS.getTitle(),
                 itemGenerator);
     }
 

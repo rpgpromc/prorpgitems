@@ -11,7 +11,7 @@ public class MainRequirementsGUI extends AbstractEditorGUI {
     public MainRequirementsGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.REQUIREMENTS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.REQUIREMENTS.getTitle(),
                 itemGenerator);
     }
 

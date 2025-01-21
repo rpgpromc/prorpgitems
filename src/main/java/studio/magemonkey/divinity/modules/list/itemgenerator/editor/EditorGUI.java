@@ -30,7 +30,7 @@ import java.util.Map;
 public class EditorGUI extends AbstractEditorGUI {
 
     public EditorGUI(Player player, ItemGeneratorReference itemGenerator) {
-        super(player, 5, "[&d" + itemGenerator.getId() + "&r] editor", itemGenerator);
+        super(player, 5, "Editor", itemGenerator);
     }
 
     @Override

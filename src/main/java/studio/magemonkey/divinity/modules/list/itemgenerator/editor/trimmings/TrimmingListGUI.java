@@ -23,7 +23,7 @@ public class TrimmingListGUI extends AbstractEditorGUI {
     public TrimmingListGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.ARMOR_TRIMINGS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.ARMOR_TRIMINGS.getTitle(),
                 itemGenerator);
     }
 

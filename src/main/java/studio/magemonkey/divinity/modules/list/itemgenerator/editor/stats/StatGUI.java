@@ -11,7 +11,7 @@ public class StatGUI extends AbstractEditorGUI {
     private final String             path;
 
     public StatGUI(Player player, ItemGeneratorReference itemGenerator, EditorGUI.ItemType itemType, String path) {
-        super(player, 1, "[&d" + itemGenerator.getId() + "&r] editor/" + itemType.getTitle(), itemGenerator);
+        super(player, 1, "Editor/" + itemType.getTitle(), itemGenerator);
         this.itemType = itemType;
         this.path = path;
     }
