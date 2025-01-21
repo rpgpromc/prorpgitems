@@ -10,6 +10,8 @@ import org.bukkit.block.banner.PatternType;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -25,12 +27,14 @@ import studio.magemonkey.codex.compat.VersionManager;
 import studio.magemonkey.codex.config.api.JYML;
 import studio.magemonkey.codex.core.Version;
 import studio.magemonkey.codex.util.ItemUT;
+import studio.magemonkey.codex.util.NumberUT;
 import studio.magemonkey.codex.util.Reflex;
 import studio.magemonkey.codex.util.StringUT;
 import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.codex.util.random.Rnd;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.config.Config;
+import studio.magemonkey.divinity.config.EngineCfg;
 import studio.magemonkey.divinity.hooks.EHook;
 import studio.magemonkey.divinity.hooks.external.FabledHook;
 import studio.magemonkey.divinity.modules.EModule;
@@ -78,16 +82,16 @@ import java.util.stream.Collectors;
 
 public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
 
-    public static  YamlConfiguration  commonItemGenerator;
+    public static YamlConfiguration commonItemGenerator;
     @Getter
-    private static ResourceManager    resourceManager;
-    private        ItemAbilityHandler abilityHandler;
+    private static ResourceManager resourceManager;
+    private ItemAbilityHandler abilityHandler;
 
-    public static final String PLACE_GEN_DAMAGE      = "%GENERATOR_DAMAGE%";
-    public static final String PLACE_GEN_DEFENSE     = "%GENERATOR_DEFENSE%";
-    public static final String PLACE_GEN_STATS       = "%GENERATOR_STATS%";
-    public static final String PLACE_GEN_SOCKETS     = "%GENERATOR_SOCKETS_%TYPE%%";
-    public static final String PLACE_GEN_ABILITY     = "%GENERATOR_SKILLS%";
+    public static final String PLACE_GEN_DAMAGE = "%GENERATOR_DAMAGE%";
+    public static final String PLACE_GEN_DEFENSE = "%GENERATOR_DEFENSE%";
+    public static final String PLACE_GEN_STATS = "%GENERATOR_STATS%";
+    public static final String PLACE_GEN_SOCKETS = "%GENERATOR_SOCKETS_%TYPE%%";
+    public static final String PLACE_GEN_ABILITY = "%GENERATOR_SKILLS%";
     public static final String PLACE_GEN_FABLED_ATTR = "%GENERATOR_FABLED_ATTR%";
 
     public ItemGeneratorManager(@NotNull Divinity plugin) {
@@ -179,13 +183,13 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
         @Getter
         private double suffixChance;
 
-        private boolean       materialsWhitelist;
+        private boolean materialsWhitelist;
         private Set<ItemType> materialsList;
 
-        private List<Integer>              modelDataList;
+        private List<Integer> modelDataList;
         private Map<String, List<Integer>> modelDataSpecial;
 
-        private Map<String, BonusMap>                     materialModifiers;
+        private Map<String, BonusMap> materialModifiers;
         private Map<String, Map<ItemLoreStat<?>, String>> materialBonuses;
         private Map<String, Map<ItemLoreStat<?>, String>> classBonuses;
 
@@ -193,16 +197,16 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
         private TreeMap<Integer, String[]> reqUserClass;
         private TreeMap<Integer, String[]> reqBannedUserClass;
 
-        private       int                        enchantsMinAmount;
-        private       int                        enchantsMaxAmount;
-        private       boolean                    enchantsSafeOnly;
+        private int enchantsMinAmount;
+        private int enchantsMaxAmount;
+        private boolean enchantsSafeOnly;
         @Getter
-        private       boolean                    enchantsSafeLevels;
-        private       Map<Enchantment, String[]> enchantsList;
-        private final TreeMap<Double, String>    armorTrims = new TreeMap<>();
+        private boolean enchantsSafeLevels;
+        private Map<Enchantment, String[]> enchantsList;
+        private final TreeMap<Double, String> armorTrims = new TreeMap<>();
 
         private Set<IAttributeGenerator> attributeGenerators;
-        private AbilityGenerator         abilityGenerator;
+        private AbilityGenerator abilityGenerator;
 
         public GeneratorItem(@NotNull Divinity plugin, @NotNull JYML cfg) {
             super(plugin, cfg, ItemGeneratorManager.this);
@@ -216,7 +220,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             if (this.materialsWhitelist) {
                 this.materialsList = new HashSet<>();
                 Set<String> startWildcards = new HashSet<>();
-                Set<String> endWildcards   = new HashSet<>();
+                Set<String> endWildcards = new HashSet<>();
 
                 for (String mat : cfg.getStringList(path + "materials.black-list")) {
                     String[] split = mat.split('\\' + JStrings.MASK_ANY, 2);
@@ -245,7 +249,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 this.materialsList = new HashSet<>(Config.getAllRegisteredMaterials());
                 Set<String> materials = new HashSet<>(cfg.getStringList(path + "materials.black-list"));
                 this.materialsList.removeIf(matAll -> {
-                    String namespacedID          = matAll.getNamespacedID();
+                    String namespacedID = matAll.getNamespacedID();
                     String upperCaseNamespacedID = namespacedID.toUpperCase();
                     for (String mat : materials) {
                         String[] split = mat.split('\\' + JStrings.MASK_ANY, 2);
@@ -288,8 +292,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     continue;
                 }
 
-                BonusMap bMap  = new BonusMap();
-                String   path2 = path + group + ".";
+                BonusMap bMap = new BonusMap();
+                String path2 = path + group + ".";
                 bMap.loadDamages(cfg, path2 + "damage-types");
                 bMap.loadDefenses(cfg, path2 + "defense-types");
                 bMap.loadStats(cfg, path2 + "item-stats");
@@ -315,8 +319,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (sVal == null) continue;
 
                     String[] split = sVal.split("%", 2);
-                    boolean  perc  = split.length == 2 && split[1].isEmpty();
-                    double   val   = StringUT.getDouble(split[0], 0, true);
+                    boolean perc = split.length == 2 && split[1].isEmpty();
+                    double val = StringUT.getDouble(split[0], 0, true);
 
                     statMap.put(dt, val + (perc ? "%" : ""));
                 }
@@ -330,8 +334,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (sVal == null) continue;
 
                     String[] split = sVal.split("%", 2);
-                    boolean  perc  = split.length == 2 && split[1].isEmpty();
-                    double   val   = StringUT.getDouble(split[0], 0, true);
+                    boolean perc = split.length == 2 && split[1].isEmpty();
+                    double val = StringUT.getDouble(split[0], 0, true);
 
                     statMap.put(dt, val + (perc ? "%" : ""));
                 }
@@ -347,8 +351,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (sVal == null) continue;
 
                     String[] split = sVal.split("%", 2);
-                    boolean  perc  = split.length == 2 && split[1].isEmpty();
-                    double   val   = StringUT.getDouble(split[0], 0, true);
+                    boolean perc = split.length == 2 && split[1].isEmpty();
+                    double val = StringUT.getDouble(split[0], 0, true);
 
                     statMap.put(mainStat, val + (perc ? "%" : ""));
                 }
@@ -371,8 +375,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (sVal == null) continue;
 
                     String[] split = sVal.split("%", 2);
-                    boolean  perc  = split.length == 2 && split[1].isEmpty();
-                    double   val   = StringUT.getDouble(split[0], 0, true);
+                    boolean perc = split.length == 2 && split[1].isEmpty();
+                    double val = StringUT.getDouble(split[0], 0, true);
 
                     statMap.put(dt, val + (perc ? "%" : ""));
                 }
@@ -386,8 +390,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (sVal == null) continue;
 
                     String[] split = sVal.split("%", 2);
-                    boolean  perc  = split.length == 2 && split[1].isEmpty();
-                    double   val   = StringUT.getDouble(split[0], 0, true);
+                    boolean perc = split.length == 2 && split[1].isEmpty();
+                    double val = StringUT.getDouble(split[0], 0, true);
 
                     statMap.put(dt, val + (perc ? "%" : ""));
                 }
@@ -403,8 +407,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (sVal == null) continue;
 
                     String[] split = sVal.split("%", 2);
-                    boolean  perc  = split.length == 2 && split[1].isEmpty();
-                    double   val   = StringUT.getDouble(split[0], 0, true);
+                    boolean perc = split.length == 2 && split[1].isEmpty();
+                    double val = StringUT.getDouble(split[0], 0, true);
 
                     statMap.put(mainStat, val + (perc ? "%" : ""));
                 }
@@ -623,8 +627,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                                                                         @NotNull ItemLoreStat<?> stat) {
             for (Map.Entry<String, BonusMap> e : this.materialModifiers.entrySet()) {
                 if (ItemUtils.compareItemGroup(item, e.getKey())) {
-                    BonusMap                            bMap = e.getValue();
-                    BiFunction<Boolean, Double, Double> bif  = bMap.getBonus(stat);
+                    BonusMap bMap = e.getValue();
+                    BiFunction<Boolean, Double, Double> bif = bMap.getBonus(stat);
                     if (bif == null) {
                         continue;
                     }
@@ -641,7 +645,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 if (!ItemUtils.compareItemGroup(item, entry.getKey())) continue;
                 for (Map.Entry<ItemLoreStat<?>, String> entry1 : entry.getValue().entrySet()) {
                     if (entry1.getKey().equals(stat)) {
-                        String   sVal  = entry1.getValue();
+                        String sVal = entry1.getValue();
                         String[] split = sVal.split("%", 2);
                         list.add(new StatBonus(
                                 new double[]{Double.parseDouble(split[0])},
@@ -658,7 +662,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             for (Map.Entry<String, Map<ItemLoreStat<?>, String>> entry : this.classBonuses.entrySet()) {
                 for (Map.Entry<ItemLoreStat<?>, String> entry1 : entry.getValue().entrySet()) {
                     if (entry1.getKey().equals(stat)) {
-                        String   sVal  = entry1.getValue();
+                        String sVal = entry1.getValue();
                         String[] split = sVal.split("%", 2);
                         list.add(new StatBonus(
                                 new double[]{Double.parseDouble(split[0])},
@@ -742,7 +746,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             String prefixItemType = "";
             String suffixItemType = "";
 
-            String itemGroupId   = ItemUtils.getItemGroupIdFor(item);
+            String itemGroupId = ItemUtils.getItemGroupIdFor(item);
             String itemGroupName = ItemUtils.getItemGroupNameFor(item);
 
             String itemMaterial = CodexEngine.get().getItemManager().getItemTypes(item).stream()
@@ -789,10 +793,10 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             // +-------------------------+
             // TODO More options, mb generator?
             if (meta instanceof BlockStateMeta) {
-                BlockStateMeta bmeta  = (BlockStateMeta) meta;
-                Banner         banner = (Banner) bmeta.getBlockState();
+                BlockStateMeta bmeta = (BlockStateMeta) meta;
+                Banner banner = (Banner) bmeta.getBlockState();
 
-                DyeColor bBaseColor    = Rnd.get(DyeColor.values());
+                DyeColor bBaseColor = Rnd.get(DyeColor.values());
                 DyeColor bPatternColor = Rnd.get(DyeColor.values());
                 banner.setBaseColor(bBaseColor);
 
@@ -801,9 +805,9 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     banner.addPattern(new Pattern(bPatternColor, bPattern));
                 } catch (IncompatibleClassChangeError ignored) {
                     try {
-                        Class<?> pattern  = Reflex.getClass("org.bukkit.block.banner.PatternType");
+                        Class<?> pattern = Reflex.getClass("org.bukkit.block.banner.PatternType");
                         Object[] patterns = (Object[]) pattern.getMethod("values").invoke(null);
-                        Object   bPattern = Rnd.get(patterns);
+                        Object bPattern = Rnd.get(patterns);
                         banner.addPattern(Pattern.class.getConstructor(DyeColor.class, pattern)
                                 .newInstance(bPatternColor, bPattern));
                     } catch (InvocationTargetException | InstantiationException | NoSuchMethodException |
@@ -827,8 +831,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             // Add enchants
             int enchRoll =
                     Rnd.get(this.getMinEnchantments(), this.getMaxEnchantments());
-            int                                    enchCount = 0;
-            List<Map.Entry<Enchantment, String[]>> enchants  = new ArrayList<>(this.enchantsList.entrySet());
+            int enchCount = 0;
+            List<Map.Entry<Enchantment, String[]>> enchants = new ArrayList<>(this.enchantsList.entrySet());
             Collections.shuffle(enchants);
 
             for (
@@ -836,9 +840,9 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 if (enchCount >= enchRoll) {
                     break;
                 }
-                Enchantment enchant    = e.getKey();
-                int[]       enchLevels = this.doMathExpression(itemLvl, e.getValue());
-                int         enchLevel  = Rnd.get(enchLevels[0], enchLevels[1]);
+                Enchantment enchant = e.getKey();
+                int[] enchLevels = this.doMathExpression(itemLvl, e.getValue());
+                int enchLevel = Rnd.get(enchLevels[0], enchLevels[1]);
                 if (enchLevel < 1) continue;
 
                 if (this.isSafeEnchant()) {
@@ -873,8 +877,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 reqLevel.add(item, this.getUserLevelRequirement(itemLvl), -1);
             }
 
-            String[]                         userClass = this.getUserClassRequirement(itemLvl);
-            DynamicUserRequirement<String[]> reqClass  = null;
+            String[] userClass = this.getUserClassRequirement(itemLvl);
+            DynamicUserRequirement<String[]> reqClass = null;
             if (userClass == null || userClass.length == 0) {
                 userClass = this.getUserBannedClassRequirement(itemLvl);
                 if (userClass != null && userClass.length > 0) {
@@ -999,11 +1003,11 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
 
     /* Kind of a method to play around for all combinations since those might be required on third party plugins (Also on Fusion) */
     public static List<String> getAllCombinations(GeneratorItem item, Material material) {
-        String                              name          = item.getName();
-        String                              itemGroupName = ItemUtils.getItemGroupNameFor(new ItemStack(material));
-        List<String>                        names         = new ArrayList<>();
-        Map<ResourceCategory, List<String>> prefixes      = getMatchingPrefixes(material, Config.getTiers());
-        Map<ResourceCategory, List<String>> suffixes      = getMatchingSuffixes(material, Config.getTiers());
+        String name = item.getName();
+        String itemGroupName = ItemUtils.getItemGroupNameFor(new ItemStack(material));
+        List<String> names = new ArrayList<>();
+        Map<ResourceCategory, List<String>> prefixes = getMatchingPrefixes(material, Config.getTiers());
+        Map<ResourceCategory, List<String>> suffixes = getMatchingSuffixes(material, Config.getTiers());
 
         names.add(name.replace("%item_type%", itemGroupName)
                 .replace("%prefix_tier%", "")
@@ -1291,5 +1295,45 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
         }
 
         return names;
+    }
+
+    public static void updateGeneratorItemLore(ItemStack item) {
+        if (item.getItemMeta() == null) return;
+        String itemId = Divinity.getInstance().getModuleCache().getTierManager().getItemId(item);
+        if (itemId == null) return;
+        ItemGeneratorManager.GeneratorItem reference = Divinity.getInstance().getModuleCache().getTierManager().getItemById(itemId);
+        if (reference == null) return;
+
+        ItemMeta meta = item.getItemMeta();
+        List<String> lore = meta.getLore();
+        if (lore == null) return;
+
+        // Iterate through all enchantments and make sure we delete all existent lore entries
+        // Note: If there was no %ENCHANTS% before, we add it here since we need it later
+        for (Enchantment enchantment : Enchantment.values()) {
+            String value = EngineCfg.LORE_STYLE_ENCHANTMENTS_FORMAT_MAIN
+                    .replace("%name%", Divinity.getInstance().lang().getEnchantment(enchantment))
+                    .replace("%value%", "");
+            lore.removeIf(line -> {
+                if (!lore.contains("%ENCHANTS%") && line.contains(value)) {
+                    if (lore.contains(line))
+                        lore.set(lore.indexOf(line), "%ENCHANTS%");
+                    return false;
+                }
+                return line.contains(value);
+            });
+        }
+
+        // If the item had no enchantments before, but the itemflag is no set either, add %ENCHANTS% to the lore with ignored order
+        if (!lore.contains("%ENCHANTS%")
+                && !reference.getFlags().contains(ItemFlag.HIDE_ENCHANTS)
+                && reference.getLore().contains("%ENCHANTS%"))
+            lore.add("%ENCHANTS%");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        // If everythings fine now, the lore should contain %ENCHANTS% which can be replaced by the enchantments now
+        LoreUT.replaceEnchants(item);
     }
 }
