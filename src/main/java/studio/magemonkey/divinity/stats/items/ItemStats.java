@@ -274,7 +274,7 @@ public class ItemStats {
         return def;
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
+    @SuppressWarnings({"unchecked"})
     @Nullable
     public static <T extends TypedStat> T getStat(@NotNull Class<T> clazz) {
         for (TypedStat stat : ItemStats.getStats()) {
@@ -327,9 +327,11 @@ public class ItemStats {
         // Note: This only applies to Paper and its forks.
         if (Version.CURRENT.isAtLeast(Version.V1_20_R4)) {
             Attribute moveSpeed = VersionManager.getNms().getAttribute("MOVEMENT_SPEED");
-            //noinspection RedundantCast
-            im.addAttributeModifier(moveSpeed,
-                    new AttributeModifier(((Keyed) moveSpeed).getKey().getKey(), 0, Operation.ADD_NUMBER));
+            if (im.getAttributeModifiers(VersionManager.getNms().getAttribute("MOVEMENT_SPEED")) == null) {
+                //noinspection RedundantCast
+                im.addAttributeModifier(moveSpeed,
+                        new AttributeModifier(((Keyed) moveSpeed).getKey().getKey(), 0, Operation.ADD_NUMBER));
+            }
         }
 
         im.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);

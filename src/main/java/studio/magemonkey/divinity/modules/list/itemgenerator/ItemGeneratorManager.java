@@ -501,8 +501,9 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                             == null) {
                         continue;
                     }
-                    if (!split[1].equals("*") &&
-                            VersionManager.getArmorUtil().getTrimPattern(NamespacedKey.minecraft(split[1])) == null) {
+                    if (!split[1].equals("*")
+                            && VersionManager.getArmorUtil().getTrimPattern(NamespacedKey.minecraft(split[1]))
+                            == null) {
                         continue;
                     }
                     totalWeight += weight;
@@ -539,9 +540,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     "generator.item-stats.",
                     ItemStats.getStats(),
                     ItemGeneratorManager.PLACE_GEN_STATS));
-            this.addAttributeGenerator(this.abilityGenerator = new AbilityGenerator(this.plugin,
-                    this,
-                    PLACE_GEN_ABILITY));
+            this.addAttributeGenerator(
+                    this.abilityGenerator = new AbilityGenerator(this.plugin, this, PLACE_GEN_ABILITY));
             FabledHook fabledHook = (FabledHook) Divinity.getInstance().getHook(EHook.SKILL_API);
             this.addAttributeGenerator(new AttributeGenerator<>(this.plugin,
                     this,
@@ -643,8 +643,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (entry1.getKey().equals(stat)) {
                         String   sVal  = entry1.getValue();
                         String[] split = sVal.split("%", 2);
-                        list.add(new StatBonus(
-                                new double[]{Double.parseDouble(split[0])},
+                        list.add(new StatBonus(new double[]{Double.parseDouble(split[0])},
                                 split.length == 2 && split[1].isEmpty(),
                                 new StatBonus.Condition<>()));
                     }
@@ -660,8 +659,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     if (entry1.getKey().equals(stat)) {
                         String   sVal  = entry1.getValue();
                         String[] split = sVal.split("%", 2);
-                        list.add(new StatBonus(
-                                new double[]{Double.parseDouble(split[0])},
+                        list.add(new StatBonus(new double[]{Double.parseDouble(split[0])},
                                 split.length == 2 && split[1].isEmpty(),
                                 new StatBonus.Condition<>(ItemRequirements.getUserRequirement(ClassRequirement.class),
                                         new String[]{entry.getKey()})));
@@ -745,10 +743,14 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             String itemGroupId   = ItemUtils.getItemGroupIdFor(item);
             String itemGroupName = ItemUtils.getItemGroupNameFor(item);
 
-            String itemMaterial = CodexEngine.get().getItemManager().getItemTypes(item).stream()
+            String itemMaterial = CodexEngine.get()
+                    .getItemManager()
+                    .getItemTypes(item)
+                    .stream()
                     .filter(itemType -> itemType.getCategory() != ICodexItemProvider.Category.PRO)
                     .max(Comparator.comparing(ItemType::getCategory))
-                    .orElseGet(() -> new VanillaProvider.VanillaItemType(item.getType())).getNamespacedID();
+                    .orElseGet(() -> new VanillaProvider.VanillaItemType(item.getType()))
+                    .getNamespacedID();
 
             if (Rnd.get(true) <= prefixChance) {
                 prefixTier = Rnd.get(resourceManager.getPrefix(ResourceCategory.TIER, this.getTier().getId()));
@@ -819,20 +821,19 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
 
             if (!armorTrims.isEmpty()) {
                 String trimString = armorTrims.ceilingEntry(Rnd.nextDouble() * armorTrims.lastKey()).getValue();
-                VersionManager.getArmorUtil().addTrim(meta, trimString.split(":")[0], trimString.split(":")[1]);
+                if (trimString != null)
+                    VersionManager.getArmorUtil().addTrim(meta, trimString.split(":")[0], trimString.split(":")[1]);
             }
 
             item.setItemMeta(meta);
 
             // Add enchants
-            int enchRoll =
-                    Rnd.get(this.getMinEnchantments(), this.getMaxEnchantments());
+            int enchRoll = Rnd.get(this.getMinEnchantments(), this.getMaxEnchantments());
             int                                    enchCount = 0;
             List<Map.Entry<Enchantment, String[]>> enchants  = new ArrayList<>(this.enchantsList.entrySet());
             Collections.shuffle(enchants);
 
-            for (
-                    Map.Entry<Enchantment, String[]> e : enchants) {
+            for (Map.Entry<Enchantment, String[]> e : enchants) {
                 if (enchCount >= enchRoll) {
                     break;
                 }
@@ -853,17 +854,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 enchCount++;
             }
 
-            // Quick fix for skull textures of ModuleItem because of ItemGen materials.
-            // TODO
-            ItemUT.addSkullTexture(item, this.hash, this.
-
-                    getId());
-
-            this.
-
-                    getAttributeGenerators().
-
-                    forEach(generator -> generator.generate(item, itemLvl));
+            ItemUT.addSkullTexture(item, this.hash, this.getId());
+            this.getAttributeGenerators().forEach(generator -> generator.generate(item, itemLvl));
 
             LoreUT.replacePlaceholder(item, PLACE_GEN_DAMAGE, null);
             LoreUT.replacePlaceholder(item, PLACE_GEN_DEFENSE, null);
@@ -917,16 +909,13 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             lore = meta.getLore();
             if (lore == null) return item;
 
-            for (
-                    TypedStat at : ItemStats.getStats()) {
+            for (TypedStat at : ItemStats.getStats()) {
                 lore.remove(at.getPlaceholder());
             }
-            for (
-                    ItemLoreStat<?> at : ItemStats.getDamages()) {
+            for (ItemLoreStat<?> at : ItemStats.getDamages()) {
                 lore.remove(at.getPlaceholder());
             }
-            for (
-                    ItemLoreStat<?> at : ItemStats.getDefenses()) {
+            for (ItemLoreStat<?> at : ItemStats.getDefenses()) {
                 lore.remove(at.getPlaceholder());
             }
 
@@ -936,13 +925,11 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                     lore.remove(at.getPlaceholder());
                 }
             }
-            for (
-                    SocketAttribute.Type socketType : SocketAttribute.Type.values()) {
+            for (SocketAttribute.Type socketType : SocketAttribute.Type.values()) {
                 for (ItemLoreStat<?> at : ItemStats.getSockets(socketType)) {
                     lore.remove(at.getPlaceholder());
                 }
             }
-            // TODO
             meta.setLore(lore);
             item.setItemMeta(meta);
 
