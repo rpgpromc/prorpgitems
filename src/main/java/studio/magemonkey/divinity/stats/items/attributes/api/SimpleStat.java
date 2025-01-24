@@ -240,10 +240,11 @@ public class SimpleStat extends DuplicableItemLoreStat<StatBonus> implements Typ
             sVal += EngineCfg.LORE_CHAR_PERCENT;
         } else {
             if (this.statType == Type.CRITICAL_DAMAGE) sVal += EngineCfg.LORE_CHAR_MULTIPLIER;
-            if (statBonus.isBaseStat()) { // Apply refines
-                RefineManager refine = Divinity.getInstance().getModuleCache().getRefineManager();
-                if (refine != null) sVal += refine.getFormatLoreStat(item, this, statBonus.getValue()[0]);
-            }
+        }
+
+        if (statBonus.isBaseStat()) { // Apply refines
+            RefineManager refine = Divinity.getInstance().getModuleCache().getRefineManager();
+            if (refine != null) sVal += refine.getFormatLoreStat(item, this, statBonus.getValue()[0]);
         }
         return sVal;
     }
