@@ -5,7 +5,6 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.event.enchantment.EnchantItemEvent;
 import org.bukkit.event.enchantment.PrepareItemEnchantEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
@@ -480,7 +479,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onAnvilUse(PrepareAnvilEvent e) {
         ItemStack result = e.getResult();
-        if(result == null) return;
+        if (result == null) return;
         ItemGeneratorManager.updateGeneratorItemLore(result);
     }
 
@@ -493,7 +492,7 @@ public class VanillaWrapperListener extends IListener<Divinity> {
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onGrindStone(PrepareGrindstoneEvent e) {
         ItemStack result = e.getResult();
-        if(result == null) return;
+        if (result == null) return;
         ItemGeneratorManager.updateGeneratorItemLore(result);
     }
 }

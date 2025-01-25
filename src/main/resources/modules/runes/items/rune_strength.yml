@@ -15,7 +15,7 @@ success-rate-by-level:
   '2': '30 * %ITEM_LEVEL%'
   '3': '30:50'
 socket-display: '&bRune: Strength %ITEM_LEVEL_ROMAN%'
-effect: INCREASE_DAMAGE
+effect: STRENGTH
 target-requirements:
   type:
     - WEAPON

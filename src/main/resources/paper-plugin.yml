@@ -14,62 +14,61 @@ libraries: [ org.apache.commons:commons-lang3:${apache.version} ]
 has-open-classloader: true
 
 dependencies:
-  - name: CodexCore
-    required: true
-    bootstrap: true
-  - name: Fabled
-    required: false
-    bootstrap: true
-  - name: SkillPro
-    required: false
-    bootstrap: true
-  - name: Citizens
-    required: false
-    bootstrap: true
-  - name: HolographicDisplays
-    required: false
-    bootstrap: true
-  - name: LevelledMobs
-    required: false
-    bootstrap: true
-  - name: LorinthsRpgMobs
-    required: false
-    bootstrap: true
-  - name: MangoQuest
-    required: false
-    bootstrap: true
-  - name: mcMMO
-    required: false
-    bootstrap: true
-  - name: MythicMobs
-    required: false
-    bootstrap: true
-  - name: PlaceholderAPI
-    required: false
-    bootstrap: true
-  - name: PwingRaces
-    required: false
-    bootstrap: true
-  - name: QuestCreator
-    required: false
-    bootstrap: true
-  - name: RacesOfThana
-    required: false
-    bootstrap: true
-  - name: Vault
-    required: false
-    bootstrap: true
-  - name: WorldGuard
-    required: false
-    bootstrap: true
-  - name: Mimic
-    required: false
-    bootstrap: true
+  server:
+    CodexCore:
+      load: BEFORE
+      required: true
+    Fabled:
+      load: BEFORE
+      required: false
+    SkillPro:
+      load: BEFORE
+      required: false
+    Citizens:
+      load: BEFORE
+      required: false
+    HolographicDisplays:
+      load: BEFORE
+      required: false
+    LevelledMobs:
+      load: BEFORE
+      required: false
+    LorinthsRpgMobs:
+      load: BEFORE
+      required: false
+    MangoQuest:
+      load: BEFORE
+      required: false
+    mcMMO:
+      load: BEFORE
+      required: false
+    MythicMobs:
+      load: BEFORE
+      required: false
+    PlaceholderAPI:
+      load: BEFORE
+      required: false
+    PwingRaces:
+      load: BEFORE
+      required: false
+    QuestCreator:
+      load: BEFORE
+      required: false
+    RacesOfThana:
+      load: BEFORE
+      required: false
+    Vault:
+      load: BEFORE
+      required: false
+    WorldGuard:
+      load: BEFORE
+      required: false
+    Mimic:
+      load: BEFORE
+      required: false
 load-after:
-  - name: CodexCore
-    boostrap: false
   - name: Fabled
-    boostrap: falsed
+    boostrap: false
   - name: Magic
     boostrap: false
 
