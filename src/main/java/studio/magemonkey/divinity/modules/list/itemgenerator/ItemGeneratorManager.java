@@ -190,6 +190,7 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
         private Map<String, BonusMap>                     materialModifiers;
         private Map<String, Map<ItemLoreStat<?>, String>> materialBonuses;
         private Map<String, Map<ItemLoreStat<?>, String>> classBonuses;
+        private Map<String, Map<ItemLoreStat<?>, String>> rarityBonuses;
 
         private TreeMap<Integer, String[]> reqUserLvl;
         private TreeMap<Integer, String[]> reqUserClass;
@@ -412,6 +413,62 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                 }
 
                 this.classBonuses.put(group, statMap);
+            }
+
+            // Load Rarity bonuses
+            path = "generator.bonuses.rarity.";
+            this.rarityBonuses = new HashMap<>();
+            for (String group : cfg.getSection("generator.bonuses.rarity")) {
+                Map<ItemLoreStat<?>, String> statMap = new HashMap<>();
+
+                String path2 = path + group + ".damage-types";
+                for (String id : cfg.getSection(path2)) {
+                    DamageAttribute dt = ItemStats.getDamageById(id);
+                    if (dt == null) continue;
+
+                    String sVal = cfg.getString(path2 + "." + id);
+                    if (sVal == null) continue;
+
+                    String[] split = sVal.split("%", 2);
+                    boolean  perc  = split.length == 2 && split[1].isEmpty();
+                    double   val   = StringUT.getDouble(split[0], 0, true);
+
+                    statMap.put(dt, val + (perc ? "%" : ""));
+                }
+
+                path2 = path + group + ".defense-types";
+                for (String id : cfg.getSection(path2)) {
+                    DefenseAttribute dt = ItemStats.getDefenseById(id);
+                    if (dt == null) continue;
+
+                    String sVal = cfg.getString(path2 + "." + id);
+                    if (sVal == null) continue;
+
+                    String[] split = sVal.split("%", 2);
+                    boolean  perc  = split.length == 2 && split[1].isEmpty();
+                    double   val   = StringUT.getDouble(split[0], 0, true);
+
+                    statMap.put(dt, val + (perc ? "%" : ""));
+                }
+
+                path2 = path + group + ".item-stats";
+                for (String id : cfg.getSection(path2)) {
+                    SimpleStat.Type dt = TypedStat.Type.getByName(id);
+                    if (dt == null) continue;
+
+                    ItemLoreStat<?> mainStat = (ItemLoreStat<?>) ItemStats.getStat(dt);
+
+                    String sVal = cfg.getString(path2 + "." + id);
+                    if (sVal == null) continue;
+
+                    String[] split = sVal.split("%", 2);
+                    boolean  perc  = split.length == 2 && split[1].isEmpty();
+                    double   val   = StringUT.getDouble(split[0], 0, true);
+
+                    statMap.put(mainStat, val + (perc ? "%" : ""));
+                }
+
+                this.rarityBonuses.put(group, statMap);
             }
 
             // Load User Requirements.
@@ -665,6 +722,23 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
                                 split.length == 2 && split[1].isEmpty(),
                                 new StatBonus.Condition<>(ItemRequirements.getUserRequirement(ClassRequirement.class),
                                         new String[]{entry.getKey()})));
+                    }
+                }
+            }
+            return list;
+        }
+
+        public Collection<StatBonus> getRarityBonuses(ItemLoreStat<?> stat) {
+            List<StatBonus> list = new ArrayList<>();
+            for (Map.Entry<String, Map<ItemLoreStat<?>, String>> entry : this.rarityBonuses.entrySet()) {
+                for (Map.Entry<ItemLoreStat<?>, String> entry1 : entry.getValue().entrySet()) {
+                    if (entry1.getKey().equals(stat)) {
+                        String   sVal  = entry1.getValue();
+                        String[] split = sVal.split("%", 2);
+                        list.add(new StatBonus(
+                                new double[]{Double.parseDouble(split[0])},
+                                split.length == 2 && split[1].isEmpty(),
+                                new StatBonus.Condition<>()));
                     }
                 }
             }

@@ -29,7 +29,7 @@ public class NewBonusStatGUI extends AbstractEditorGUI {
                            BonusCategoryGUI.ItemType statType) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.MATERIALS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.MATERIALS.getTitle(),
                 itemGenerator);
         this.path = path;
         this.statType = statType;

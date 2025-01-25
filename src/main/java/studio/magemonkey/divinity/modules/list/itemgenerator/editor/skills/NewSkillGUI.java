@@ -20,7 +20,7 @@ public class NewSkillGUI extends AbstractEditorGUI {
     public NewSkillGUI(Player player, ItemGeneratorReference itemGenerator, List<String> missingSkills) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
                 itemGenerator);
         this.list = missingSkills;
     }

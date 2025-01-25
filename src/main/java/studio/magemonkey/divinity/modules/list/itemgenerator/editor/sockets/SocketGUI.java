@@ -19,7 +19,7 @@ public class SocketGUI extends AbstractEditorGUI {
     public SocketGUI(Player player, ItemGeneratorReference itemGenerator, String name) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.SOCKETS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.SOCKETS.getTitle(),
                 itemGenerator);
         this.name = name;
     }

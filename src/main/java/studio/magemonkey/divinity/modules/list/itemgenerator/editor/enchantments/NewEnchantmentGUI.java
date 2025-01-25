@@ -14,7 +14,7 @@ public class NewEnchantmentGUI extends AbstractEditorGUI {
     public NewEnchantmentGUI(Player player, ItemGeneratorReference itemGenerator, List<String> missingList) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.ENCHANTMENTS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.ENCHANTMENTS.getTitle(),
                 itemGenerator);
         this.list = missingList;
     }

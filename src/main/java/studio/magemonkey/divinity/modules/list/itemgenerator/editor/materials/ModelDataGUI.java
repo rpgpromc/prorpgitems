@@ -16,7 +16,7 @@ public class ModelDataGUI extends AbstractEditorGUI {
     public ModelDataGUI(Player player, ItemGeneratorReference itemGenerator, String material) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.MATERIALS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.MATERIALS.getTitle(),
                 itemGenerator);
         this.id = material;
     }

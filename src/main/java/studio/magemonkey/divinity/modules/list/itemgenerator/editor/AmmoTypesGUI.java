@@ -11,7 +11,7 @@ public class AmmoTypesGUI extends AbstractEditorGUI {
     public AmmoTypesGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.AMMO_TYPES.getTitle(),
+                "Editor/" + EditorGUI.ItemType.AMMO_TYPES.getTitle(),
                 itemGenerator);
     }
 

@@ -11,7 +11,7 @@ public class TierGUI extends AbstractEditorGUI {
     public TierGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.TIER.getTitle(),
+                "Editor/" + EditorGUI.ItemType.TIER.getTitle(),
                 itemGenerator);
     }
 

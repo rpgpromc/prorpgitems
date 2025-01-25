@@ -12,7 +12,7 @@ public class MainStatsGUI extends AbstractEditorGUI {
     private final EditorGUI.ItemType itemType;
 
     public MainStatsGUI(Player player, ItemGeneratorReference itemGenerator, EditorGUI.ItemType itemType) {
-        super(player, 1, "[&d" + itemGenerator.getId() + "&r] editor/" + itemType.getTitle(), itemGenerator);
+        super(player, 1, "Editor/" + itemType.getTitle(), itemGenerator);
         this.itemType = itemType;
     }
 

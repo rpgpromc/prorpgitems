@@ -29,7 +29,7 @@ public class BonusCategoryGUI extends AbstractEditorGUI {
     public BonusCategoryGUI(Player player, ItemGeneratorReference itemGenerator, MainBonusesGUI.ItemType category) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.BONUSES.getTitle(),
+                "Editor/" + EditorGUI.ItemType.BONUSES.getTitle(),
                 itemGenerator);
         this.category = category;
     }
@@ -89,7 +89,8 @@ public class BonusCategoryGUI extends AbstractEditorGUI {
                 // Only permanent bonuses should handle these (i.e. class bonuses are applied dynamically)
                 switch (this.category) {
                     case MATERIAL_MODIFIERS:
-                    case MATERIAL: {
+                    case MATERIAL:
+                    case RARITY:{
                         section =
                                 bonusesSection.getConfigurationSection(key + '.' + ItemType.FABLED_ATTRIBUTE.getPath());
                         if (section != null) {

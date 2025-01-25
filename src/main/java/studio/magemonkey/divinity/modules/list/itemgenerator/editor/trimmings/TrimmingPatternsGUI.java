@@ -16,7 +16,7 @@ public class TrimmingPatternsGUI extends AbstractEditorGUI {
                                TrimmingListGUI.TrimmingEntry entry) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.ARMOR_TRIMINGS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.ARMOR_TRIMINGS.getTitle(),
                 itemGenerator);
         this.entry = entry;
     }

@@ -12,7 +12,7 @@ public class BonusStatTypeGUI extends AbstractEditorGUI {
     public BonusStatTypeGUI(Player player, ItemGeneratorReference itemGenerator, String path) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.BONUSES.getTitle(),
+                "Editor/" + EditorGUI.ItemType.BONUSES.getTitle(),
                 itemGenerator);
         this.path = path;
     }

@@ -16,7 +16,7 @@ public class SkillGUI extends AbstractEditorGUI {
     public SkillGUI(Player player, ItemGeneratorReference itemGenerator, String path) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
                 itemGenerator);
         this.path = path;
     }

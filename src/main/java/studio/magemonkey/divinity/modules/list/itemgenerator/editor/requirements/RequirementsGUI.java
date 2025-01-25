@@ -22,7 +22,7 @@ public class RequirementsGUI extends AbstractEditorGUI {
     public RequirementsGUI(Player player, ItemGeneratorReference itemGenerator, String path, Material material) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.REQUIREMENTS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.REQUIREMENTS.getTitle(),
                 itemGenerator);
         this.path = path;
         this.material = material;

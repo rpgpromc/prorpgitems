@@ -17,7 +17,7 @@ public class ItemFlagsGUI extends AbstractEditorGUI {
     public ItemFlagsGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.ITEM_FLAGS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.ITEM_FLAGS.getTitle(),
                 itemGenerator);
     }
 

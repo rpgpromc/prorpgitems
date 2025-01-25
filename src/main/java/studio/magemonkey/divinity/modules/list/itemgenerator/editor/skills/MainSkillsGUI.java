@@ -11,7 +11,7 @@ public class MainSkillsGUI extends AbstractEditorGUI {
     public MainSkillsGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 1,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.SKILLS.getTitle(),
                 itemGenerator);
     }
 

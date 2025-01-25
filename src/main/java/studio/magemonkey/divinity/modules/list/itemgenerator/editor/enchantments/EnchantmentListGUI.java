@@ -18,7 +18,7 @@ public class EnchantmentListGUI extends AbstractEditorGUI {
     public EnchantmentListGUI(Player player, ItemGeneratorReference itemGenerator) {
         super(player,
                 6,
-                "[&d" + itemGenerator.getId() + "&r] editor/" + EditorGUI.ItemType.ENCHANTMENTS.getTitle(),
+                "Editor/" + EditorGUI.ItemType.ENCHANTMENTS.getTitle(),
                 itemGenerator);
     }
 
