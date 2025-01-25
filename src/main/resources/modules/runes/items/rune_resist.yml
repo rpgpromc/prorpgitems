@@ -15,7 +15,7 @@ success-rate-by-level:
   '2': '30 * %ITEM_LEVEL%'
   '3': '30:50'
 socket-display: '&bRune: Resistance %ITEM_LEVEL_ROMAN%'
-effect: DAMAGE_RESISTANCE
+effect: RESISTANCE
 target-requirements:
   type:
     - chestplate

@@ -15,7 +15,7 @@ success-rate-by-level:
   '2': '30 * %ITEM_LEVEL%'
   '3': '30:50'
 socket-display: '&bRune: Jump %ITEM_LEVEL_ROMAN%'
-effect: JUMP
+effect: JUMP_BOOST
 target-requirements:
   type:
     - boots
