@@ -5,12 +5,15 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.enchantment.PrepareItemEnchantEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityDamageEvent.DamageModifier;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
+import org.bukkit.event.inventory.PrepareAnvilEvent;
+import org.bukkit.event.inventory.PrepareGrindstoneEvent;
 import org.bukkit.inventory.EntityEquipment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -33,6 +36,7 @@ import studio.magemonkey.divinity.hooks.external.FabledHook;
 import studio.magemonkey.divinity.manager.damage.DamageMeta;
 import studio.magemonkey.divinity.modules.list.arrows.ArrowManager;
 import studio.magemonkey.divinity.modules.list.arrows.ArrowManager.QArrow;
+import studio.magemonkey.divinity.modules.list.itemgenerator.ItemGeneratorManager;
 import studio.magemonkey.divinity.stats.EntityStats;
 import studio.magemonkey.divinity.stats.ProjectileStats;
 import studio.magemonkey.divinity.stats.items.ItemStats;
@@ -470,5 +474,25 @@ public class VanillaWrapperListener extends IListener<Divinity> {
                 defenses.put(defAtt, defense);
             });
         }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onAnvilUse(PrepareAnvilEvent e) {
+        ItemStack result = e.getResult();
+        if (result == null) return;
+        ItemGeneratorManager.updateGeneratorItemLore(result);
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onEnchantingTable(PrepareItemEnchantEvent e) {
+        ItemStack result = e.getItem();
+        ItemGeneratorManager.updateGeneratorItemLore(result);
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onGrindStone(PrepareGrindstoneEvent e) {
+        ItemStack result = e.getResult();
+        if (result == null) return;
+        ItemGeneratorManager.updateGeneratorItemLore(result);
     }
 }

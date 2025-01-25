@@ -10,6 +10,7 @@ import org.bukkit.block.banner.PatternType;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BlockStateMeta;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -31,6 +32,7 @@ import studio.magemonkey.codex.util.constants.JStrings;
 import studio.magemonkey.codex.util.random.Rnd;
 import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.config.Config;
+import studio.magemonkey.divinity.config.EngineCfg;
 import studio.magemonkey.divinity.hooks.EHook;
 import studio.magemonkey.divinity.hooks.external.FabledHook;
 import studio.magemonkey.divinity.modules.EModule;
@@ -828,7 +830,8 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
             item.setItemMeta(meta);
 
             // Add enchants
-            int enchRoll = Rnd.get(this.getMinEnchantments(), this.getMaxEnchantments());
+            int                                    enchRoll  =
+                    Rnd.get(this.getMinEnchantments(), this.getMaxEnchantments());
             int                                    enchCount = 0;
             List<Map.Entry<Enchantment, String[]>> enchants  = new ArrayList<>(this.enchantsList.entrySet());
             Collections.shuffle(enchants);
@@ -1278,5 +1281,46 @@ public class ItemGeneratorManager extends QModuleDrop<GeneratorItem> {
         }
 
         return names;
+    }
+
+    public static void updateGeneratorItemLore(ItemStack item) {
+        if (item.getItemMeta() == null) return;
+        String itemId = Divinity.getInstance().getModuleCache().getTierManager().getItemId(item);
+        if (itemId == null) return;
+        ItemGeneratorManager.GeneratorItem reference =
+                Divinity.getInstance().getModuleCache().getTierManager().getItemById(itemId);
+        if (reference == null) return;
+
+        ItemMeta     meta = item.getItemMeta();
+        List<String> lore = meta.getLore();
+        if (lore == null) return;
+
+        // Iterate through all enchantments and make sure we delete all existent lore entries
+        // Note: If there was no %ENCHANTS% before, we add it here since we need it later
+        for (Enchantment enchantment : Enchantment.values()) {
+            String value = EngineCfg.LORE_STYLE_ENCHANTMENTS_FORMAT_MAIN
+                    .replace("%name%", Divinity.getInstance().lang().getEnchantment(enchantment))
+                    .replace("%value%", "");
+            lore.removeIf(line -> {
+                if (!lore.contains("%ENCHANTS%") && line.contains(value)) {
+                    if (lore.contains(line))
+                        lore.set(lore.indexOf(line), "%ENCHANTS%");
+                    return false;
+                }
+                return line.contains(value);
+            });
+        }
+
+        // If the item had no enchantments before, but the itemflag is no set either, add %ENCHANTS% to the lore with ignored order
+        if (!lore.contains("%ENCHANTS%")
+                && !reference.getFlags().contains(ItemFlag.HIDE_ENCHANTS)
+                && reference.getLore().contains("%ENCHANTS%"))
+            lore.add("%ENCHANTS%");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        // If everythings fine now, the lore should contain %ENCHANTS% which can be replaced by the enchantments now
+        LoreUT.replaceEnchants(item);
     }
 }
