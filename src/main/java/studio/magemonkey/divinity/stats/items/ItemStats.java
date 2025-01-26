@@ -396,7 +396,7 @@ public class ItemStats {
             AttributeModifier am =
                     new AttributeModifier(att.getUUID(slot), att.getNmsName(), value, Operation.ADD_NUMBER, slot);
 
-            meta.removeAttributeModifier(att.getAttribute(), am); // Avoid dupe and error
+            meta.removeAttributeModifier(att.getAttribute()); // Avoid dupe and error
             meta.addAttributeModifier(att.getAttribute(), am);
         }
         item.setItemMeta(meta);
