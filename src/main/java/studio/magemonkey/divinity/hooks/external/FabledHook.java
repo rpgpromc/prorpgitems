@@ -1,5 +1,6 @@
 package studio.magemonkey.divinity.hooks.external;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -161,6 +162,14 @@ public class FabledHook extends NHook<Divinity> implements HookLevel, HookClass 
 
     public boolean ignoreDivinity(LivingEntity player) {
         return divinityIgnored.contains(player.getUniqueId());
+    }
+
+    public boolean isSkillDamage() {
+        if (!Bukkit.getPluginManager().isPluginEnabled("Fabled")) {
+            return false;
+        }
+
+        return Skill.isSkillDamage();
     }
 
     public void addSkill(Player player, String skillId, int level) {

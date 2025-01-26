@@ -33,6 +33,8 @@ import studio.magemonkey.divinity.Divinity;
 import studio.magemonkey.divinity.api.PartyAPI;
 import studio.magemonkey.divinity.api.event.DivinityDamageEvent;
 import studio.magemonkey.divinity.config.EngineCfg;
+import studio.magemonkey.divinity.hooks.EHook;
+import studio.magemonkey.divinity.hooks.external.FabledHook;
 import studio.magemonkey.divinity.hooks.external.mythicmobs.AbstractMythicMobsHK;
 import studio.magemonkey.divinity.manager.effects.main.AdjustStatEffect;
 import studio.magemonkey.divinity.manager.effects.main.DisarmEffect;
@@ -217,6 +219,11 @@ public class DamageManager extends IListener<Divinity> implements DamageTypeProv
         double powerMod = metadata == null || metadata.isEmpty()
                 ? (statsDamager != null ? statsDamager.getAttackPowerModifier() : 1D)
                 : metadata.get(0).asInt();
+        FabledHook skillApi = (FabledHook) Divinity.getInstance().getHook(EHook.SKILL_API);
+        if (skillApi != null && skillApi.isSkillDamage() && damager != null && !skillApi.ignoreDivinity(damager)) {
+            powerMod = 1;
+        }
+
         double directMod        = meta.getDirectModifier();
         double critMod          = meta.getCriticalModifier();
         double blockMod         = meta.getBlockModifier();
