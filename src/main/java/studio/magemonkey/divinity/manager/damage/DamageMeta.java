@@ -1,5 +1,7 @@
 package studio.magemonkey.divinity.manager.damage;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.inventory.ItemStack;
@@ -31,6 +33,9 @@ public class DamageMeta {
     private       double                        criticalModifier          = 1D;
     private       double                        penetrateModifier         = 1D;
     private       double                        enchantProtectionModifier = 1D;
+    @Getter
+    @Setter
+    private       double                        invulnerableProtection    = 0D;
     private       String                        entityName;
     private       String                        damagerName;
 
@@ -232,6 +237,10 @@ public class DamageMeta {
             double dmgByType = e.getValue();
             damage += dmgByType;
         }
+
+        damage -= this.getInvulnerableProtection();
+        damage = Math.round(damage * 100.0) / 100.0;
+
         return damage;
     }
 

@@ -281,10 +281,27 @@ public class DamageManager extends IListener<Divinity> implements DamageTypeProv
             }
         }
 
+        double modifiedDamage = meta.getTotalDamage();
+        double invulnerableProt = 0;
+        try {
+            invulnerableProt = e.getOriginalEvent()
+                    .getDamage(EntityDamageEvent.DamageModifier.valueOf("INVULNERABILITY_REDUCTION"));
+        } catch (Exception ignored) {
+        }
+
+        // Compare modified damage and invulnerable prot. If they're within 0.0001 of each other, set the damage to 0.
+        // and cancel the event
+        if (modifiedDamage + invulnerableProt < 0.001) {
+            e.setCancelled(true);
+            e.getOriginalEvent().setCancelled(true);
+            return;
+        }
+
+        meta.setInvulnerableProtection(invulnerableProt);
         double dmgTotal = meta.getTotalDamage();
 //        Divinity.getInstance().getLogger().info("Damage total: " + dmgTotal);
 //        Divinity.getInstance().getLogger().info("Defended: " + meta.getDefendedDamage());
-        orig.setDamage(dmgTotal);
+        orig.setDamage(DamageModifier.BASE, dmgTotal);
 
         // We want to terminate early since the post-effects could introduce RPGItems effects not intended for skills
         if (e.isExempt()) return;

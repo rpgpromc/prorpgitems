@@ -374,7 +374,8 @@ public class VanillaWrapperListener extends IListener<Divinity> {
                         e.setDamage(dmgModifier, e.getDamage() - absorption);
                     } else if (dmgModifier == DamageModifier.ABSORPTION) {
                         e.setDamage(dmgModifier, absorption);
-                    } else e.setDamage(dmgModifier, 0); // Fix
+                    } else if (!dmgModifier.name().equals("INVULNERABILITY_REDUCTION"))
+                        e.setDamage(dmgModifier, 0); // Fix
                 }
             }
         }
