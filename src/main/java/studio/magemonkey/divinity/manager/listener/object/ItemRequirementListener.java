@@ -91,9 +91,9 @@ public class ItemRequirementListener extends IListener<Divinity> {
 
         Player       player = (Player) e.getWhoClicked();
         Set<Integer> slots  = e.getRawSlots();
-        Set<Integer> deny   = Sets.newHashSet(5, 6, 7, 8, 45);
+        Set<Integer> deny   = Sets.newHashSet(36, 37, 38, 39, 40);
 
-        boolean doCheck = slots.stream().anyMatch(slotRaw -> deny.contains(slotRaw));
+        boolean doCheck = slots.stream().anyMatch(deny::contains);
 
         if (doCheck && !ItemUtils.canUse(drag, player)) {
             e.setCancelled(true);

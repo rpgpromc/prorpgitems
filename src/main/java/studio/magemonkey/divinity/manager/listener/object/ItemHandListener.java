@@ -77,7 +77,7 @@ public class ItemHandListener extends IListener<Divinity> {
         Player       player = (Player) e.getWhoClicked();
         Set<Integer> slots  = e.getRawSlots();
 
-        if (slots.contains(45)) { // Offhand
+        if (slots.contains(40)) { // Offhand
             plugin.lang().Module_Item_Interact_Error_Hand.send(player);
             e.setCancelled(true);
             e.setResult(Event.Result.DENY);
@@ -125,13 +125,14 @@ public class ItemHandListener extends IListener<Divinity> {
             if (handAtt != null && handAtt.getType() == HandAttribute.Type.TWO) {
                 plugin.lang().Module_Item_Interact_Error_Hand.send(player);
                 e.setCancelled(true);
+                player.updateInventory();
             } else {
                 if (this.holdMainTwo(player)) {
                     plugin.lang().Module_Item_Interact_Error_Hand.send(player);
                     e.setCancelled(true);
+                    player.updateInventory();
                 }
             }
-            player.updateInventory();
         }
     }
 
