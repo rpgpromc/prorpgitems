@@ -217,6 +217,27 @@ public abstract class DivinityDamageEvent extends ICancellableEvent {
         }
     }
 
+    public static class BeforeScale extends DivinityDamageEvent {
+
+        public BeforeScale(
+                @NotNull LivingEntity zertva,
+                @Nullable LivingEntity damager,
+                @Nullable Projectile projectile,
+                @NotNull Map<DamageAttribute, Double> damageMap,
+                @NotNull Map<DefenseAttribute, Double> defenseMap,
+                @NotNull Map<SimpleStat.Type, Double> statsMap,
+                @NotNull EntityDamageEvent eventOrig,
+                @NotNull DamageMeta meta,
+                boolean exempt
+        ) {
+            super(zertva, damager, projectile, eventOrig, meta);
+            this.damageMap = damageMap;
+            this.defenseMap = defenseMap;
+            this.damagerItemStatsMap = statsMap;
+            this.exempt = exempt;
+        }
+    }
+
     /**
      * Called at the start of Damage Event, before damage calculations.
      * This is the second QuantumDamageEvent instance.

@@ -338,6 +338,20 @@ public class VanillaWrapperListener extends IListener<Divinity> {
                 .forEach((dmgAtt) -> damages.compute(dmgAtt,
                         (dmgKey, dmgVal) -> (dmgVal != null ? dmgVal : 0) + damageStart2));
 
+        DivinityDamageEvent.BeforeScale beforeScale = new DivinityDamageEvent.BeforeScale(victim,
+                damager,
+                projectile,
+                damages,
+                defenses,
+                stats,
+                e,
+                meta,
+                skillShouldIgnore);
+        plugin.getPluginManager().callEvent(beforeScale);
+        if (beforeScale.isCancelled()) {
+            return;
+        }
+
         scaleValuesWithCore(damager, projectile, damages, defenses, victim);
 
         DivinityDamageEvent.Start eventStart = new DivinityDamageEvent.Start(victim,

@@ -550,7 +550,7 @@ public class DamageManager extends IListener<Divinity> implements DamageTypeProv
         final boolean[] success = {false};
         Listener listener = new Listener() {
             @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
-            public void onDamage(DivinityDamageEvent.Start event) {
+            public void onDamage(DivinityDamageEvent.BeforeScale event) {
                 if (event.getOriginalEvent().getEntity() != entity) return;
                 Map<DamageAttribute, Double> damageMap = event.getDamageMap();
                 damageMap.clear();
